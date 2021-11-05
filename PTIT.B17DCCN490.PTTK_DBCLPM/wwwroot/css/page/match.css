@@ -1,0 +1,15 @@
+.match>.resultMatch>.row>.column{
+    width: 100% !important;
+}
+
+.match>.resultMatch .card>.cardTitle>.round {
+    margin: 0 auto;
+}
+
+.match>.resultMatch .card>.cardFooter {
+    height: auto !important;
+}
+
+.match>.resultMatch .card>.cardBody>.nameFC {
+    padding: 5px 0 10px 0 !important;
+}

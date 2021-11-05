@@ -1,0 +1,391 @@
+﻿@{
+    ViewData["Title"] = "Chi tiết trận đấu | Premier Language";
+}
+@using PTIT.B17DCCN490.PTTK_DBCLPM.Models.Entities;
+@model TranDau;
+@{
+    List<CauThu_DoiBong_TranDau> cauThuNha = Model.DoiNha.CauThus;
+    List<CauThu_DoiBong_TranDau> cauThuKhach = Model.DoiKhach.CauThus;
+    List<KeyValuePair<int, List<SuKien>>> suKien = (List<KeyValuePair<int, List<SuKien>>>)ViewData["SuKien"];
+}
+<style>
+    #tt-td tr {
+        background: linear-gradient(90deg, rgba(4,12,31,1) 50%, rgba(0,15,54,1) 100%);
+    }
+
+
+        #tt-td tr td {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 35px;
+        }
+
+    .dn, .dk {
+        width: 40%;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .ty-so {
+        width: 20%;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .ghi-ban, .the-do, .the-vang, .ra-san, .vao-san {
+        background: #1b2a50;
+        padding: 0 5px;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        justify-content: end;
+        margin: 0 3px;
+    }
+
+        .ghi-ban .icon-gb {
+            background: url("../../../assets/images/icon_ball.png");
+            width: 10px;
+            height: 10px;
+            background-size: contain;
+            background-position: center;
+            display: block;
+            margin-right: 5px;
+        }
+
+        .the-do .icon-td {
+            width: 10px;
+            height: 10px;
+            background-size: contain;
+            background-position: center;
+            display: block;
+            background: red;
+            margin-right: 5px;
+        }
+
+        .the-vang .icon-tv {
+            width: 10px;
+            height: 10px;
+            background-size: contain;
+            background-position: center;
+            display: block;
+            background: yellow;
+            margin-right: 5px;
+        }
+
+        .ra-san .icon-rs {
+            background: url("../../../assets/images/icon_ra.png");
+            width: 10px;
+            height: 10px;
+            background-size: contain;
+            background-position: center;
+            display: block;
+            margin-right: 5px;
+        }
+
+        .vao-san .icon-vs {
+            background: url("../../../assets/images/icon_vao.png");
+            width: 10px;
+            height: 10px;
+            background-size: contain;
+            background-position: center;
+            display: block;
+            margin-right: 5px;
+        }
+
+        .row{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .row label{
+            padding-bottom: 5px;
+        }
+
+        .row input{
+            height: 32px;
+            border: 1px solid #000;
+            outline: none;
+            padding-left: 15px;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+
+        #LoaiSuKienId{
+            height: 32px !important;
+        }
+
+        
+</style>
+<div class="homePage">
+    <section class="match mx-10">
+        <div class="title-site d-flex align-items-center">
+            <div class="footballIcon"></div>
+            <h1 class="title">Chi tiết trận đấu</h1>
+        </div>
+    </section>
+    <section>
+        <table class="dataTable" id="tt-td">
+            <tbody>
+                <tr>
+                    <td colspan="3" style="color: #e19a00;font-weight: bold">@Model.ThoiGianBD.ToString("dd/MM/yyyy hh:mm")</td>
+                </tr>
+                <tr class="d-flex">
+                    <td class="dn">@Model.DoiNha.DoiBong.Ten</td>
+                    <td class="ty-so">@Model.DoiNha.SoBanThang - @Model.DoiKhach.SoBanThang</td>
+                    <td class="dk">@Model.DoiKhach.DoiBong.Ten</td>
+                </tr>
+                <tr>
+                    @if (Model.DaKetThuc)
+                    {
+                        <td colspan="3" style="color: #e19a00; font-weight: bold">Đã kết thúc</td>
+                    }
+                    @if (Model.DangDienRa)
+                    {
+                        <td colspan="3" style="color: #e19a00; font-weight: bold">Đang diễn ra</td>
+                    }
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="tabControl" style="margin-top: 20px">
+        <div class="d-flex align-items-center">
+            <ul class="tabControlTitle" style="width: 100% !important">
+                <li class="sumary" id="player_tab"><a onclick="openTab('player')">Cầu thủ</a></li>
+                <li class="sumary" id="event_tab"><a onclick="openTab('event')">Diễn biến</a></li>
+            </ul>
+        </div>
+        <div class="tabControlBody" id="player" style="margin-top: 20px;">
+            <table class="dataTable" id="ds-ct-nha">
+                <thead>
+                    <tr>
+                        <th colspan="5" class="txt-left" style="padding-left: 15px">DANH SÁCH CẦU THỦ ĐỘI NHÀ - <a href="/DangKyCauThu/@Model.DoiNha.Id?doiBongId=@Model.DoiNha.DoiBong.Id" title="Đăng ký cầu thủ" style="color: #fff">@Model.DoiNha.DoiBong.Ten</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < cauThuNha.Count(); i++)
+                    {
+                        <tr>
+                            <td>@(i+1)</td>
+                            <td class="txt-left">@cauThuNha[i].CauThu.Ten</td>
+                            <td>@cauThuNha[i].CauThu.SoAo</td>
+                            <td>
+                                <input type="checkbox"
+                                       checked="@(cauThuNha[i].IsDaChinh)"
+                                       onclick="return false;"
+                                       title="@(cauThuNha[i].IsDaChinh ? "Đá chính" : "Dự bị")" />
+                            </td>
+                            <td>
+                                <a href="javascript:void(0)" 
+                                   onclick="openForm(this)" 
+                                   title="Thêm diễn biến" 
+                                   style="color: #fff"
+                                   cauthudoibongtrandauid="@cauThuNha[i].Id">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                </a>
+                                <a href="" title="Xóa cầu thủ" style="color: #fff">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                    @if (cauThuNha.Count() == 0)
+                    {
+                        <tr><td class="txt-center" colspan="5">Dữ liệu không có sẵn</td></tr>
+                    }
+                </tbody>
+                <thead>
+                    <tr>
+                        <th colspan="5" class="txt-left" style="padding-left: 15px">DANH SÁCH CẦU THỦ ĐỘI KHÁCH - <a href="/DangKyCauThu/@Model.DoiKhach.Id?doiBongId=@Model.DoiKhach.DoiBong.Id" title="Đăng ký cầu thủ" style="color: #fff">@Model.DoiKhach.DoiBong.Ten</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < cauThuKhach.Count(); i++)
+                    {
+                        <tr>
+                            <td title="@(i+1)">@(i+1)</td>
+                            <td class="txt-left" title="@cauThuKhach[i].CauThu.Ten">@cauThuKhach[i].CauThu.Ten</td>
+                            <td title="@cauThuKhach[i].CauThu.SoAo">@cauThuKhach[i].CauThu.SoAo</td>
+                            <td>
+                                <input type="checkbox"
+                                       checked="@cauThuKhach[i].IsDaChinh"
+                                       onclick="return false;"
+                                       title="@(cauThuKhach[i].IsDaChinh ? "Đá chính" : "Dự bị")" />
+                            </td>
+                            <td>
+                                <a href="javascript:void(0)" 
+                                   onclick="openForm(this)" 
+                                   title="Thêm diễn biến" 
+                                   style="color: #fff"
+                                   cauthudoibongtrandauid="@cauThuKhach[i].Id">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                </a>
+                                <a href="" title="Xóa cầu thủ" style="color: #fff">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                    @if (cauThuKhach.Count() == 0)
+                    {
+                        <tr><td class="txt-center" colspan="5">Dữ liệu không có sẵn</td></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="tabControlBody" id="event" style="display: none">
+            <table class="dataTable" id="ds-sk">
+                <tbody>
+                    @for (int i = 0; i < suKien.Count(); i++)
+                    {
+                        <tr class="d-flex align-items-center">
+                            <td style="width: 47%; display: flex; justify-content: end">
+                                @for (int j = 0; j < suKien[i].Value.Count(); j++)
+                                {
+                                    var sk = suKien[i].Value[j];
+                                    for (int k = 0; k < cauThuNha.Count(); k++)
+                                    {
+                                        if (cauThuNha[k].Id == sk.CauThu.Id)
+                                        {
+                                            if (sk.LoaiSuKien.Ten.Equals("Ghi bàn"))
+                                            {
+                                                <span class="ghi-ban"><span class="icon-gb"></span> @cauThuNha[k].CauThu.Ten</span>
+                                            }
+                                            if (sk.LoaiSuKien.Ten.Equals("Thẻ vàng"))
+                                            {
+                                                <span class="the-vang"><span class="icon-tv"></span> @cauThuNha[k].CauThu.Ten</span>
+                                            }
+                                            if (sk.LoaiSuKien.Ten.Equals("Thẻ đỏ"))
+                                            {
+                                                <span class="the-do"><span class="icon-td"></span> @cauThuNha[k].CauThu.Ten</span>
+                                            }
+                                            if (sk.LoaiSuKien.Ten.Equals("Ra sân"))
+                                            {
+                                                <span class="ra-san"><span class="icon-rs"></span> @cauThuNha[k].CauThu.Ten</span>
+                                            }
+                                            if (sk.LoaiSuKien.Ten.Equals("Vào sân"))
+                                            {
+                                                <span class="vao-san"><span class="icon-vs"></span> @cauThuNha[k].CauThu.Ten</span>
+                                            }
+                                            break;
+                                        }
+                                    }
+                                }
+                            </td>
+                            <td style="width: 6%; font-weight: bold">@suKien[i].Key'</td>
+                            <td style="width: 47%; display: flex; justify-content: start">
+                                @for (int j = 0; j < suKien[i].Value.Count(); j++)
+                                {
+                                    var sk = suKien[i].Value[j];
+                                    for (int k = 0; k < cauThuKhach.Count(); k++)
+                                    {
+                                        if (cauThuKhach[k].Id == sk.CauThu.Id)
+                                        {
+                                            if (sk.LoaiSuKien.Ten.Equals("Ghi bàn"))
+                                            {
+                                                <span class="ghi-ban"><span class="icon-gb"></span> @cauThuKhach[k].CauThu.Ten</span>
+                                            }
+                                            if (sk.LoaiSuKien.Ten.Equals("Thẻ vàng"))
+                                            {
+                                                <span class="the-vang"><span class="icon-tv"></span> @cauThuKhach[k].CauThu.Ten</span>
+                                            }
+                                            if (sk.LoaiSuKien.Ten.Equals("Thẻ đỏ"))
+                                            {
+                                                <span class="the-do"><span class="icon-td"></span> @cauThuKhach[k].CauThu.Ten</span>
+                                            }
+                                            if (sk.LoaiSuKien.Ten.Equals("Ra sân"))
+                                            {
+                                                <span class="ra-san"><span class="icon-rs"></span> @cauThuKhach[k].CauThu.Ten</span>
+                                            }
+                                            if (sk.LoaiSuKien.Ten.Equals("Vào sân"))
+                                            {
+                                                <span class="vao-san"><span class="icon-vs"></span> @cauThuKhach[k].CauThu.Ten</span>
+                                            }
+                                            break;
+                                        }
+                                    }
+                                }
+                            </td>
+                        </tr>
+                    }
+                    @if (suKien.Count() == 0)
+                    {
+                        <tr>
+                            <td colspan="3">Dữ liệu không có sẵn</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <div class="bgForm" id="screen" style="display: none">
+        <form class="form">
+            <div style="position: relative; height: 100%; width: 100%">
+                <div class="title-form">Thêm sự kiện <span class="ml-auto" style="cursor: pointer" onclick="closeForm()">x</span></div>
+                <div class="body-form">
+                    <input type="text" hidden name="CauThuDoiBongTranDauId" />
+                    <div class="row">
+                        <label>Thời điểm</label>
+                        <input id="ThoiDiem" type="number" class="input-form" />
+                    </div>
+                    <div class="row">
+                        <label>Loại sự kiện</label>
+                        @Html.DropDownList("LoaiSuKienId",
+                        new SelectList(ViewBag.LoaiSuKiens, "Value", "Text"),
+                        new { @class = "dropdown" })
+                    </div>
+                    
+                </div>
+                <div class="footer-form">
+                    <button class="btn" onclick="save(1)">Cất</button>
+                    <button class="btn" onclick="save(2)">Cất & thêm</button>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    window.onload = function () {
+        this.openTab('player');
+    }
+    let screen = document.getElementById("screen");
+    function openForm(e) {
+        screen.style.display = "block";
+        let cdtElement = document.getElementsByTagName("CauThuDoiBongTranDauId");
+        cdtElement.value = e.getAttribute("cauthudoibongtrandauid");
+        
+    }
+
+    function closeForm() {
+        screen.style.display = "none";
+    }
+
+    function save(type) {
+        var data = {
+            CauThu: { Id: document.getElementsByTagName("CauThuDoiBongTranDauId").value },
+            LoaiSuKien: { Id: document.getElementById("LoaiSuKienId").value },
+            ThoiDiem: document.getElementById("ThoiDiem").value
+        };
+        fetch("https://localhost:44352/SuKien", {
+            body: JSON.stringify(data),
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then(function (response) {
+            if (type == 1) {
+                screen.style.display = "none";
+            }
+            window.location.href = "/TranDau/Edit/@Model.Id";
+        })
+    }
+</script>

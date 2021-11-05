@@ -1,0 +1,9 @@
+.footballIcon {
+    background: url("../assets/images/football.png");
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 10px;
+}

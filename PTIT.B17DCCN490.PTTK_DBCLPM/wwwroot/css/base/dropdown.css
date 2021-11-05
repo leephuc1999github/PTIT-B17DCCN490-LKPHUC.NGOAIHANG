@@ -1,0 +1,20 @@
+﻿
+
+.dropdown {
+    height: 40px;
+    border-radius: 5px;
+    background: #2c354c;
+    border: none;
+    outline: none;
+    color: #fff;
+    padding-left: 15px;
+    padding-right: 15px;
+    appearance: none;
+}
+
+    .dropdown option {
+        border: none;
+        outline: none;
+        background: #fff;
+        color: #000;
+    }

@@ -1,0 +1,65 @@
+
+.header{
+    height: 60px;
+    width: 100%;
+    background: #52ac1c;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+
+.header>.container{
+    width: 60%;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.header>.container>.box{
+    display: flex;
+    align-items: center;
+}
+
+.header>.container>.box>.logo{
+    background: url("../../assets/images/logo.png");
+    height: 60px;
+    width: 100px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.header>.container>.box>.toggleIcon{
+    display: none;
+}
+
+.header>.container>.box>.menu{
+    margin-left: auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.header>.container>.box>.menu>.menu-item{
+    text-transform: uppercase;
+    font-weight: 400;
+    padding: 0 15px;
+    height: 60px;
+    line-height: 60px;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    color: #fff;
+}
+
+.header>.container>.box>.menu>.menu-item:hover{
+    color: #fff;
+    background: #040c1f;
+}
+
+.header>.container>.box>.menu>.menu-item.active{
+    color: #fff;
+    background: #040c1f;
+}

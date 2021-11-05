@@ -1,0 +1,59 @@
+@media only screen and (max-width : 1400px) and (min-width : 1024px) {
+    .header>.container{
+        width: 80% !important;
+    }
+
+    .content>.container{
+        width: 80% !important;
+    }
+}
+
+@media only screen and (max-width : 1024px) {
+    .header>.container{
+        width: 100% !important;
+    }
+
+    .header>.container>.box{
+        padding: 0 15px;
+    }
+
+    .header>.container>.box>.toggleIcon{
+        display: block;
+        margin-left: auto;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .header>.container>.box>.toggleIcon>.bar{
+        height: 4px;
+        width: 35px;
+        background: #fff;
+        margin: 5px 0;
+    }
+
+    .header>.container>.box>.menu{
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        background: #fff;
+        height: fit-content !important;
+        width: 100% !important;
+    }
+
+        .header>.container>.box>.menu>.menu-item {
+            color: #000 !important;
+        }
+
+        .header > .container > .box > .menu > .menu-item.active {
+            color: #fff !important;
+        }
+
+            .header > .container > .box > .menu > .menu-item:hover {
+                color: #fff !important;
+            }
+
+    .content>.container{
+        width: 100% !important;
+    }
+}

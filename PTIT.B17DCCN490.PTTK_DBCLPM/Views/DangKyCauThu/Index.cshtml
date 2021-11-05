@@ -1,0 +1,99 @@
+﻿@{
+    ViewData["Title"] = "Bảng xếp hạng | Premier Language";
+}
+@using PTIT.B17DCCN490.PTTK_DBCLPM.Models.Entities;
+@model List<CauThu>
+@{ 
+    List<CauThu_DoiBong_TranDau> daDK = (List<CauThu_DoiBong_TranDau>)ViewData["CauThu"];
+}
+<div class="homePage">
+    <section class="match mx-10">
+        <div class="title-site d-flex align-items-center">
+            <div class="footballIcon"></div>
+            <h1 class="title">Đăng ký cầu thủ - (<span id="counter"></span>)</h1>
+            <div class="ml-auto"></div>
+            <button class="btn" onclick="sendRegister()">Gửi danh sách</button>
+        </div>
+        <table class="dataTable" id="ds-ct">
+            <thead>
+                <tr>
+                    <th class="w-t-num">#</th>
+                    <th class="txt-center">STT</th>
+                    <th class="txt-left">Cầu thủ</th>
+                    <th class="txt-center">Số áo</th>
+                    <th class="txt-center">Đá chính</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count(); i++)
+                {
+                    var isValid = daDK.Where(item => item.CauThu.Id == Model[i].Id).FirstOrDefault();
+                    <tr>
+                        <td>
+                            <input 
+                                   tabindex="@(i+1)"
+                                   cauthuid="@Model[i].Id"
+                                   name="choose" 
+                                   type="checkbox" 
+                                   checked="@(isValid != null ? true : false)">
+                        </td>
+                        <td>@(i+1)</td>
+                        <td class="txt-left">@Model[i].Ten</td>
+                        <td class="txt-center">@Model[i].SoAo</td>
+                        <td class="txt-center">
+                            <input 
+                                   name="isdachinh"
+                                   type="checkbox" 
+                                   checked="@(isValid != null ? isValid.IsDaChinh : false)">
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div style="margin-top: 10px;"></div>
+        <button class="btn" onclick="sendRegister()">Gửi danh sách</button>
+    </section>
+</div>
+
+<script type="text/javascript">
+    let counter = @daDK.Count();
+    const elementCounter = document.getElementById("counter");
+    elementCounter.innerHTML = counter;
+    let choose = document.getElementsByName("choose");
+    let dachinh = document.getElementsByName("isdachinh");
+    for (var i = 0; i < choose.length; i++) {
+        choose[i].addEventListener('change', counting);
+    }
+
+    function counting(e) {
+        if (e.target.checked) {
+            counter++;
+        } else {
+            counter--;
+        }
+        elementCounter.innerHTML = counter;
+    }
+
+    function sendRegister() {
+        var data = new Array();
+        for (var i = 0; i < choose.length; i++) {
+            if (choose[i].checked) {
+                data.push({
+                    CauThu: { Id: choose[i].getAttribute("cauthuid") },
+                    IsDaChinh: dachinh[i].checked
+                });
+            }
+
+        }
+        fetch("https://localhost:44352/DangKyCauThu/" + '@ViewBag.DoiBongTranDauId', {
+            body: JSON.stringify(data),
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then(function (response) {
+            window.history.back();
+        })
+    }
+</script>

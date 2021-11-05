@@ -1,0 +1,39 @@
+﻿.tabControl {
+    width: 100%;
+}
+.tabControlTitle {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    padding-left: 15px;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 2px solid transparent;
+    border-radius: 5px;
+    background: #2c354c;
+    width: 80%;
+}
+
+    .tabControlTitle > li {
+        margin: 0 10px;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
+        .tabControlTitle > li > a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .tabControlTitle > li.active {
+            border-bottom: 2px solid #52ac1c;
+        }
+
+        .tabControlTitle > li:hover {
+            border-bottom: 2px solid #52ac1c;
+        }
+
+.tabControlBody {
+    background: #0e172e;
+    border-radius: 5px;
+}

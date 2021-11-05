@@ -1,0 +1,128 @@
+﻿@using Newtonsoft.Json;
+@using PTIT.B17DCCN490.PTTK_DBCLPM.Models.ViewModels;
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale = 1.0, user-scalable=no">
+    <link rel="shortcut icon" type="image/x-icon" href="~/assets/images/favicon.ico" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/css/main.css">
+</head>
+
+<body>
+    <section class="header">
+        <div class="container">
+            <div class="box">
+                <a class="logo" href="/"></a>
+                <div class="toggleIcon" onclick="toggleMenu()">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <div class="menu">
+                    <a href="/TrangChu" class="menu-item" id="home">
+                        <span>trang chủ</span>
+                    </a>
+                    <a href="/LichThiDau" class="menu-item" id="schedule">
+                        <span>lịch thi đấu</span>
+                    </a>
+                    <a href="/DangKyCauThu" class="menu-item" id="register">
+                        <span>đăng ký cầu thủ</span>
+                    </a>
+                    <a href="/ThongKe" class="menu-item" id="summary">
+                        <span>Thống kê</span>
+                    </a>
+                    <a href="/BanToChuc/DangXuat" class="menu-item" id="logout">
+                        <span>Đăng xuất</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </section>
+    <section class="footer">
+        <div class="boss">Liên đoàn bóng đá quốc gia VIỆT NAM</div>
+        <div class="tournaments">Giải ngoại hạng anh</div>
+        <div class="intro">
+            Liên đoàn bóng đá việt nam hân hạnh giới thiệu quý khán giả giải đấu ngoại hạng anh hấp dẫn số 1 trên thế
+            giới.<br> Hãy cùng tận hưởng và trải nghiệm dịch vụ của chúng tôi ! <br>
+            Ngoài ra, Hệ thống còn mang đến cho quý vị lịch thi đấu của từng đội bóng, thống kê và bảng xếp hạng cập
+            nhật liên tục của giải đấu
+        </div>
+        <div class="contact">
+            <div class="contactTitle">Liên hệ với chúng tôi</div>
+            <div class="socialMedia">
+                <div class="facebookIcon">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </div>
+                <div class="instagramIcon">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </div>
+                <div class="websiteIcon">
+                    <i class="fa fa-edge" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    @if (TempData["UserMessage"] != null)
+    {
+        var message = JsonConvert.DeserializeObject<ToastMessage>(TempData["UserMessage"].ToString());
+        <div class="toast toast-@message.Type" id="@message.Name">
+            <div class="d-flex align-items-center">
+                <div class="toastIcon toastIcon-@message.Type"></div>
+                @message.Content
+            </div>
+            <div class="closeIcon" onclick="closeToast('@message.Name')">x</div>
+        </div>
+        <script type="text/javascript">
+            setTimeout(function () {
+                this.closeToast("@message.Name");
+            }, 2000);
+        </script>
+    }
+</body>
+
+</html>
+
+<script src="https://use.fontawesome.com/1e084cc5a9.js" defer></script>
+<script src="~/js/common.js" type="text/javascript" defer></script>
+<script type="text/javascript" defer>
+    function toggleMenu() {
+        const menu = document.getElementsByClassName("menu");
+        let displayMenu = menu[0].style.display;
+        if (displayMenu == "block") {
+            menu[0].style.display = "none";
+        } else {
+            menu[0].style.display = "block";
+        }
+    }
+
+
+    function openTab(tabName) {
+        var tabHeads = document.getElementsByClassName("sumary");
+        var tabs = document.getElementsByClassName("tabControlBody");
+        // reset tab
+        for (i = 0; i < tabs.length; i++) {
+            tabs[i].style.display = "none";
+            tabHeads[i].classList = "sumary";
+        }
+        // active tab by id
+        document.getElementById(tabName).style.display = "block";
+        document.getElementById(`${tabName}_tab`).classList += " active";
+    }
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+@if (ViewData["Active"] != null)
+{
+    <script type="text/javascript" defer>
+        document.getElementById("@ViewData["Active"]").classList.add("active")
+    </script>
+}

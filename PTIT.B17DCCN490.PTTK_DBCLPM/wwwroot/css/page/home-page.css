@@ -1,0 +1,215 @@
+.homePage {
+    box-sizing: border-box;
+}
+
+.homePage>.banner {
+    display: flex;
+    align-items: center;
+    height: 422px;
+    width: 100%;
+}
+
+.homePage>.banner>.comingMatch {
+    display: block;
+    width: calc(100% - 370px);
+    height: 100%;
+    background: url("../../assets/images/bg-banner.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.slideshow{
+    z-index: 1;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slideshow>.prev{
+    position: absolute;
+    left: 0;
+    font-size: 30px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.slideshow>.next{
+    position: absolute;
+    right: 0;
+    font-size: 30px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.slideshow>.slide{
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 20px;
+}
+
+.slideshow>.slide>.schedule{
+    margin: 10px auto;
+    width: fit-content;
+    padding: 5px 10px;
+    background: #ffc107;
+    border-radius: 3px;
+    color: #000;
+}
+
+
+.slideshow>.slide>.flagFC {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    padding: 0 40px;
+}
+
+.slideshow>.slide>.flagFC>.vs {
+    font-weight: 700;
+    color: #fff;
+    padding: 0 10px;
+    background: #0d45d4;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 3px;
+}
+
+.slideshow>.slide>.flagFC>.hostFC>img, .slideshow>.slide>.flagFC>.guestFC>img{
+    height: 70px;
+    width: 70px;
+}
+
+.slideshow>.slide>.round{
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 700;
+    justify-content: center;
+    display: flex;
+}
+
+
+.slideshow>.slide.fade{
+    display: block;
+}
+
+.homePage>.banner>.imgBanner {
+    background: url("../../assets/images/banner.gif");
+    height: 422px;
+    width: 370px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: auto;
+}
+
+
+.row {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.column {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    min-height: 150px;
+    width: 100%;
+    background: #35344a;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    background: #721e0d;
+}
+
+.card>.cardTitle {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    padding: 0 10px;
+    align-items: center;
+}
+
+.card>.cardTitle>.round {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.card>.cardTitle>.schedule {
+    margin-left: auto;
+    padding: 5px 10px;
+    background: #ffc107;
+    border-radius: 3px;
+    color: #000;
+}
+
+.card>.cardBody {
+    margin-top: 10px;
+}
+
+.card>.cardBody>.flagFC {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 0 40px;
+}
+
+.card>.cardBody>.flagFC>.vs {
+    font-weight: 700;
+    color: #fff;
+    padding: 0 10px;
+    background: #0d45d4;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 3px;
+}
+
+.card>.cardBody>.nameFC {
+    display: flex;
+    justify-content: center;
+    padding: 5px 0 20px 0;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.card>.cardBody>.flagFC>.hostFC, .card>.cardBody>.flagFC>.guestFC {
+    height: 70px;
+    width: 70px;
+    background: url("../../assets/images/flag/duc.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.card>.cardFooter {
+    margin-top: auto;
+    height: 36px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top: 1px solid #fff;
+    text-align: center;
+    line-height: 36px;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+}

@@ -1,0 +1,32 @@
+
+
+#headTK{
+    margin-bottom: 20px;
+}
+
+
+.txt-left {
+    text-align: left !important;
+}
+
+
+#tk-goal .player .fc {
+    padding-left: 20px;
+    color: #F2F3F3;
+}
+
+.w-t-num {
+    width: 80px;
+}
+
+
+.notiMes{
+    padding: 25px;
+    display: block;
+}
+
+.chooseTour {
+    width: 30%;
+    display: flex;
+    align-items: center;
+}

@@ -1,0 +1,15 @@
+
+.content{
+    width: 100%;
+    margin-top: 60px;
+    box-sizing: border-box;
+}
+
+.content>.container{
+    height: 100%;
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background: transparent;
+}

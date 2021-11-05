@@ -1,0 +1,101 @@
+﻿@using PTIT.B17DCCN490.PTTK_DBCLPM.Models.Entities;
+@using PTIT.B17DCCN490.PTTK_DBCLPM.Models.ViewModels;
+@using Newtonsoft.Json;
+@model BanToChuc;
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Đăng nhập | Premier Language</title>
+    <link rel="stylesheet" href="~/css/main.css">
+    
+</head>
+<body>
+    <div class="loginPage">
+        <div class="formLogin">
+            <h1 class="title">Đăng nhập</h1>
+            <form method="post" asp-controller="BanToChuc" asp-action="KiemTraDangNhap" name="DangNhap" onsubmit="return validateForm()">
+                <label>Tên đăng nhập <span class="c-red">(*)</span></label>
+                <input type="text"
+                       asp-for="TenDangNhap"
+                       class="TenDangNhap"
+                       autofocus
+                       tabindex="1"
+                       onblur="checkEmpty('TenDangNhap')"
+                       onfocus="removeError('TenDangNhap')" />
+                <p id="TenDangNhap_Mes" class="error b-red d-none">Tên đăng nhập không được để trống</p>
+
+                <label>Mật khẩu <span class="c-red">(*)</span></label>
+                <input type="password"
+                       asp-for="MatKhau"
+                       class="MatKhau"
+                       tabindex="2"
+                       onblur="checkEmpty('MatKhau')"
+                       onfocus="removeError('MatKhau')" />
+                <p id="MatKhau_Mes" class="error b-red d-none">Mật khẩu không được để trống</p>
+                <input type="submit" value="Login" tabindex="3" class="loginBtn">
+            </form>
+        </div>
+    </div>
+    @if (TempData["UserMessage"] != null)
+    {
+        var message = JsonConvert.DeserializeObject<ToastMessage>(TempData["UserMessage"].ToString());
+        <div class="toast toast-@message.Type" id="@message.Name">
+            <div class="d-flex align-items-center">
+                <div class="toastIcon toastIcon-@message.Type"></div>
+                @message.Content
+            </div>
+            <div class="closeIcon" onclick="closeToast('@message.Name')">x</div>
+        </div>
+        <script type="text/javascript">
+            setTimeout(function () {
+                this.closeToast("@message.Name");
+            }, 2000);
+        </script>
+    }
+</body>
+</html>
+<script src="~/js/common.js"></script>
+<script type="text/javascript">
+    function checkEmpty(id) {
+        const element = document.getElementById(id);
+        let val = element.value;
+        if (isNullOrUndefined(val)) {
+            document.getElementById(`${id}_Mes`).classList = "c-red d-block";
+            document.getElementById(id).classList += " b-red";
+        }
+    }
+
+    function removeError(id) {
+        const errorElement = document.getElementById(`${id}_Mes`);
+        const inputElement = document.getElementById(id);
+        errorElement.classList = "c-red d-none";
+        inputElement.classList = id;
+        
+    }
+
+    function validateForm() {
+        let formElement = document.forms["DangNhap"];
+        let tenDangNhap = formElement["TenDangNhap"].value;
+        let matKhau = formElement["MatKhau"].value;
+        let flag = true;
+
+
+        if (isNullOrUndefined(tenDangNhap)) {
+            document.getElementById("TenDangNhap_Mes").classList = "c-red d-block";
+            document.getElementById("TenDangNhap").classList += " b-red";
+            flag = false;
+        }
+
+        if (isNullOrUndefined(matKhau)) {
+            document.getElementById("MatKhau_Mes").classList = "c-red d-block";
+            document.getElementById("MatKhau").classList += " b-red";
+            flag = false;
+        }
+        return flag;
+    } 
+</script>

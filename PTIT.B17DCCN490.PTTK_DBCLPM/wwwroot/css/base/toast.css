@@ -1,0 +1,43 @@
+﻿.toast {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: fit-content;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    color: #000;
+    background: #fff;
+}
+
+.toast.toast-error{
+    border-left: 3px solid red;
+}
+
+    .toast.toast-success {
+        border-left: 3px solid #3bb54a;
+    }
+
+.toast.toast-error .toastIcon-error{
+    background: url("../../assets/images/cross.png");
+    background-size: contain;
+}
+
+    .toast.toast-success .toastIcon-success {
+        background: url("../../assets/images/check.png");
+        background-size: contain;
+    }
+
+.toast .toastIcon{
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.toast .closeIcon{
+    padding-left: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+

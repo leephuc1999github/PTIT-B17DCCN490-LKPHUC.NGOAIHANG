@@ -1,0 +1,177 @@
+﻿@using PTIT.B17DCCN490.PTTK_DBCLPM.Models.Entities;
+@using Newtonsoft.Json;
+@{
+    ViewData["Title"] = "Thống kê | Premier Language";
+}
+<style>
+    .club {
+        max-width: 50px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+</style>
+
+<div class="statisticalPage">
+    <section class="mx-10">
+        <div class="title-site d-flex align-items-center">
+            <div class="footballIcon"></div>
+            <h1 class="title">Thống kê giải đấu</h1>
+        </div>
+    </section>
+
+    <section class="tabControl">
+        <div class="d-flex align-items-center" id="headTK">
+            <ul class="tabControlTitle">
+                <li class="sumary" id="result_tab"><a onclick="loadPage('result')">BXH</a></li>
+                <li class="sumary" id="goal_tab"><a onclick="loadPage('goal')">Bàn thắng</a></li>
+                <li class="sumary" id="card_tab"><a onclick="loadPage('card')">Thẻ phạt</a></li>
+                <li class="sumary" id="stadium_tab"><a onclick="loadPage('stadium')">Sân đấu</a></li>
+            </ul>
+            <div class="chooseTour">
+                @Html.DropDownList("GiaiDauId",
+                    new SelectList(ViewBag.GiaiDaus, "Value", "Text", TempData["SeasonTK"]),
+                    new { @class = "dropdown ml-auto", @onchange = "loadPage()" })
+            </div>
+
+
+
+        </div>
+
+        <div class="tabControlBody" id="goal">
+            <div class="bgTable">
+                <table class="dataTable" id="tk-goal">
+                    <thead>
+                        <tr>
+                            <th class="w-t-num">#</th>
+                            <th class="txt-left club">Đội bóng</th>
+                            <th class="txt-left">Cầu thủ</th>
+                            <th class="w-t-num">Bàn thắng</th>
+                            <th class="w-t-num">Kiến tạo</th>
+                            <th class="w-t-num">Thứ hạng</th>
+                            <th class="w-t-num">Số phút</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (ViewData["TKGoal"] != null)
+                        {
+                            List<BXHCauThuBanThang> bxh = (List<BXHCauThuBanThang>)ViewData["TKGoal"];
+                            @for (int i = 0; i < bxh.Count(); i++)
+                            {
+                                string[] ten = bxh[i].Ten.Split("|");
+                                <tr onclick="toPage('@bxh[i].Id')">
+                                    <td>@(i+1)</td>
+                                    <td class="txt-left club" title="@ten[1]">@ten[1]</td>
+                                    <td class="txt-left">
+                                        <span class="player">
+                                            @ten[0]
+                                        </span>
+                                    </td>
+                                    <td>@bxh[i].BanThang</td>
+                                    <td>@bxh[i].KienTao</td>
+                                    <td>@bxh[i].ThuHang</td>
+                                    <td>@bxh[i].ThoiGian</td>
+                                </tr>
+                            }
+                            if (bxh.Count() == 0)
+                            {
+                                <tr>
+                                    <td colspan="6">Dữ liệu không có sắn</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="6">Dữ liệu không có sắn</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="result" class="tabControlBody" style="display: none;">
+            <div class="bgTable">
+                <table class="dataTable" id="tk-bxh">
+                    <thead>
+                        <tr>
+                            <th class="w-t-num">TH</th>
+                            <th class="txt-left">Đội bóng</th>
+                            <th class="w-t-num">Điểm</th>
+                            <th class="w-t-num">Bàn thắng</th>
+                            <th class="w-t-num">Bàn thua</th>
+                            <th class="w-t-num">Hiệu số</th>
+                            <th class="w-t-num">Số trận</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (ViewData["TKResult"] != null)
+                        {
+                            List<BXH> bxh = (List<BXH>)ViewData["TKResult"];
+                            @for (int i = 0; i < bxh.Count(); i++)
+                            {
+                                <tr>
+                                    <td class="w-t-num">@bxh[i].ThuHang</td>
+                                    <td class="txt-left">@bxh[i].Ten</td>
+                                    <td>@bxh[i].Diem</td>
+                                    <td>@bxh[i].BanThang</td>
+                                    <td>@bxh[i].BanThua</td>
+                                    <td>@(bxh[i].BanThang-bxh[i].BanThua)</td>
+                                    <td>@bxh[i].SoTran</td>
+                                </tr>
+                            }
+                            if (bxh.Count() == 0)
+                            {
+                                <tr>
+                                    <td colspan="7">Dữ liệu không có sắn</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="7">Dữ liệu không có sắn</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="card" class="tabControlBody" style="display: none;">
+            <div class="bgTable">
+                <span class="notiMes">Tính năng này đang được phát triển</span>
+            </div>
+        </div>
+        <div id="stadium" class="tabControlBody" style="display: none;">
+            <div class="bgTable">
+                <span class="notiMes">Tính năng này đang được phát triển</span>
+            </div>
+        </div>
+
+    </section>
+    @if (TempData["TypeTK"] != null)
+    {
+        var tabName = TempData["TypeTK"] as string;
+        <script type="text/javascript">
+            window.onload = function () {
+                this.openTab('@tabName');
+            }
+
+            function loadPage(tabName) {
+                if (this.isNullOrUndefined(tabName)) {
+                    tabName = '@tabName';
+                }
+                let giaiDauId = document.getElementById("GiaiDauId").value;
+                window.location.href = `/ThongKe?loai=${tabName}&muaGiai=${giaiDauId}`;
+            }
+
+            function toPage(cauThuId) {
+                let giaiDauId = document.getElementById("GiaiDauId").value;
+                window.location.href = `/TranDau?cauThu=${cauThuId}&muaGiai=${giaiDauId}`;
+            }
+        </script>
+    }
+</div>
+
+

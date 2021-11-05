@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
+@import "base/display.css";
+
+@import "page/home-page.css";
+@import "layout/header.css";
+@import "layout/content.css";
+@import "reponsive/reponsive-layout.css";
+@import "base/margin-padding.css";
+@import "base/card.css";
+@import "base/width-height.css";
+@import "layout/footer.css";
+@import "page/statistical.css";
+@import "icon.css";
+@import "common.css";
+@import "reponsive/responsive-home.css";
+@import "reponsive/responsive-statistical.css";
+@import "page/match.css";
+@import "page/login.css";
+@import "base/toast.css";
+@import "base/dropdown.css";
+@import "base/button.css";
+@import "base/table.css";
+@import "base/tab.css";
+@import "base/form.css";
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    background: #040c1f;
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+    overflow: auto;
+}
+
