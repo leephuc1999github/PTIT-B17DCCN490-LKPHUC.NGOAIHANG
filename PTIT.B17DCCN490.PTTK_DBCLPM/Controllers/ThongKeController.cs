@@ -18,15 +18,17 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
         private IGiaiDauDAO _giaiDauDAO;
         private IBXHCauThuBanThangDAO _bxhCauThuBanThangDAO;
         private IBXHDAO _bxhDAO;
-        private const string _connectionName = "DefaultConnection";
         #endregion
 
         #region Constructor
-        public ThongKeController(IConfiguration configuration)
+        public ThongKeController(
+            IGiaiDauDAO giaiDauDAO,
+            IBXHCauThuBanThangDAO bxhCauThuBanThangDAO,
+            IBXHDAO bxhDAO)
         {
-            this._giaiDauDAO = new GiaiDauDAO(configuration, _connectionName);
-            this._bxhCauThuBanThangDAO = new BXHCauThuBanThangDAO(configuration, _connectionName);
-            this._bxhDAO = new BXHDAO(configuration, _connectionName);
+            this._giaiDauDAO = giaiDauDAO;
+            this._bxhCauThuBanThangDAO = bxhCauThuBanThangDAO;
+            this._bxhDAO = bxhDAO;
         }
         #endregion
 

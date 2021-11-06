@@ -10,11 +10,6 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
 {
     public class GiaiDauDAO : BaseDAO<GiaiDau>, IGiaiDauDAO
     {
-        #region Declare
-        public GiaiDauDAO(IConfiguration configuration, string nameConnection) : base(configuration, nameConnection)
-        {
-
-        }
-        #endregion
+       
     }
 }

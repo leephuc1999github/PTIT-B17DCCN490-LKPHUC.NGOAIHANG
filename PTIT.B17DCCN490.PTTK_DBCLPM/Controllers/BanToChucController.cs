@@ -19,13 +19,12 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
     {
         #region Declare
         private readonly IBanToChucDAO _banToChucDAO;
-        private const string _connectionName = "DefaultConnection";
         #endregion
 
         #region Constructor
-        public BanToChucController(IConfiguration configuration) : base(configuration)
+        public BanToChucController(IBanToChucDAO banToChucDAO)
         {
-            this._banToChucDAO = new BanToChucDAO(configuration, _connectionName);
+            this._banToChucDAO = banToChucDAO;
         }
         #endregion
 

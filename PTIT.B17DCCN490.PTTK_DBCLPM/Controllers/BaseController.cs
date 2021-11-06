@@ -16,14 +16,13 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
     {
         #region Declare
         protected readonly IBaseDAO<T> _baseDAO;
-        private readonly string _nameConnection = "DefaultConnection";
         private readonly string _nameEntity;
         #endregion
 
         #region Constructor
-        public BaseController(IConfiguration configuration)
+        public BaseController()
         {
-            this._baseDAO = new BaseDAO<T>(configuration, _nameConnection);
+            this._baseDAO = new BaseDAO<T>();
             this._nameEntity = typeof(T).Name;
         }
         #endregion

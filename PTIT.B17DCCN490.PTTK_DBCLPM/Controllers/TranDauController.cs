@@ -19,16 +19,18 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
         private readonly ICauThuDoiBongTranDauDAO _cauThuDoiBongTranDauDAO;
         private readonly ISuKienDAO _suKienDAO;
         private readonly ILoaiSuKienDAO _loaiSuKienDAO;
-        const string _nameConnection = "DefaultConnection";
         #endregion
 
         #region Constructor
-        public TranDauController(IConfiguration configuration) : base(configuration)
+        public TranDauController(ITranDauDAO tranDauDAO,
+            ICauThuDoiBongTranDauDAO cauThuDoiBongTranDauDAO,
+            ISuKienDAO suKienDAO,
+            ILoaiSuKienDAO loaiSuKienDAO)
         {
-            this._tranDauDAO = new TranDauDAO(configuration, _nameConnection);
-            this._cauThuDoiBongTranDauDAO = new CauThuDoiBongTranDauDAO(configuration, _nameConnection);
-            this._suKienDAO = new SuKienDAO(configuration, _nameConnection);
-            this._loaiSuKienDAO = new LoaiSuKienDAO(configuration, _nameConnection);
+            this._tranDauDAO = tranDauDAO;
+            this._cauThuDoiBongTranDauDAO = cauThuDoiBongTranDauDAO;
+            this._suKienDAO = suKienDAO;
+            this._loaiSuKienDAO = loaiSuKienDAO;
         }
         #endregion
 

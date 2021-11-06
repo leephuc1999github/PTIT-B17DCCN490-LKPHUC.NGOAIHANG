@@ -59,7 +59,7 @@
                             @for (int i = 0; i < bxh.Count(); i++)
                             {
                                 string[] ten = bxh[i].Ten.Split("|");
-                                <tr onclick="toPage('@bxh[i].Id')">
+                                <tr ondblclick="toPage('@bxh[i].Id')">
                                     <td>@(i+1)</td>
                                     <td class="txt-left club" title="@ten[1]">@ten[1]</td>
                                     <td class="txt-left">

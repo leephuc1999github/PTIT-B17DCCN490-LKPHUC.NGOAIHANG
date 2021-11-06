@@ -12,13 +12,7 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
 {
     public class CauThuDoiBongTranDauDAO : BaseDAO<CauThu_DoiBong_TranDau>, ICauThuDoiBongTranDauDAO
     {
-        #region Constructor
-        public CauThuDoiBongTranDauDAO(IConfiguration configuration, string nameConnection) : base(configuration, nameConnection)
-        {
-
-        }
-        #endregion
-
+      
         #region Methods
         /// <summary>
         /// Danh sách đăng ký cầu thủ trận đấu

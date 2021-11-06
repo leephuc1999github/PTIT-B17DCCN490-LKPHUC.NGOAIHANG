@@ -12,14 +12,6 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
 {
     public class CauThuDAO : BaseDAO<CauThu>, ICauThuDAO
     {
-        #region Declare
-        public CauThuDAO(IConfiguration configuration, string nameConnection) : base(configuration, nameConnection)
-        {
-
-        }
-        #endregion
-
-
         #region Methods
 
         /// <summary>

@@ -135,9 +135,9 @@
                     <td colspan="3" style="color: #e19a00;font-weight: bold">@Model.ThoiGianBD.ToString("dd/MM/yyyy hh:mm")</td>
                 </tr>
                 <tr class="d-flex">
-                    <td class="dn">@Model.DoiNha.DoiBong.Ten</td>
+                    <td class="dn">@Model.DoiNha.DoiBong.DoiBong.Ten</td>
                     <td class="ty-so">@Model.DoiNha.SoBanThang - @Model.DoiKhach.SoBanThang</td>
-                    <td class="dk">@Model.DoiKhach.DoiBong.Ten</td>
+                    <td class="dk">@Model.DoiKhach.DoiBong.DoiBong.Ten</td>
                 </tr>
                 <tr>
                     @if (Model.DaKetThuc)
@@ -164,7 +164,7 @@
             <table class="dataTable" id="ds-ct-nha">
                 <thead>
                     <tr>
-                        <th colspan="5" class="txt-left" style="padding-left: 15px">DANH SÁCH CẦU THỦ ĐỘI NHÀ - <a href="/DangKyCauThu/@Model.DoiNha.Id?doiBongId=@Model.DoiNha.DoiBong.Id" title="Đăng ký cầu thủ" style="color: #fff">@Model.DoiNha.DoiBong.Ten</a></th>
+                        <th colspan="5" class="txt-left" style="padding-left: 15px">DANH SÁCH CẦU THỦ ĐỘI NHÀ - <a href="/DangKyCauThu/@Model.DoiNha.Id?doiBongId=@Model.DoiNha.DoiBong.DoiBong.Id" title="Đăng ký cầu thủ" style="color: #fff">@Model.DoiNha.DoiBong.DoiBong.Ten</a></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -201,7 +201,7 @@
                 </tbody>
                 <thead>
                     <tr>
-                        <th colspan="5" class="txt-left" style="padding-left: 15px">DANH SÁCH CẦU THỦ ĐỘI KHÁCH - <a href="/DangKyCauThu/@Model.DoiKhach.Id?doiBongId=@Model.DoiKhach.DoiBong.Id" title="Đăng ký cầu thủ" style="color: #fff">@Model.DoiKhach.DoiBong.Ten</a></th>
+                        <th colspan="5" class="txt-left" style="padding-left: 15px">DANH SÁCH CẦU THỦ ĐỘI KHÁCH - <a href="/DangKyCauThu/@Model.DoiKhach.Id?doiBongId=@Model.DoiKhach.DoiBong.DoiBong.Id" title="Đăng ký cầu thủ" style="color: #fff">@Model.DoiKhach.DoiBong.DoiBong.Ten</a></th>
                     </tr>
                 </thead>
                 <tbody>

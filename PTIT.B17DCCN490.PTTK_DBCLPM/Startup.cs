@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PTIT.B17DCCN490.PTTK_DBCLPM.Models;
+using PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO;
+using PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +32,18 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM
             services.AddMvc();
             services.AddSession();
             services.AddRazorPages();
+            services.AddScoped(typeof(IBaseDAO<>), typeof(BaseDAO<>));
+            services.AddScoped<ISuKienDAO, SuKienDAO>();
+            services.AddScoped<ITranDauDAO, TranDauDAO>();
+            services.AddScoped<ILoaiVongDauDAO, LoaiVongDauDAO>();
+            services.AddScoped<ILoaiSuKienDAO, LoaiSuKienDAO>();
+            services.AddScoped<ICauThuDAO, CauThuDAO>();
+            services.AddScoped<IBXHCauThuBanThangDAO, BXHCauThuBanThangDAO>();
+            services.AddScoped<IBXHDAO, BXHDAO>();
+            services.AddScoped<ICauThuDoiBongTranDauDAO, CauThuDoiBongTranDauDAO>();
+            services.AddScoped<IGiaiDauDAO, GiaiDauDAO>();
+            services.AddScoped<ITranDauDAO, TranDauDAO>();
+            services.AddScoped<IBanToChucDAO, BanToChucDAO>();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
             {
                 options.LoginPath = "/BanToChuc/DangNhap";

@@ -12,14 +12,6 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
 {
     public class BXHCauThuBanThangDAO : BaseDAO<BXHCauThuBanThang>, IBXHCauThuBanThangDAO
     {
-        #region Constructor
-        public BXHCauThuBanThangDAO(IConfiguration configuration, string nameConnection) : base(configuration, nameConnection)
-        {
-
-        }
-        #endregion
-
-
         #region Methods
         /// <summary>
         /// Lấy danh sách thống kê cầu thủ ghi bàn

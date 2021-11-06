@@ -12,13 +12,6 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
 {
     public class SuKienDAO : BaseDAO<SuKien>, ISuKienDAO
     {
-        #region Constructor
-        public SuKienDAO(IConfiguration configuration, string nameConnection) : base(configuration, nameConnection) 
-        {
-
-        }
-        #endregion
-
         #region Methods
         /// <summary>
         /// Lấy danh sách sự kiện theo trận đấu

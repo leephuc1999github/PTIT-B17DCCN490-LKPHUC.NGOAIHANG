@@ -10,11 +10,6 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
 {
     public class LoaiVongDauDAO : BaseDAO<LoaiVongDau>, ILoaiVongDauDAO
     {
-        #region Constructor
-        public LoaiVongDauDAO(IConfiguration configuration, string nameConnection) : base(configuration, nameConnection)
-        {
-
-        }
-        #endregion
+      
     }
 }

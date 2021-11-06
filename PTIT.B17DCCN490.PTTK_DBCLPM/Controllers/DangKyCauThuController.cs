@@ -16,14 +16,16 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
         #region Declare
         private readonly ICauThuDAO _cauThuDAO;
         private readonly ICauThuDoiBongTranDauDAO _cauThuDoiBongTranDauDAO;
-        const string _nameConnection = "DefaultConnection";
         #endregion
 
         #region Constructor
-        public DangKyCauThuController(IConfiguration configuration)
+        public DangKyCauThuController(
+            ICauThuDAO cauThuDAO,
+            ICauThuDoiBongTranDauDAO cauThuDoiBongTranDauDAO
+            )
         {
-            this._cauThuDAO = new CauThuDAO(configuration, _nameConnection);
-            this._cauThuDoiBongTranDauDAO = new CauThuDoiBongTranDauDAO(configuration, _nameConnection);
+            this._cauThuDAO = cauThuDAO;
+            this._cauThuDoiBongTranDauDAO = cauThuDoiBongTranDauDAO;
         }
         #endregion
 

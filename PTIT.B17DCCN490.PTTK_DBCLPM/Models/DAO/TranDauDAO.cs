@@ -13,12 +13,6 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
 {
     public class TranDauDAO : BaseDAO<TranDau>, ITranDauDAO
     {
-        #region Declare
-        public TranDauDAO(IConfiguration configuration, string nameConnection) : base(configuration, nameConnection)
-        {
-
-        }
-        #endregion
 
         #region Methods
         /// <summary>
@@ -43,7 +37,10 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
                                           Id = Guid.Parse(item["TranDauId"].ToString()),
                                           DoiNha = new DoiBong_TranDau()
                                           {
-                                              DoiBong = new DoiBong() { Ten = Convert.ToString(item["TenDoiThu"].ToString()) }
+                                              DoiBong = new DoiBong_GiaiDau() 
+                                              { 
+                                                  DoiBong = new DoiBong { Ten = Convert.ToString(item["TenDoiThu"].ToString()) } 
+                                              }
                                           }
                                       }).ToList();
 
@@ -75,12 +72,18 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
                                           DangDienRa = item["DangDienRa"].ToString() == "1" ? true : false,
                                           DoiNha = new DoiBong_TranDau()
                                           {
-                                              DoiBong = new DoiBong() { Ten = item["DoiNha"].ToString() },
+                                              DoiBong = new DoiBong_GiaiDau() 
+                                              {
+                                                  DoiBong = new DoiBong() { Ten = item["DoiNha"].ToString() }
+                                              },
                                               SoBanThang = Convert.ToInt32(item["SBTDoiNha"].ToString())
                                           },
                                           DoiKhach = new DoiBong_TranDau()
                                           {
-                                              DoiBong = new DoiBong() { Ten = item["DoiKhach"].ToString() },
+                                              DoiBong = new DoiBong_GiaiDau() 
+                                              {
+                                                  DoiBong = new DoiBong() { Ten = item["DoiKhach"].ToString() }
+                                              },
                                               SoBanThang = Convert.ToInt32(item["SBTDoiKhach"].ToString())
                                           }
                                       }).ToList();
@@ -113,20 +116,26 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
                                DoiNha = new DoiBong_TranDau()
                                {
                                    Id = Guid.Parse(item["DoiNhaTranDauId"].ToString()),
-                                   DoiBong = new DoiBong()
+                                   DoiBong = new DoiBong_GiaiDau()
                                    {
-                                       Ten = item["DoiNha"].ToString(),
-                                       Id = Guid.Parse(item["DoiNhaId"].ToString())
+                                       DoiBong = new DoiBong() 
+                                       {
+                                           Ten = item["DoiNha"].ToString(),
+                                           Id = Guid.Parse(item["DoiNhaId"].ToString())
+                                       }
                                    },
                                    SoBanThang = Convert.ToInt32(item["SBTDoiNha"].ToString())
                                },
                                DoiKhach = new DoiBong_TranDau()
                                {
                                    Id = Guid.Parse(item["DoiKhachTranDauId"].ToString()),
-                                   DoiBong = new DoiBong()
-                                   {
-                                       Ten = item["DoiKhach"].ToString(),
-                                       Id = Guid.Parse(item["DoiKhachId"].ToString())
+                                   DoiBong = new DoiBong_GiaiDau() 
+                                   { 
+                                       DoiBong = new DoiBong() 
+                                       { 
+                                           Ten = item["DoiKhach"].ToString(), 
+                                           Id = Guid.Parse(item["DoiKhachId"].ToString()) 
+                                       } 
                                    },
                                    SoBanThang = Convert.ToInt32(item["SBTDoiKhach"].ToString())
                                }

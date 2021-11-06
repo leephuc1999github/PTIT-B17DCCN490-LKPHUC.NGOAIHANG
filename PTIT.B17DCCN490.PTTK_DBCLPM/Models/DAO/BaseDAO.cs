@@ -15,15 +15,13 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models
         #region Declare
         private string _connectString;
         protected MySqlConnection _mySqlConnection;
-        private IConfiguration _configuration;
         private string _nameTable;
         #endregion
 
         #region Constructor
-        public BaseDAO(IConfiguration configuration, string nameConnection)
+        public BaseDAO()
         {
-            this._configuration = configuration;
-            this._connectString = this._configuration.GetConnectionString(nameConnection);
+            this._connectString = "User Id=root;Host=localhost;Database=b17dccn490_lkphuc_pttkdbclpm;Character Set=utf8";
             this._mySqlConnection = new MySqlConnection(this._connectString);
             this._nameTable = typeof(T).Name;
         }

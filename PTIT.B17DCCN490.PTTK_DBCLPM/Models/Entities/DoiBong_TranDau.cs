@@ -35,7 +35,7 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.Entities
         /// <summary>
         /// Thông tin đội bóng
         /// </summary>
-        public DoiBong DoiBong { get; set; }
+        public DoiBong_GiaiDau DoiBong { get; set; }
 
         /// <summary>
         /// Danh sách cầu thủ trận đấu

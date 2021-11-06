@@ -14,13 +14,12 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
     {
         #region Declare
         private readonly ISuKienDAO _suKienDAO;
-        private const string _connectionName = "DefaultConnection";
         #endregion
 
         #region Constructor
-        public SuKienController(IConfiguration configuration) : base(configuration)
+        public SuKienController(ISuKienDAO suKienDAO)
         {
-            this._suKienDAO = new SuKienDAO(configuration, _connectionName);
+            this._suKienDAO = suKienDAO;
         }
         #endregion
 

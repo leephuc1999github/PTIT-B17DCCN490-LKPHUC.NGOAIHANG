@@ -11,12 +11,6 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models
 {
     public class BanToChucDAO : BaseDAO<BanToChuc>, IBanToChucDAO
     {
-        #region Constructor
-        public BanToChucDAO(IConfiguration configuration, string nameConnection) : base(configuration, nameConnection)
-        {
-
-        }
-        #endregion
 
         #region Methods
         /// <summary>

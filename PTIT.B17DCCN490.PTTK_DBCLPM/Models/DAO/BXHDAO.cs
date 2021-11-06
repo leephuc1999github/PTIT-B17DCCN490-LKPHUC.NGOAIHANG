@@ -12,13 +12,6 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
 {
     public class BXHDAO : BaseDAO<BXH>, IBXHDAO
     {
-        #region Constructor
-        public BXHDAO(IConfiguration configuration, string nameConnection) : base(configuration, nameConnection)
-        {
-
-        }
-        #endregion
-
         #region Methods
         /// <summary>
         /// Lấy danh sách xếp hạng đội bóng theo điểm

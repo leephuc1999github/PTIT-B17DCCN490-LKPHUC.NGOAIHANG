@@ -17,15 +17,17 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
         private readonly IGiaiDauDAO _giaiDauDAO;
         private readonly ILoaiVongDauDAO _loaiVongDauDAO;
         private readonly ITranDauDAO _tranDauDAO;
-        const string _nameConnection = "DefaultConnection";
         #endregion
 
         #region Constructor
-        public LichThiDauController(IConfiguration configuration)
+        public LichThiDauController(
+            IGiaiDauDAO giaiDauDAO,
+            ILoaiVongDauDAO loaiVongDauDAO,
+            ITranDauDAO tranDauDAO)
         {
-            this._giaiDauDAO = new GiaiDauDAO(configuration, _nameConnection);
-            this._loaiVongDauDAO = new LoaiVongDauDAO(configuration, _nameConnection);
-            this._tranDauDAO = new TranDauDAO(configuration, _nameConnection);
+            this._giaiDauDAO = giaiDauDAO;
+            this._loaiVongDauDAO = loaiVongDauDAO;
+            this._tranDauDAO = tranDauDAO;
         }
         #endregion
 
