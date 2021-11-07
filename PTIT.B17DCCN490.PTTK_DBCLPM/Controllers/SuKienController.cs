@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO;
 using PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO.Services;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class SuKienController : BaseController<SuKien>
     {
         #region Declare

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Configuration;
 using PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class TranDauController : BaseController<TranDau>
     {
 

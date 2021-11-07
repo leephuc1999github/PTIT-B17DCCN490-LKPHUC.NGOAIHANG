@@ -39,7 +39,7 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
             // loại thống kê
             if (loai == null)
             {
-                loai = "goal";
+                loai = "result";
             }
             // chọn giải đấu
             List<SelectListItem> dropdownGiaiDau =
