@@ -25,6 +25,13 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models
             this._mySqlConnection = new MySqlConnection(this._connectString);
             this._nameTable = typeof(T).Name;
         }
+
+        public BaseDAO(string connectString)
+        {
+            this._connectString = connectString;
+            this._mySqlConnection = new MySqlConnection(this._connectString);
+            this._nameTable = typeof(T).Name;
+        }
         #endregion
 
         #region Methods
