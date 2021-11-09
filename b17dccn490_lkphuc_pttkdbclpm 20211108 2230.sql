@@ -24,212 +24,212 @@ SET NAMES 'utf8';
 --
 -- Set default database
 --
-USE b17dccn490_lkphuc_pttkdbclpm_test;
+USE b17dccn490_lkphuc_pttkdbclpm;
 
 --
--- Drop procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_CheckDangNhap`
+-- Drop procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_CheckDangNhap`
 --
-DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.Proc_CheckDangNhap;
+DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.Proc_CheckDangNhap;
 
 --
--- Drop procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_GetDienBienByTranDau`
+-- Drop procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_GetDienBienByTranDau`
 --
-DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.Proc_GetDienBienByTranDau;
+DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.Proc_GetDienBienByTranDau;
 
 --
--- Drop procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_GetTKCauThuBanThangs`
+-- Drop procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_GetTKCauThuBanThangs`
 --
-DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.Proc_GetTKCauThuBanThangs;
+DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.Proc_GetTKCauThuBanThangs;
 
 --
--- Drop procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_GetTranDausByCauThuGhiBan`
+-- Drop procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_GetTranDausByCauThuGhiBan`
 --
-DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.Proc_GetTranDausByCauThuGhiBan;
+DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.Proc_GetTranDausByCauThuGhiBan;
 
 --
--- Drop procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_InsertSuKien`
+-- Drop procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_InsertSuKien`
 --
-DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.Proc_InsertSuKien;
+DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.Proc_InsertSuKien;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`sukien`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`sukien`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.sukien;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.sukien;
 
 --
--- Drop procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_GetLoaiSuKiens`
+-- Drop procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_GetLoaiSuKiens`
 --
-DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.Proc_GetLoaiSuKiens;
+DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.Proc_GetLoaiSuKiens;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`loaisukien`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`loaisukien`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.loaisukien;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.loaisukien;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`trongtai_totrongttai`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`trongtai_totrongttai`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.trongtai_totrongttai;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.trongtai_totrongttai;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`hoadontiencong`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`hoadontiencong`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.hoadontiencong;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.hoadontiencong;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`trongtai`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`trongtai`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.trongtai;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.trongtai;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`vitritrongtai`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`vitritrongtai`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.vitritrongtai;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.vitritrongtai;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`hopdongbqth_trandau`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`hopdongbqth_trandau`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.hopdongbqth_trandau;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.hopdongbqth_trandau;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`hopdongbqth`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`hopdongbqth`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.hopdongbqth;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.hopdongbqth;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`doitac`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`doitac`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.doitac;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.doitac;
 
 --
--- Drop procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_DeleteCauThuDoiBongTranDauByDoiBongTranDauId`
+-- Drop procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_DeleteCauThuDoiBongTranDauByDoiBongTranDauId`
 --
-DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.Proc_DeleteCauThuDoiBongTranDauByDoiBongTranDauId;
+DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.Proc_DeleteCauThuDoiBongTranDauByDoiBongTranDauId;
 
 --
--- Drop procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_GetCauThusByDoiBongTranDauId`
+-- Drop procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_GetCauThusByDoiBongTranDauId`
 --
-DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.Proc_GetCauThusByDoiBongTranDauId;
+DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.Proc_GetCauThusByDoiBongTranDauId;
 
 --
--- Drop procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_InsertCauThuDoiBongTranDau`
+-- Drop procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_InsertCauThuDoiBongTranDau`
 --
-DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.Proc_InsertCauThuDoiBongTranDau;
+DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.Proc_InsertCauThuDoiBongTranDau;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`cauthua_doibong_trandau`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`cauthua_doibong_trandau`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau;
 
 --
--- Drop procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_GetCauThusByDoiBongId`
+-- Drop procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_GetCauThusByDoiBongId`
 --
-DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.Proc_GetCauThusByDoiBongId;
+DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.Proc_GetCauThusByDoiBongId;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`cauthu`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`cauthu`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.cauthu;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.cauthu;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`vitricauthu`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`vitricauthu`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.vitricauthu;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.vitricauthu;
 
 --
--- Drop procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_GetBXH`
+-- Drop procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_GetBXH`
 --
-DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.Proc_GetBXH;
+DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.Proc_GetBXH;
 
 --
--- Drop procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_GetTranDauById`
+-- Drop procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_GetTranDauById`
 --
-DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.Proc_GetTranDauById;
+DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.Proc_GetTranDauById;
 
 --
--- Drop procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_GetTranDausByVongDauGiaiDau`
+-- Drop procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_GetTranDausByVongDauGiaiDau`
 --
-DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.Proc_GetTranDausByVongDauGiaiDau;
+DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.Proc_GetTranDausByVongDauGiaiDau;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`doibong_trandau`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`doibong_trandau`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.doibong_trandau;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.doibong_trandau;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`doibong_giaidau`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`doibong_giaidau`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.doibong_giaidau;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.doibong_giaidau;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`bangdau`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`bangdau`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.bangdau;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.bangdau;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`hoadonbqth`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`hoadonbqth`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.hoadonbqth;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.hoadonbqth;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`bantochuc`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`bantochuc`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.bantochuc;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.bantochuc;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`doibong`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`doibong`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.doibong;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.doibong;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`totrongtai`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`totrongtai`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.totrongtai;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.totrongtai;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`trandau`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`trandau`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.trandau;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.trandau;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`sandau`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`sandau`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.sandau;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.sandau;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`vongdau`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`vongdau`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.vongdau;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.vongdau;
 
 --
--- Drop procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_GetGiaiDaus`
+-- Drop procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_GetGiaiDaus`
 --
-DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.Proc_GetGiaiDaus;
+DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.Proc_GetGiaiDaus;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`giaidau`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`giaidau`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.giaidau;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.giaidau;
 
 --
--- Drop procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_GetLoaiVongDaus`
+-- Drop procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_GetLoaiVongDaus`
 --
-DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.Proc_GetLoaiVongDaus;
+DROP PROCEDURE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.Proc_GetLoaiVongDaus;
 
 --
--- Drop table `b17dccn490_lkphuc_pttkdbclpm_test`.`loaivongdau`
+-- Drop table `b17dccn490_lkphuc_pttkdbclpm`.`loaivongdau`
 --
-DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm_test.loaivongdau;
+DROP TABLE IF EXISTS b17dccn490_lkphuc_pttkdbclpm.loaivongdau;
 
 --
 -- Set default database
 --
-USE b17dccn490_lkphuc_pttkdbclpm_test;
+USE b17dccn490_lkphuc_pttkdbclpm;
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`loaivongdau`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`loaivongdau`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.loaivongdau (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.loaivongdau (
   Id char(36) NOT NULL,
   STT int(11),
   Ten varchar(255) NOT NULL,
@@ -245,9 +245,9 @@ COMMENT = 'loại vòng đấu';
 DELIMITER $$
 
 --
--- Create procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_GetLoaiVongDaus`
+-- Create procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_GetLoaiVongDaus`
 --
-CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm_test.Proc_GetLoaiVongDaus ()
+CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm.Proc_GetLoaiVongDaus ()
 BEGIN
   SELECT
     l.Id,
@@ -260,9 +260,9 @@ $$
 DELIMITER ;
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`giaidau`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`giaidau`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.giaidau (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.giaidau (
   Id char(36) NOT NULL,
   Ten varchar(255) NOT NULL,
   MoTa text,
@@ -280,9 +280,9 @@ COMMENT = 'Giải đấu';
 DELIMITER $$
 
 --
--- Create procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_GetGiaiDaus`
+-- Create procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_GetGiaiDaus`
 --
-CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm_test.Proc_GetGiaiDaus ()
+CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm.Proc_GetGiaiDaus ()
 COMMENT 'Lấy danh sách giải đấu'
 BEGIN
   SELECT
@@ -296,9 +296,9 @@ $$
 DELIMITER ;
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`vongdau`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`vongdau`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.vongdau (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.vongdau (
   Id char(36) NOT NULL,
   GhiChu text,
   GiaiDauId char(36) NOT NULL,
@@ -314,21 +314,21 @@ COMMENT = 'Giải đấu & vòng đấu';
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.vongdau
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.vongdau
 ADD CONSTRAINT FK_vongdau_GiaiDauId FOREIGN KEY (GiaiDauId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.giaidau (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.giaidau (Id) ON DELETE NO ACTION;
 
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.vongdau
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.vongdau
 ADD CONSTRAINT FK_vongdau_LoaiVongDauId FOREIGN KEY (LoaiVongDauId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.loaivongdau (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.loaivongdau (Id) ON DELETE NO ACTION;
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`sandau`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`sandau`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.sandau (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.sandau (
   Id char(36) NOT NULL,
   Ten varchar(255) NOT NULL,
   DiaChi varchar(255) NOT NULL,
@@ -342,9 +342,9 @@ COLLATE utf8mb4_general_ci,
 COMMENT = 'Sân đấu';
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`trandau`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`trandau`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.trandau (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.trandau (
   Id char(36) NOT NULL,
   ThoiGianBD datetime NOT NULL,
   TGChinhThuc int(11) NOT NULL,
@@ -366,21 +366,21 @@ COMMENT = 'Trận đấu';
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.trandau
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.trandau
 ADD CONSTRAINT FK_TranDau_SanDauId FOREIGN KEY (SanDauId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.sandau (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.sandau (Id) ON DELETE NO ACTION;
 
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.trandau
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.trandau
 ADD CONSTRAINT FK_trandau_GiaiDauVongDauId FOREIGN KEY (VongDauId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.vongdau (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.vongdau (Id) ON DELETE NO ACTION;
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`totrongtai`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`totrongtai`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.totrongtai (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.totrongtai (
   Id char(36) NOT NULL,
   GhiChu varchar(255) NOT NULL,
   Ma varchar(255) NOT NULL,
@@ -395,14 +395,14 @@ COMMENT = 'Tổ trọng tài';
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.totrongtai
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.totrongtai
 ADD CONSTRAINT FK_ToTrongTai_TranDauId FOREIGN KEY (TranDauId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.trandau (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.trandau (Id) ON DELETE NO ACTION;
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`doibong`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`doibong`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.doibong (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.doibong (
   Id char(36) NOT NULL,
   Ten varchar(255) NOT NULL,
   Ma varchar(255) NOT NULL,
@@ -421,14 +421,14 @@ COMMENT = 'Đội bóng';
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.doibong
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.doibong
 ADD CONSTRAINT FK_doibong_SanDauId FOREIGN KEY (SanDauId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.sandau (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.sandau (Id) ON DELETE NO ACTION;
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`bantochuc`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`bantochuc`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.bantochuc (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.bantochuc (
   Id char(36) NOT NULL,
   Ten varchar(255) NOT NULL,
   TenDangNhap varchar(255) NOT NULL,
@@ -445,9 +445,9 @@ COLLATE utf8mb4_general_ci,
 COMMENT = 'Ban tổ chức';
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`hoadonbqth`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`hoadonbqth`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.hoadonbqth (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.hoadonbqth (
   Id char(36) NOT NULL,
   NgayTao datetime NOT NULL,
   DiaDiem varchar(255) NOT NULL,
@@ -465,21 +465,21 @@ COMMENT = 'Hóa đơn bản quyền truyền hình';
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.hoadonbqth
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.hoadonbqth
 ADD CONSTRAINT FK_HoaDonBQTH_NguoiTaoId FOREIGN KEY (BanToChucId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.bantochuc (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.bantochuc (Id) ON DELETE NO ACTION;
 
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.hoadonbqth
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.hoadonbqth
 ADD CONSTRAINT FK_hoadonbqth_DoiBongId FOREIGN KEY (DoiBongId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.doibong (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.doibong (Id) ON DELETE NO ACTION;
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`bangdau`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`bangdau`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.bangdau (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.bangdau (
   Id char(36) NOT NULL,
   Ten varchar(255) NOT NULL,
   MoTa text,
@@ -493,9 +493,9 @@ COLLATE utf8mb4_general_ci,
 COMMENT = 'Bảng đấu';
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`doibong_giaidau`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`doibong_giaidau`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.doibong_giaidau (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.doibong_giaidau (
   Id char(36) NOT NULL,
   GhiChu text,
   GiaiDauId char(36) NOT NULL,
@@ -512,28 +512,28 @@ COMMENT = 'Giải đấu & đội bóng';
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.doibong_giaidau
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.doibong_giaidau
 ADD CONSTRAINT FK_GiaiDau_DoiBong_DoiBongId FOREIGN KEY (DoiBongId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.doibong (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.doibong (Id) ON DELETE NO ACTION;
 
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.doibong_giaidau
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.doibong_giaidau
 ADD CONSTRAINT FK_GiaiDau_DoiBong_GiaiDauId FOREIGN KEY (GiaiDauId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.giaidau (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.giaidau (Id) ON DELETE NO ACTION;
 
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.doibong_giaidau
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.doibong_giaidau
 ADD CONSTRAINT FK_giaidau_doibong_BangDauId FOREIGN KEY (BangDauId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.bangdau (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.bangdau (Id) ON DELETE NO ACTION;
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`doibong_trandau`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`doibong_trandau`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.doibong_trandau (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.doibong_trandau (
   Id char(36) NOT NULL,
   Tien float NOT NULL,
   DaThanhToan bit(1) NOT NULL,
@@ -554,30 +554,30 @@ COMMENT = 'Trận đấu đội bóng';
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.doibong_trandau
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.doibong_trandau
 ADD CONSTRAINT FK_HoaDonBQTH_TD_TranDauId FOREIGN KEY (TranDauId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.trandau (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.trandau (Id) ON DELETE NO ACTION;
 
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.doibong_trandau
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.doibong_trandau
 ADD CONSTRAINT FK_doibong_trandau_DoiBongId FOREIGN KEY (DoiBongId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.doibong_giaidau (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.doibong_giaidau (Id) ON DELETE NO ACTION;
 
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.doibong_trandau
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.doibong_trandau
 ADD CONSTRAINT FK_trandau_doibong_HoaDonBQTHId FOREIGN KEY (HoaDonBQTHId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.hoadonbqth (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.hoadonbqth (Id) ON DELETE NO ACTION;
 
 DELIMITER $$
 
 --
--- Create procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_GetTranDausByVongDauGiaiDau`
+-- Create procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_GetTranDausByVongDauGiaiDau`
 --
-CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm_test.Proc_GetTranDausByVongDauGiaiDau (IN _LoaiVongDauId char(36), IN _GiaiDauId char(36))
+CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm.Proc_GetTranDausByVongDauGiaiDau (IN _LoaiVongDauId char(36), IN _GiaiDauId char(36))
 BEGIN
   SET @vongDauId = (SELECT
       v.Id
@@ -624,9 +624,9 @@ END
 $$
 
 --
--- Create procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_GetTranDauById`
+-- Create procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_GetTranDauById`
 --
-CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm_test.Proc_GetTranDauById (IN _TranDauId char(36))
+CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm.Proc_GetTranDauById (IN _TranDauId char(36))
 BEGIN
   SELECT
     t.Id,
@@ -682,9 +682,9 @@ END
 $$
 
 --
--- Create procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_GetBXH`
+-- Create procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_GetBXH`
 --
-CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm_test.Proc_GetBXH (IN _GiaiDauId char(36))
+CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm.Proc_GetBXH (IN _GiaiDauId char(36))
 BEGIN
   -- Lấy danh sách trận đấu của giải đấu 
   CREATE TEMPORARY TABLE TranDaus AS (SELECT
@@ -747,9 +747,9 @@ $$
 DELIMITER ;
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`vitricauthu`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`vitricauthu`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.vitricauthu (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.vitricauthu (
   Id char(36) NOT NULL,
   Ten varchar(255) NOT NULL,
   MoTa text,
@@ -762,9 +762,9 @@ COLLATE utf8mb4_general_ci,
 COMMENT = 'Vị trí cầu thủ';
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`cauthu`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`cauthu`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.cauthu (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.cauthu (
   Id char(36) NOT NULL,
   Ten varchar(255) NOT NULL,
   NamSinh int(11),
@@ -785,23 +785,23 @@ COMMENT = 'Cầu thủ';
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.cauthu
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.cauthu
 ADD CONSTRAINT FK_cauthu_DoiBongId FOREIGN KEY (DoiBongId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.doibong (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.doibong (Id) ON DELETE NO ACTION;
 
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.cauthu
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.cauthu
 ADD CONSTRAINT FK_cauthu_ViTriId FOREIGN KEY (ViTriId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.vitricauthu (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.vitricauthu (Id) ON DELETE NO ACTION;
 
 DELIMITER $$
 
 --
--- Create procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_GetCauThusByDoiBongId`
+-- Create procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_GetCauThusByDoiBongId`
 --
-CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm_test.Proc_GetCauThusByDoiBongId (IN _DoiBongId char(36))
+CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm.Proc_GetCauThusByDoiBongId (IN _DoiBongId char(36))
 BEGIN
   SELECT
     *
@@ -814,9 +814,9 @@ $$
 DELIMITER ;
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`cauthua_doibong_trandau`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`cauthua_doibong_trandau`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau (
   Id char(36) NOT NULL,
   IsDaChinh bit(1) NOT NULL,
   DoiBongTranDauId char(36),
@@ -832,23 +832,23 @@ COMMENT = 'Cầu thủ & trận đấu';
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau
 ADD CONSTRAINT FK_cauthua_trandau_DoiBongCauThuId FOREIGN KEY (CauThuId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.cauthu (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.cauthu (Id) ON DELETE NO ACTION;
 
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau
 ADD CONSTRAINT FK_cauthua_trandau_TranDauDoiBongId FOREIGN KEY (DoiBongTranDauId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.doibong_trandau (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.doibong_trandau (Id) ON DELETE NO ACTION;
 
 DELIMITER $$
 
 --
--- Create procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_InsertCauThuDoiBongTranDau`
+-- Create procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_InsertCauThuDoiBongTranDau`
 --
-CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm_test.Proc_InsertCauThuDoiBongTranDau (IN _IsDaChinh bit, IN _DoiBongTranDauId char(36), IN _CauThuId char(36))
+CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm.Proc_InsertCauThuDoiBongTranDau (IN _IsDaChinh bit, IN _DoiBongTranDauId char(36), IN _CauThuId char(36))
 COMMENT 'Thêm mới cầu thủ đội bóng trận đấu'
 BEGIN
   INSERT INTO cauthua_doibong_trandau (Id, IsDaChinh, DoiBongTranDauId, CauThuId)
@@ -857,9 +857,9 @@ END
 $$
 
 --
--- Create procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_GetCauThusByDoiBongTranDauId`
+-- Create procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_GetCauThusByDoiBongTranDauId`
 --
-CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm_test.Proc_GetCauThusByDoiBongTranDauId (IN _DoiBongTranDauId char(36))
+CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm.Proc_GetCauThusByDoiBongTranDauId (IN _DoiBongTranDauId char(36))
 BEGIN
   SELECT
     cdt.Id,
@@ -876,9 +876,9 @@ END
 $$
 
 --
--- Create procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_DeleteCauThuDoiBongTranDauByDoiBongTranDauId`
+-- Create procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_DeleteCauThuDoiBongTranDauByDoiBongTranDauId`
 --
-CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm_test.Proc_DeleteCauThuDoiBongTranDauByDoiBongTranDauId (IN _DoiBongTranDauId char(36))
+CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm.Proc_DeleteCauThuDoiBongTranDauByDoiBongTranDauId (IN _DoiBongTranDauId char(36))
 BEGIN
   DELETE
     FROM cauthua_doibong_trandau
@@ -889,9 +889,9 @@ $$
 DELIMITER ;
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`doitac`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`doitac`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.doitac (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.doitac (
   Id char(36) NOT NULL,
   Ten varchar(255) NOT NULL,
   SDT varchar(255) NOT NULL,
@@ -906,9 +906,9 @@ COLLATE utf8mb4_general_ci,
 COMMENT = 'Đối tác';
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`hopdongbqth`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`hopdongbqth`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.hopdongbqth (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.hopdongbqth (
   Id char(36) NOT NULL,
   NoiDung text NOT NULL,
   GhiChu text,
@@ -926,21 +926,21 @@ COMMENT = 'Hợp đồng bản quyền truyền hình';
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.hopdongbqth
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.hopdongbqth
 ADD CONSTRAINT FK_HDBQTH_BenAId FOREIGN KEY (BanToChucId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.bantochuc (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.bantochuc (Id) ON DELETE NO ACTION;
 
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.hopdongbqth
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.hopdongbqth
 ADD CONSTRAINT FK_HDBQTH_BenBId FOREIGN KEY (DoiTacId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.doitac (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.doitac (Id) ON DELETE NO ACTION;
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`hopdongbqth_trandau`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`hopdongbqth_trandau`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.hopdongbqth_trandau (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.hopdongbqth_trandau (
   Id char(36) NOT NULL,
   GiaBan float NOT NULL,
   DaThanhToan bit(1) NOT NULL,
@@ -956,21 +956,21 @@ COMMENT = 'Hợp đồng bản quyền truyền hình & trận đấu';
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.hopdongbqth_trandau
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.hopdongbqth_trandau
 ADD CONSTRAINT FK_HDBQTH_TranDau_HDBQTHId FOREIGN KEY (HopDongBQTHId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.hopdongbqth (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.hopdongbqth (Id) ON DELETE NO ACTION;
 
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.hopdongbqth_trandau
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.hopdongbqth_trandau
 ADD CONSTRAINT FK_HDBQTH_TranDau_TranDauId FOREIGN KEY (TranDauId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.trandau (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.trandau (Id) ON DELETE NO ACTION;
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`vitritrongtai`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`vitritrongtai`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.vitritrongtai (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.vitritrongtai (
   Id char(36) NOT NULL,
   Ten varchar(255) NOT NULL,
   MoTa text,
@@ -983,9 +983,9 @@ COLLATE utf8mb4_general_ci,
 COMMENT = 'Vị trí trọng tài';
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`trongtai`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`trongtai`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.trongtai (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.trongtai (
   Id char(36) NOT NULL,
   Ten varchar(255) NOT NULL,
   NamSinh int(11),
@@ -1002,9 +1002,9 @@ COLLATE utf8mb4_general_ci,
 COMMENT = 'Trọng tài';
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`hoadontiencong`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`hoadontiencong`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.hoadontiencong (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.hoadontiencong (
   Id char(36) NOT NULL,
   NgayTao datetime NOT NULL,
   DiaDiem varchar(255) NOT NULL,
@@ -1022,21 +1022,21 @@ COMMENT = 'Hóa đơn tiền công';
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.hoadontiencong
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.hoadontiencong
 ADD CONSTRAINT FK_HDTC_NguoiTaoId FOREIGN KEY (BanToChucId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.bantochuc (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.bantochuc (Id) ON DELETE NO ACTION;
 
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.hoadontiencong
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.hoadontiencong
 ADD CONSTRAINT FK_hoadontiencong_TrongTaiId FOREIGN KEY (TrongTaiId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.trongtai (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.trongtai (Id) ON DELETE NO ACTION;
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`trongtai_totrongttai`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`trongtai_totrongttai`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.trongtai_totrongttai (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.trongtai_totrongttai (
   Id char(36) NOT NULL,
   TienCong float NOT NULL,
   GhiChu text,
@@ -1055,35 +1055,35 @@ COMMENT = 'Trọng tài & tổ trọng tài';
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.trongtai_totrongttai
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.trongtai_totrongttai
 ADD CONSTRAINT FK_TrongTai_ToTT_ToTrongTaiId FOREIGN KEY (ToTrongTaiId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.totrongtai (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.totrongtai (Id) ON DELETE NO ACTION;
 
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.trongtai_totrongttai
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.trongtai_totrongttai
 ADD CONSTRAINT FK_TrongTai_ToTT_TrongTaiId FOREIGN KEY (TrongTaiId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.trongtai (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.trongtai (Id) ON DELETE NO ACTION;
 
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.trongtai_totrongttai
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.trongtai_totrongttai
 ADD CONSTRAINT FK_TrongTai_ToTT_ViTriId FOREIGN KEY (ViTriId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.vitritrongtai (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.vitritrongtai (Id) ON DELETE NO ACTION;
 
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.trongtai_totrongttai
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.trongtai_totrongttai
 ADD CONSTRAINT FK_trongtai_tott_HDTCId FOREIGN KEY (HoaDonTienCongId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.hoadontiencong (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.hoadontiencong (Id) ON DELETE NO ACTION;
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`loaisukien`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`loaisukien`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.loaisukien (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.loaisukien (
   Id char(36) NOT NULL,
   Ten varchar(255) NOT NULL,
   MoTa text,
@@ -1098,9 +1098,9 @@ COMMENT = 'Sự kiện';
 DELIMITER $$
 
 --
--- Create procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_GetLoaiSuKiens`
+-- Create procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_GetLoaiSuKiens`
 --
-CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm_test.Proc_GetLoaiSuKiens ()
+CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm.Proc_GetLoaiSuKiens ()
 BEGIN
   SELECT
     *
@@ -1111,9 +1111,9 @@ $$
 DELIMITER ;
 
 --
--- Create table `b17dccn490_lkphuc_pttkdbclpm_test`.`sukien`
+-- Create table `b17dccn490_lkphuc_pttkdbclpm`.`sukien`
 --
-CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm_test.sukien (
+CREATE TABLE IF NOT EXISTS b17dccn490_lkphuc_pttkdbclpm.sukien (
   Id char(36) NOT NULL,
   ThoiDiem int(11) NOT NULL,
   GhiChu text,
@@ -1130,23 +1130,23 @@ COMMENT = 'Sự kiện & trận đấu';
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.sukien
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.sukien
 ADD CONSTRAINT FK_SuKien_TranDau_CauThuId FOREIGN KEY (CauThuDoiBongTranDauId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau (Id) ON DELETE NO ACTION;
 
 --
 -- Create foreign key
 --
-ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.sukien
+ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.sukien
 ADD CONSTRAINT FK_sukien_LoaiSuKienId FOREIGN KEY (LoaiSuKienId)
-REFERENCES b17dccn490_lkphuc_pttkdbclpm_test.loaisukien (Id) ON DELETE NO ACTION;
+REFERENCES b17dccn490_lkphuc_pttkdbclpm.loaisukien (Id) ON DELETE NO ACTION;
 
 DELIMITER $$
 
 --
--- Create procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_InsertSuKien`
+-- Create procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_InsertSuKien`
 --
-CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm_test.Proc_InsertSuKien (IN _ThoiDiem int, IN _CauThuDoiBongTranDauId char(36), IN _LoaiSuKienId char(36))
+CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm.Proc_InsertSuKien (IN _ThoiDiem int, IN _CauThuDoiBongTranDauId char(36), IN _LoaiSuKienId char(36))
 BEGIN
   INSERT INTO sukien (Id, ThoiDiem, GhiChu, CauThuDoiBongTranDauId, LoaiSuKienId)
     VALUES (UUID(), _ThoiDiem, NULL, _CauThuDoiBongTranDauId, _LoaiSuKienId);
@@ -1154,9 +1154,9 @@ END
 $$
 
 --
--- Create procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_GetTranDausByCauThuGhiBan`
+-- Create procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_GetTranDausByCauThuGhiBan`
 --
-CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm_test.Proc_GetTranDausByCauThuGhiBan (IN _GiaiDauId char(36), IN _CauThuId char(36))
+CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm.Proc_GetTranDausByCauThuGhiBan (IN _GiaiDauId char(36), IN _CauThuId char(36))
 BEGIN
 
   SET @doiBongId = (SELECT
@@ -1212,9 +1212,9 @@ END
 $$
 
 --
--- Create procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_GetTKCauThuBanThangs`
+-- Create procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_GetTKCauThuBanThangs`
 --
-CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm_test.Proc_GetTKCauThuBanThangs (IN _GiaiDauId char(36))
+CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm.Proc_GetTKCauThuBanThangs (IN _GiaiDauId char(36))
 COMMENT 'Thống kê cầu thủ theo bàn thắng'
 BEGIN
   -- Lấy danh sách trận đấu của giải đấu 
@@ -1366,9 +1366,9 @@ END
 $$
 
 --
--- Create procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_GetDienBienByTranDau`
+-- Create procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_GetDienBienByTranDau`
 --
-CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm_test.Proc_GetDienBienByTranDau (IN _TranDauId char(36))
+CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm.Proc_GetDienBienByTranDau (IN _TranDauId char(36))
 BEGIN
   CREATE TEMPORARY TABLE CauThus AS
   SELECT
@@ -1402,9 +1402,9 @@ END
 $$
 
 --
--- Create procedure `b17dccn490_lkphuc_pttkdbclpm_test`.`Proc_CheckDangNhap`
+-- Create procedure `b17dccn490_lkphuc_pttkdbclpm`.`Proc_CheckDangNhap`
 --
-CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm_test.Proc_CheckDangNhap (IN _TenDangNhap varchar(255), IN _MatKhau varchar(255))
+CREATE OR REPLACE PROCEDURE b17dccn490_lkphuc_pttkdbclpm.Proc_CheckDangNhap (IN _TenDangNhap varchar(255), IN _MatKhau varchar(255))
 COMMENT 'Kiểm tra đăng nhập'
 BEGIN
   SELECT
@@ -1456,11 +1456,11 @@ GRANT PROXY ON ''@'' TO 'root'@'localhost' WITH GRANT OPTION;GRANT PROXY ON ''@'
 
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.sandau
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.sandau
 --
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.sandau DISABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.sandau DISABLE KEYS */;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.sandau(Id, Ten, DiaChi, SoGhe) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.sandau(Id, Ten, DiaChi, SoGhe) VALUES
 ('0026bb7e-30a6-11ec-b7eb-f01faf56e08c', 'Anfield', '', 53394),
 ('09e8c49e-30a4-11ec-b7eb-f01faf56e08c', 'Red Bull Arena', '', 31895),
 ('0c5e4b5f-30d3-11ec-be5d-f01faf56e08c', 'Roazhon Park', '', 29778),
@@ -1494,28 +1494,28 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.sandau(Id, Ten, DiaChi, SoGhe) VAL
 ('eb6f7bb8-30d2-11ec-be5d-f01faf56e08c', 'Krasnodar stadium', '', 35074),
 ('ec9cf456-30d3-11ec-be5d-f01faf56e08c', 'Allianz Stadium', '', 41507);
 COMMIT;
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.sandau ENABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.sandau ENABLE KEYS */;
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.loaivongdau
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.loaivongdau
 --
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.loaivongdau DISABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.loaivongdau DISABLE KEYS */;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.loaivongdau(Id, STT, Ten, MoTa) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.loaivongdau(Id, STT, Ten, MoTa) VALUES
 ('20daea4a-37db-290e-074c-db3d13927253', 4, 'Vòng bán kết', NULL),
 ('22729e35-7775-2037-084c-db3d13927253', 1, 'Vòng bảng', NULL),
 ('24daf085-2e40-57a2-ef00-5d8c2efad839', 5, 'Vòng chung kết', NULL),
 ('3ba8d675-5587-4bd4-e4d5-41c4269dcfd5', 2, 'Vòng loại trực tiếp', NULL),
 ('7c3111c1-19ec-51a2-d61c-b2c6cc722f27', 3, 'Vòng tứ kết', NULL);
 COMMIT;
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.loaivongdau ENABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.loaivongdau ENABLE KEYS */;
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.bantochuc
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.bantochuc
 --
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.bantochuc DISABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.bantochuc DISABLE KEYS */;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.bantochuc(Id, Ten, TenDangNhap, MatKhau, SDT, Email, DiaChi) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.bantochuc(Id, Ten, TenDangNhap, MatKhau, SDT, Email, DiaChi) VALUES
 ('26fe1532-7e63-6a11-1a8f-6354f958f4c0', 'ADMIN22', 'admin6', 'Ak.123', '0960094345', 'GerryBarrow@example.com', 'HN'),
 ('35e773ea-5d44-2dda-26a8-6d513e380bde', 'ADMIN25', 'admin2', 'Ak.123', '0969283509', 'LoydBranham258@example.com', 'HN'),
 ('3f8e6896-4c7d-15f5-a018-75d8bd200d7c', 'ADMIN07', 'admin0', 'Ak.123', '0967757338', 'NorrisCalderon@example.com', 'HN'),
@@ -1527,25 +1527,25 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.bantochuc(Id, Ten, TenDangNhap, Ma
 ('7c48a057-3c21-3db0-06a4-60fcae00630c', 'ADMIN06', 'admin1', 'Ak.123', '0965062655', 'Moreno@nowhere.com', 'HN'),
 ('7c4f14d8-66fb-14ae-198f-6354f958f4c0', 'ADMIN79', 'admin7', 'Ak.123', '0963173854', 'JoeannPHuang@example.com', 'HN');
 COMMIT;
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.bantochuc ENABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.bantochuc ENABLE KEYS */;
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.giaidau
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.giaidau
 --
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.giaidau DISABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.giaidau DISABLE KEYS */;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.giaidau(Id, Ten, MoTa, MuaGiai, ThoiGianBD, ThoiGianDuKienKT) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.giaidau(Id, Ten, MoTa, MuaGiai, ThoiGianBD, ThoiGianDuKienKT) VALUES
 ('470dd012-7886-75fc-8186-fecdbcc4765c', 'Champion League', NULL, '2020-2021', '2020-08-08', '2021-05-29'),
 ('af13edf2-315c-11ec-8a5d-f01faf56e08c', 'Champion League', NULL, '2021-2022', '2021-06-22', '2022-05-28');
 COMMIT;
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.giaidau ENABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.giaidau ENABLE KEYS */;
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.doibong
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.doibong
 --
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.doibong DISABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.doibong DISABLE KEYS */;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.doibong(Id, Ten, Ma, AoDauSN, AoDauSK, MoTa, SanDauId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.doibong(Id, Ten, Ma, AoDauSN, AoDauSK, MoTa, SanDauId) VALUES
 ('006e4340-30a6-11ec-b7eb-f01faf56e08c', 'Liverpool', 'LV', NULL, NULL, NULL, '0026bb7e-30a6-11ec-b7eb-f01faf56e08c'),
 ('0a233215-30a4-11ec-b7eb-f01faf56e08c', 'Salzburg', 'SA', NULL, NULL, NULL, '09e8c49e-30a4-11ec-b7eb-f01faf56e08c'),
 ('0c9f6e93-30d3-11ec-be5d-f01faf56e08c', 'Rennes', 'RE', NULL, NULL, NULL, '0c5e4b5f-30d3-11ec-be5d-f01faf56e08c'),
@@ -1579,14 +1579,14 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.doibong(Id, Ten, Ma, AoDauSN, AoDa
 ('ebb95b5c-30d2-11ec-be5d-f01faf56e08c', 'Krasnodar', 'KR', NULL, NULL, NULL, 'eb6f7bb8-30d2-11ec-be5d-f01faf56e08c'),
 ('ecbabcc0-30d3-11ec-be5d-f01faf56e08c', 'Juventus', 'JV', NULL, NULL, NULL, 'ec9cf456-30d3-11ec-be5d-f01faf56e08c');
 COMMIT;
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.doibong ENABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.doibong ENABLE KEYS */;
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.bangdau
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.bangdau
 --
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.bangdau DISABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.bangdau DISABLE KEYS */;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.bangdau(Id, Ten, MoTa, SLDoiBong) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.bangdau(Id, Ten, MoTa, SLDoiBong) VALUES
 ('1731fa87-79fd-4cc1-6978-553c0310877a', 'Bảng B', NULL, 4),
 ('185f84ed-4563-51a0-cac7-6c0aeb6ec302', 'Bảng H', NULL, 4),
 ('19165ed7-212e-21c4-0428-030d4265475f', 'Bảng D', NULL, 4),
@@ -1596,33 +1596,33 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.bangdau(Id, Ten, MoTa, SLDoiBong) 
 ('5f7b48e5-16f9-2f2f-ecdc-845b5dcdad45', 'Bảng E', NULL, 4),
 ('7a0b757e-41eb-4df6-c6f8-494a84b910f4', 'Bảng G', NULL, 4);
 COMMIT;
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.bangdau ENABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.bangdau ENABLE KEYS */;
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.vongdau
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.vongdau
 --
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.vongdau DISABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.vongdau DISABLE KEYS */;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.vongdau(Id, GhiChu, GiaiDauId, LoaiVongDauId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.vongdau(Id, GhiChu, GiaiDauId, LoaiVongDauId) VALUES
 ('031b9dbf-2bca-11ec-9ddb-f01faf56e08c', NULL, '470dd012-7886-75fc-8186-fecdbcc4765c', '24daf085-2e40-57a2-ef00-5d8c2efad839'),
 ('5ffb1283-3d23-153e-79b4-6865aee0822f', NULL, '470dd012-7886-75fc-8186-fecdbcc4765c', '3ba8d675-5587-4bd4-e4d5-41c4269dcfd5'),
 ('6743104a-20cc-4d43-78b4-6865aee0822f', NULL, '470dd012-7886-75fc-8186-fecdbcc4765c', '7c3111c1-19ec-51a2-d61c-b2c6cc722f27'),
 ('bc6b7a06-3253-11ec-9f88-f01faf56e08c', NULL, '470dd012-7886-75fc-8186-fecdbcc4765c', '22729e35-7775-2037-084c-db3d13927253'),
 ('f4be3a62-2bc9-11ec-9ddb-f01faf56e08c', NULL, '470dd012-7886-75fc-8186-fecdbcc4765c', '20daea4a-37db-290e-074c-db3d13927253');
 COMMIT;
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.vongdau ENABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.vongdau ENABLE KEYS */;
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.hoadonbqth
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.hoadonbqth
 --
--- Table b17dccn490_lkphuc_pttkdbclpm_test.hoadonbqth does not contain any data (it is empty)
+-- Table b17dccn490_lkphuc_pttkdbclpm.hoadonbqth does not contain any data (it is empty)
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.doibong_giaidau
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.doibong_giaidau
 --
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.doibong_giaidau DISABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.doibong_giaidau DISABLE KEYS */;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.doibong_giaidau(Id, GhiChu, GiaiDauId, DoiBongId, BangDauId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.doibong_giaidau(Id, GhiChu, GiaiDauId, DoiBongId, BangDauId) VALUES
 ('0eaa7929-30d6-11ec-be5d-f01faf56e08c', NULL, '470dd012-7886-75fc-8186-fecdbcc4765c', '8ffddc40-30a5-11ec-b7eb-f01faf56e08c', '3631011e-4559-4ad8-b0ad-cb989f2177da'),
 ('0eaa8dea-30d6-11ec-be5d-f01faf56e08c', NULL, '470dd012-7886-75fc-8186-fecdbcc4765c', '841a59a7-30a4-11ec-b7eb-f01faf56e08c', '3631011e-4559-4ad8-b0ad-cb989f2177da'),
 ('0eaa8f07-30d6-11ec-be5d-f01faf56e08c', NULL, '470dd012-7886-75fc-8186-fecdbcc4765c', 'b6def2ea-30a5-11ec-b7eb-f01faf56e08c', '3631011e-4559-4ad8-b0ad-cb989f2177da'),
@@ -1656,14 +1656,14 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.doibong_giaidau(Id, GhiChu, GiaiDa
 ('deeacc86-30d6-11ec-be5d-f01faf56e08c', NULL, '470dd012-7886-75fc-8186-fecdbcc4765c', '51a7f6aa-30d4-11ec-be5d-f01faf56e08c', '7a0b757e-41eb-4df6-c6f8-494a84b910f4'),
 ('deeacd8c-30d6-11ec-be5d-f01faf56e08c', NULL, '470dd012-7886-75fc-8186-fecdbcc4765c', '86d24920-30d4-11ec-be5d-f01faf56e08c', '7a0b757e-41eb-4df6-c6f8-494a84b910f4');
 COMMIT;
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.doibong_giaidau ENABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.doibong_giaidau ENABLE KEYS */;
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.vitricauthu
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.vitricauthu
 --
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.vitricauthu DISABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.vitricauthu DISABLE KEYS */;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.vitricauthu(Id, Ten, MoTa) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.vitricauthu(Id, Ten, MoTa) VALUES
 ('2053b1d1-2bbc-3328-9835-87db0781c1d7', 'RB', NULL),
 ('319e2e22-7612-7e9d-5fd0-d6b9b82dce79', 'RAM', NULL),
 ('34bb40a4-5422-432c-ae80-058dec185bf1', 'LW', NULL),
@@ -1682,14 +1682,14 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.vitricauthu(Id, Ten, MoTa) VALUES
 ('6a183f62-1a34-480e-5ed0-d6b9b82dce79', 'CB', NULL),
 ('6b2df78d-2779-6c7b-1e77-232813d7054d', 'RM', NULL);
 COMMIT;
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.vitricauthu ENABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.vitricauthu ENABLE KEYS */;
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.trandau
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.trandau
 --
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.trandau DISABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.trandau DISABLE KEYS */;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.trandau(Id, ThoiGianBD, TGChinhThuc, GhiChu, SanDauId, VongDauId, DangDienRa, DaKetThuc, TongSoVe, BuGio) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.trandau(Id, ThoiGianBD, TGChinhThuc, GhiChu, SanDauId, VongDauId, DangDienRa, DaKetThuc, TongSoVe, BuGio) VALUES
 ('00e0e812-327b-11ec-a688-f01faf56e08c', '2020-03-18 03:00:00', 90, NULL, '6683c44b-30a4-11ec-b7eb-f01faf56e08c', '5ffb1283-3d23-153e-79b4-6865aee0822f', False, True, 4409, 4),
 ('0220eebc-3272-11ec-a688-f01faf56e08c', '2020-11-25 03:00:00', 90, NULL, 'e75b0042-30d4-11ec-be5d-f01faf56e08c', 'bc6b7a06-3253-11ec-9f88-f01faf56e08c', False, True, 4163, 1),
 ('0444c403-327a-11ec-a688-f01faf56e08c', '2020-02-25 03:00:00', 90, NULL, '1e73e2a8-30a6-11ec-b7eb-f01faf56e08c', '5ffb1283-3d23-153e-79b4-6865aee0822f', False, True, 6587, 2),
@@ -1792,7 +1792,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.trandau(Id, ThoiGianBD, TGChinhThu
 ('c9027283-327d-11ec-a688-f01faf56e08c', '2021-04-29 03:00:00', 90, NULL, '6683c44b-30a4-11ec-b7eb-f01faf56e08c', 'f4be3a62-2bc9-11ec-9ddb-f01faf56e08c', False, True, 2290, 2);
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.trandau(Id, ThoiGianBD, TGChinhThuc, GhiChu, SanDauId, VongDauId, DangDienRa, DaKetThuc, TongSoVe, BuGio) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.trandau(Id, ThoiGianBD, TGChinhThuc, GhiChu, SanDauId, VongDauId, DangDienRa, DaKetThuc, TongSoVe, BuGio) VALUES
 ('cb2ca050-3270-11ec-a688-f01faf56e08c', '2020-11-26 03:00:00', 90, NULL, '40251819-30a6-11ec-b7eb-f01faf56e08c', 'bc6b7a06-3253-11ec-9f88-f01faf56e08c', False, True, 4159, 3),
 ('cbf963ae-3258-11ec-9f88-f01faf56e08c', '2020-10-20 11:55:00', 90, NULL, '5165c30d-30d4-11ec-be5d-f01faf56e08c', 'bc6b7a06-3253-11ec-9f88-f01faf56e08c', False, True, 3925, 2),
 ('ce74146d-3278-11ec-a688-f01faf56e08c', '2020-12-10 00:55:00', 90, NULL, 'c6be9687-30d4-11ec-be5d-f01faf56e08c', 'bc6b7a06-3253-11ec-9f88-f01faf56e08c', False, True, 6146, 3),
@@ -1819,14 +1819,14 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.trandau(Id, ThoiGianBD, TGChinhThu
 ('fda6d52a-3270-11ec-a688-f01faf56e08c', '2020-11-26 03:00:00', 90, NULL, '0026bb7e-30a6-11ec-b7eb-f01faf56e08c', 'bc6b7a06-3253-11ec-9f88-f01faf56e08c', False, True, 5941, 4),
 ('fe2c250e-3272-11ec-a688-f01faf56e08c', '2020-12-02 03:00:00', 90, NULL, 'ec9cf456-30d3-11ec-be5d-f01faf56e08c', 'bc6b7a06-3253-11ec-9f88-f01faf56e08c', False, True, 4148, 2);
 COMMIT;
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.trandau ENABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.trandau ENABLE KEYS */;
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.doibong_trandau
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.doibong_trandau
 --
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.doibong_trandau DISABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.doibong_trandau DISABLE KEYS */;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.doibong_trandau(Id, Tien, DaThanhToan, TranDauId, HoaDonBQTHId, DoiBongId, IsDoiNha, SoBanThang, Diem) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.doibong_trandau(Id, Tien, DaThanhToan, TranDauId, HoaDonBQTHId, DoiBongId, IsDoiNha, SoBanThang, Diem) VALUES
 ('00f1f4a0-327b-11ec-a688-f01faf56e08c', 0, False, '00e0e812-327b-11ec-a688-f01faf56e08c', NULL, 'dc8b3675-30d5-11ec-be5d-f01faf56e08c', True, 3, 3),
 ('00f890a1-327b-11ec-a688-f01faf56e08c', 0, False, '00e0e812-327b-11ec-a688-f01faf56e08c', NULL, '43940fa2-30d6-11ec-be5d-f01faf56e08c', False, 1, 0),
 ('02590496-3272-11ec-a688-f01faf56e08c', 0, False, '0220eebc-3272-11ec-a688-f01faf56e08c', NULL, '0efacd90-30d7-11ec-be5d-f01faf56e08c', True, 4, 3),
@@ -1929,7 +1929,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.doibong_trandau(Id, Tien, DaThanhT
 ('5d128b48-327c-11ec-a688-f01faf56e08c', 0, False, '5ccb90b5-327c-11ec-a688-f01faf56e08c', NULL, '0eaa8dea-30d6-11ec-be5d-f01faf56e08c', False, 2, 0);
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.doibong_trandau(Id, Tien, DaThanhToan, TranDauId, HoaDonBQTHId, DoiBongId, IsDoiNha, SoBanThang, Diem) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.doibong_trandau(Id, Tien, DaThanhToan, TranDauId, HoaDonBQTHId, DoiBongId, IsDoiNha, SoBanThang, Diem) VALUES
 ('5d651e94-326e-11ec-a688-f01faf56e08c', 0, False, '5d2d5f5c-326e-11ec-a688-f01faf56e08c', NULL, '0efacffe-30d7-11ec-be5d-f01faf56e08c', True, 2, 3),
 ('5d6dcaa8-326e-11ec-a688-f01faf56e08c', 0, False, '5d2d5f5c-326e-11ec-a688-f01faf56e08c', NULL, '0efacd90-30d7-11ec-be5d-f01faf56e08c', False, 1, 0),
 ('5f800336-3258-11ec-9f88-f01faf56e08c', 0, False, '5f39fcfd-3258-11ec-9f88-f01faf56e08c', NULL, 'b7046d8b-30d6-11ec-be5d-f01faf56e08c', True, 3, 3),
@@ -2032,7 +2032,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.doibong_trandau(Id, Tien, DaThanhT
 ('c9334ff5-327d-11ec-a688-f01faf56e08c', 0, False, 'c9027283-327d-11ec-a688-f01faf56e08c', NULL, '7bb5bb04-30d6-11ec-be5d-f01faf56e08c', False, 1, 1);
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.doibong_trandau(Id, Tien, DaThanhToan, TranDauId, HoaDonBQTHId, DoiBongId, IsDoiNha, SoBanThang, Diem) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.doibong_trandau(Id, Tien, DaThanhToan, TranDauId, HoaDonBQTHId, DoiBongId, IsDoiNha, SoBanThang, Diem) VALUES
 ('cb751a61-3270-11ec-a688-f01faf56e08c', 0, False, 'cb2ca050-3270-11ec-a688-f01faf56e08c', NULL, '43c39264-30d6-11ec-be5d-f01faf56e08c', True, 3, 3),
 ('cb819a55-3270-11ec-a688-f01faf56e08c', 0, False, 'cb2ca050-3270-11ec-a688-f01faf56e08c', NULL, '43c39521-30d6-11ec-be5d-f01faf56e08c', False, 1, 0),
 ('cc44cd9e-3258-11ec-9f88-f01faf56e08c', 0, False, 'cbf963ae-3258-11ec-9f88-f01faf56e08c', NULL, 'deeacc86-30d6-11ec-be5d-f01faf56e08c', True, 0, 0),
@@ -2084,14 +2084,14 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.doibong_trandau(Id, Tien, DaThanhT
 ('fe3d7153-3272-11ec-a688-f01faf56e08c', 0, False, 'fe2c250e-3272-11ec-a688-f01faf56e08c', NULL, 'debf1d6e-30d6-11ec-be5d-f01faf56e08c', True, 3, 3),
 ('fe44294d-3272-11ec-a688-f01faf56e08c', 0, False, 'fe2c250e-3272-11ec-a688-f01faf56e08c', NULL, 'deeacc86-30d6-11ec-be5d-f01faf56e08c', False, 0, 0);
 COMMIT;
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.doibong_trandau ENABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.doibong_trandau ENABLE KEYS */;
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.cauthu
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.cauthu
 --
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.cauthu DISABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.cauthu DISABLE KEYS */;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthu(Id, Ten, NamSinh, ChieuCao, CanNang, ChanThuan, SoAo, DoiBongId, ViTriId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthu(Id, Ten, NamSinh, ChieuCao, CanNang, ChanThuan, SoAo, DoiBongId, ViTriId) VALUES
 ('0084c3eb-35a2-11ec-982e-f01faf56e08c', 'Antony', NULL, NULL, NULL, NULL, 4, '5ddf811f-30d3-11ec-be5d-f01faf56e08c', NULL),
 ('0296648b-3475-11ec-8bbf-f01faf56e08c', 'Passlack', NULL, NULL, NULL, NULL, 24, 'a50cc14c-30d4-11ec-be5d-f01faf56e08c', NULL),
 ('02b9c4af-35ad-11ec-982e-f01faf56e08c', 'Szecsi', NULL, NULL, NULL, NULL, 7, '0e549481-30d4-11ec-be5d-f01faf56e08c', NULL),
@@ -2194,7 +2194,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthu(Id, Ten, NamSinh, ChieuCao,
 ('1675a95b-359f-11ec-982e-f01faf56e08c', 'Zarzana', NULL, NULL, NULL, NULL, 42, '841a59a7-30a4-11ec-b7eb-f01faf56e08c', NULL);
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthu(Id, Ten, NamSinh, ChieuCao, CanNang, ChanThuan, SoAo, DoiBongId, ViTriId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthu(Id, Ten, NamSinh, ChieuCao, CanNang, ChanThuan, SoAo, DoiBongId, ViTriId) VALUES
 ('16a348ae-354c-11ec-982e-f01faf56e08c', 'Sourlis', NULL, NULL, NULL, NULL, 15, 'a0444e14-30a6-11ec-b7eb-f01faf56e08c', NULL),
 ('173236fb-354f-11ec-982e-f01faf56e08c', 'Bernabe', NULL, NULL, NULL, NULL, 44, 'b6def2ea-30a5-11ec-b7eb-f01faf56e08c', NULL),
 ('1783fc9f-324e-11ec-9f88-f01faf56e08c', 'Jose SA', NULL, NULL, NULL, NULL, 30, '51a7f6aa-30d4-11ec-be5d-f01faf56e08c', NULL),
@@ -2297,7 +2297,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthu(Id, Ten, NamSinh, ChieuCao,
 ('284fc150-324b-11ec-9f88-f01faf56e08c', 'Tokamac Nguen', NULL, NULL, NULL, NULL, 18, '66c85da1-30a4-11ec-b7eb-f01faf56e08c', NULL);
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthu(Id, Ten, NamSinh, ChieuCao, CanNang, ChanThuan, SoAo, DoiBongId, ViTriId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthu(Id, Ten, NamSinh, ChieuCao, CanNang, ChanThuan, SoAo, DoiBongId, ViTriId) VALUES
 ('2a5ead21-35ad-11ec-982e-f01faf56e08c', 'Uzuni', NULL, NULL, NULL, NULL, 23, 'c7dcd8cc-30a6-11ec-b7eb-f01faf56e08c', NULL),
 ('2be8c47a-324e-11ec-9f88-f01faf56e08c', 'Upamecano', NULL, NULL, NULL, NULL, 12, '86d24920-30d4-11ec-be5d-f01faf56e08c', NULL),
 ('2be8c4b6-324e-11ec-9f88-f01faf56e08c', 'Mukiele', NULL, NULL, NULL, NULL, 38, 'ebb95b5c-30d2-11ec-be5d-f01faf56e08c', NULL),
@@ -2400,7 +2400,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthu(Id, Ten, NamSinh, ChieuCao,
 ('48649d51-324e-11ec-9f88-f01faf56e08c', 'Strootman', NULL, NULL, NULL, NULL, 11, '7bf4801e-30a6-11ec-b7eb-f01faf56e08c', NULL);
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthu(Id, Ten, NamSinh, ChieuCao, CanNang, ChanThuan, SoAo, DoiBongId, ViTriId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthu(Id, Ten, NamSinh, ChieuCao, CanNang, ChanThuan, SoAo, DoiBongId, ViTriId) VALUES
 ('48649d60-324e-11ec-9f88-f01faf56e08c', 'Radonjic', NULL, NULL, NULL, NULL, 29, 'c91aa041-30d3-11ec-be5d-f01faf56e08c', NULL),
 ('48649d70-324e-11ec-9f88-f01faf56e08c', 'Luis Henrique', NULL, NULL, NULL, NULL, 11, '5ddf811f-30d3-11ec-be5d-f01faf56e08c', NULL),
 ('48649d7f-324e-11ec-9f88-f01faf56e08c', 'Pele', NULL, NULL, NULL, NULL, 17, '0a233215-30a4-11ec-b7eb-f01faf56e08c', NULL),
@@ -2503,7 +2503,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthu(Id, Ten, NamSinh, ChieuCao,
 ('5e67ebf2-3151-11ec-8a5d-f01faf56e08c', 'Alisson Becker', NULL, NULL, NULL, NULL, 38, 'e7a60637-30d4-11ec-be5d-f01faf56e08c', NULL);
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthu(Id, Ten, NamSinh, ChieuCao, CanNang, ChanThuan, SoAo, DoiBongId, ViTriId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthu(Id, Ten, NamSinh, ChieuCao, CanNang, ChanThuan, SoAo, DoiBongId, ViTriId) VALUES
 ('5e7295b6-3151-11ec-8a5d-f01faf56e08c', 'Phillips', NULL, NULL, NULL, NULL, 29, '0a233215-30a4-11ec-b7eb-f01faf56e08c', NULL),
 ('5e7299c9-3151-11ec-8a5d-f01faf56e08c', 'Ozan Kabak', NULL, NULL, NULL, NULL, 30, '841a59a7-30a4-11ec-b7eb-f01faf56e08c', NULL),
 ('5e729bd1-3151-11ec-8a5d-f01faf56e08c', 'Robertson', NULL, NULL, NULL, NULL, 11, 'ecbabcc0-30d3-11ec-be5d-f01faf56e08c', NULL),
@@ -2606,7 +2606,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthu(Id, Ten, NamSinh, ChieuCao,
 ('6ca0e2c3-324e-11ec-9f88-f01faf56e08c', 'Pogba', NULL, NULL, NULL, NULL, 40, 'b6def2ea-30a5-11ec-b7eb-f01faf56e08c', NULL);
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthu(Id, Ten, NamSinh, ChieuCao, CanNang, ChanThuan, SoAo, DoiBongId, ViTriId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthu(Id, Ten, NamSinh, ChieuCao, CanNang, ChanThuan, SoAo, DoiBongId, ViTriId) VALUES
 ('6ca0e2d3-324e-11ec-9f88-f01faf56e08c', 'Mata', NULL, NULL, NULL, NULL, 37, '6f43fcd9-30a3-11ec-b7eb-f01faf56e08c', NULL),
 ('6ca0e2de-324e-11ec-9f88-f01faf56e08c', 'James', NULL, NULL, NULL, NULL, 14, 'a0444e14-30a6-11ec-b7eb-f01faf56e08c', NULL),
 ('6ca0e2e9-324e-11ec-9f88-f01faf56e08c', 'Fosu-Mensah', NULL, NULL, NULL, NULL, 7, 'a50cc14c-30d4-11ec-be5d-f01faf56e08c', NULL),
@@ -2709,7 +2709,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthu(Id, Ten, NamSinh, ChieuCao,
 ('89029e69-347a-11ec-8bbf-f01faf56e08c', 'Lazaro', NULL, NULL, NULL, NULL, 22, 'e7a60637-30d4-11ec-be5d-f01faf56e08c', NULL);
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthu(Id, Ten, NamSinh, ChieuCao, CanNang, ChanThuan, SoAo, DoiBongId, ViTriId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthu(Id, Ten, NamSinh, ChieuCao, CanNang, ChanThuan, SoAo, DoiBongId, ViTriId) VALUES
 ('8a8a20bc-357a-11ec-982e-f01faf56e08c', 'Czyz', NULL, NULL, NULL, NULL, 43, 'b13fcb8d-30a4-11ec-b7eb-f01faf56e08c', NULL),
 ('8ac7a0ac-3481-11ec-8bbf-f01faf56e08c', 'Ivan Romero', NULL, NULL, NULL, NULL, 2, 'd611f244-30a5-11ec-b7eb-f01faf56e08c', NULL),
 ('8ca5716b-3605-11ec-90ad-f01faf56e08c', 'Kryvtsov', NULL, NULL, NULL, NULL, 26, '53f132b3-30a5-11ec-b7eb-f01faf56e08c', NULL),
@@ -2812,7 +2812,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthu(Id, Ten, NamSinh, ChieuCao,
 ('b7b4017d-3597-11ec-982e-f01faf56e08c', 'Cavani', NULL, NULL, NULL, NULL, 22, '51a7f6aa-30d4-11ec-be5d-f01faf56e08c', NULL);
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthu(Id, Ten, NamSinh, ChieuCao, CanNang, ChanThuan, SoAo, DoiBongId, ViTriId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthu(Id, Ten, NamSinh, ChieuCao, CanNang, ChanThuan, SoAo, DoiBongId, ViTriId) VALUES
 ('b8396d64-356c-11ec-982e-f01faf56e08c', 'Sanabria', NULL, NULL, NULL, NULL, 22, '3c57865d-30a4-11ec-b7eb-f01faf56e08c', NULL),
 ('ba153df5-35a8-11ec-982e-f01faf56e08c', 'Vezzoni', NULL, NULL, NULL, NULL, 45, '66c85da1-30a4-11ec-b7eb-f01faf56e08c', NULL),
 ('bc7502d1-35b0-11ec-982e-f01faf56e08c', 'Markov', NULL, NULL, NULL, NULL, 12, '0c9f6e93-30d3-11ec-be5d-f01faf56e08c', NULL),
@@ -2915,7 +2915,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthu(Id, Ten, NamSinh, ChieuCao,
 ('e66e1468-3214-11ec-9f88-f01faf56e08c', 'Visca', NULL, NULL, NULL, NULL, 10, '841a59a7-30a4-11ec-b7eb-f01faf56e08c', NULL);
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthu(Id, Ten, NamSinh, ChieuCao, CanNang, ChanThuan, SoAo, DoiBongId, ViTriId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthu(Id, Ten, NamSinh, ChieuCao, CanNang, ChanThuan, SoAo, DoiBongId, ViTriId) VALUES
 ('e7035c03-34a9-11ec-8bbf-f01faf56e08c', 'Freuler', NULL, NULL, NULL, NULL, 23, 'de8ffb0b-30a3-11ec-b7eb-f01faf56e08c', NULL),
 ('e760b6b2-35a3-11ec-982e-f01faf56e08c', 'Pfeiffer', NULL, NULL, NULL, NULL, 38, '0c9f6e93-30d3-11ec-be5d-f01faf56e08c', NULL),
 ('e93cdea3-324b-11ec-9f88-f01faf56e08c', 'Ederson', NULL, NULL, NULL, NULL, 20, 'ecbabcc0-30d3-11ec-be5d-f01faf56e08c', NULL),
@@ -2991,14 +2991,14 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthu(Id, Ten, NamSinh, ChieuCao,
 ('fad4d650-3573-11ec-982e-f01faf56e08c', 'Borkowski', NULL, NULL, NULL, NULL, 26, '0e549481-30d4-11ec-be5d-f01faf56e08c', NULL),
 ('fb8ce522-3571-11ec-982e-f01faf56e08c', 'De Gea', NULL, NULL, NULL, NULL, 31, 'de8ffb0b-30a3-11ec-b7eb-f01faf56e08c', NULL);
 COMMIT;
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.cauthu ENABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.cauthu ENABLE KEYS */;
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.doitac
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.doitac
 --
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.doitac DISABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.doitac DISABLE KEYS */;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.doitac(Id, Ten, SDT, Email, DiaChi) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.doitac(Id, Ten, SDT, Email, DiaChi) VALUES
 ('11d633ac-53cd-68d4-53dc-43b45f7141d5', 'Oralia', '0962091308', 'Acker@example.com', 'Marienplatz 85e, 64027, Eiselfing'),
 ('18df035e-2a2b-6637-7b19-62931b35e58e', 'Gaynelle', '0963351647', 'ScottyNavarro6@example.com', 'Führichstraße 71, 31092, Aalen'),
 ('1adfc868-4d01-3278-62ce-e3e1369d4b75', 'Denise', '0960597521', 'Abrams29@example.com', 'Kardinal-Faulhaber-Straße 2, 08737, Bodstedt'),
@@ -3050,26 +3050,26 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.doitac(Id, Ten, SDT, Email, DiaChi
 ('72b15750-2ec5-1eb0-7819-62931b35e58e', 'Gaylene', '0961019569', 'Alvin.Hahn@example.com', 'Wagnerstraße 2, 83010, eserig'),
 ('75eff582-6217-7650-6827-c2654409dbee', 'Selina', '0966545330', 'Abreu@example.com', 'Wiltrudenstraße 25-26, 84802, Lüttholm');
 COMMIT;
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.doitac ENABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.doitac ENABLE KEYS */;
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.vitritrongtai
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.vitritrongtai
 --
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.vitritrongtai DISABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.vitritrongtai DISABLE KEYS */;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.vitritrongtai(Id, Ten, MoTa) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.vitritrongtai(Id, Ten, MoTa) VALUES
 ('2297512b-7305-21fb-b703-30ce1238eff4', 'Trọng tài chính', NULL),
 ('6f3d8c21-6442-3904-adbb-740758d6ed94', 'Trọng tài bàn', NULL),
 ('7aae8708-27d6-3822-a1b8-b11c2ea055db', 'Trọng tài biên', NULL);
 COMMIT;
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.vitritrongtai ENABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.vitritrongtai ENABLE KEYS */;
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.trongtai
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.trongtai
 --
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.trongtai DISABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.trongtai DISABLE KEYS */;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.trongtai(Id, Ten, NamSinh, SDT, DiaChi, SoNamKN, Email) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.trongtai(Id, Ten, NamSinh, SDT, DiaChi, SoNamKN, Email) VALUES
 ('11ea8cfb-132f-75b4-adb7-a919cab3d500', 'Laci Shuler', 1879, '0966430640', '60 Edgewood Way, Concord, New Hampshire, 86363', 0, NULL),
 ('13318084-54c0-4f62-c502-28cbae4b6f1a', 'Jude Bishop', 1993, '0966767245', '26 Ironwood Highway, STE 6952, Boston, MA, 45561', 0, NULL),
 ('137d58e0-7896-6d7c-4277-9e4463160e48', 'Addie Keefe', 1985, '0963820409', '2899 East Market Ave, STE 118, Annapolis, Maryland, 79654', 0, NULL),
@@ -3171,24 +3171,24 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.trongtai(Id, Ten, NamSinh, SDT, Di
 ('7b90d905-6d57-6943-3e77-9e4463160e48', 'Melita Rasmussen', 1927, '0966965376', '88 Church Parkway, Madison, Wisconsin, 59567', 0, NULL),
 ('7da9a40d-2b79-7ad8-8dcc-aea518759ca4', 'Tim Amador', 1886, '0964635163', '1482 Mount Rd, Sacramento, CA, 86598', 0, NULL);
 COMMIT;
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.trongtai ENABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.trongtai ENABLE KEYS */;
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.totrongtai
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.totrongtai
 --
--- Table b17dccn490_lkphuc_pttkdbclpm_test.totrongtai does not contain any data (it is empty)
+-- Table b17dccn490_lkphuc_pttkdbclpm.totrongtai does not contain any data (it is empty)
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.hoadontiencong
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.hoadontiencong
 --
--- Table b17dccn490_lkphuc_pttkdbclpm_test.hoadontiencong does not contain any data (it is empty)
+-- Table b17dccn490_lkphuc_pttkdbclpm.hoadontiencong does not contain any data (it is empty)
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.loaisukien
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.loaisukien
 --
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.loaisukien DISABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.loaisukien DISABLE KEYS */;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.loaisukien(Id, Ten, MoTa) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.loaisukien(Id, Ten, MoTa) VALUES
 ('1441f545-28d9-3de2-70ff-f15282ef58c1', 'Ra sân', NULL),
 ('1703aa41-768a-5e1b-cd2e-fe37b47efbd0', 'Thẻ đỏ', NULL),
 ('2412fd8f-3d33-4467-cc2e-fe37b47efbd0', 'Phạm lỗi', NULL),
@@ -3198,14 +3198,14 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.loaisukien(Id, Ten, MoTa) VALUES
 ('585a8a5d-2d32-53a4-e279-7ce9981695ea', 'Thẻ vàng', NULL),
 ('ca161537-2dda-11ec-a23b-f01faf56e08c', 'Vào sân', NULL);
 COMMIT;
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.loaisukien ENABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.loaisukien ENABLE KEYS */;
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau
 --
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau DISABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau DISABLE KEYS */;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
 ('007a7d78-3e58-11ec-a8f0-f01faf56e08c', True, '5d089911-327c-11ec-a688-f01faf56e08c', '0a804c11-3475-11ec-8bbf-f01faf56e08c'),
 ('0081378b-3e58-11ec-a8f0-f01faf56e08c', True, '5d089911-327c-11ec-a688-f01faf56e08c', '2be8c4d8-324e-11ec-9f88-f01faf56e08c'),
 ('008141b1-3e58-11ec-a8f0-f01faf56e08c', True, '5d089911-327c-11ec-a688-f01faf56e08c', '36d13913-324e-11ec-9f88-f01faf56e08c'),
@@ -3308,7 +3308,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaCh
 ('030a8413-358d-11ec-982e-f01faf56e08c', True, '049a9205-327a-11ec-a688-f01faf56e08c', 'f6e7bb34-3245-11ec-9f88-f01faf56e08c');
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
 ('03250002-358d-11ec-982e-f01faf56e08c', True, '049a9205-327a-11ec-a688-f01faf56e08c', 'f6e7bed8-3245-11ec-9f88-f01faf56e08c'),
 ('03251410-358d-11ec-982e-f01faf56e08c', True, '049a9205-327a-11ec-a688-f01faf56e08c', 'e53005c9-324d-11ec-9f88-f01faf56e08c'),
 ('03252679-358d-11ec-982e-f01faf56e08c', True, '049a9205-327a-11ec-a688-f01faf56e08c', '91962122-322a-11ec-9f88-f01faf56e08c'),
@@ -3411,7 +3411,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaCh
 ('0aa7a1a8-3e57-11ec-a8f0-f01faf56e08c', True, '3988c642-327c-11ec-a688-f01faf56e08c', 'e3e455d4-359b-11ec-982e-f01faf56e08c');
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
 ('0aa7a9f0-3e57-11ec-a8f0-f01faf56e08c', False, '3988c642-327c-11ec-a688-f01faf56e08c', '9263bac9-3481-11ec-8bbf-f01faf56e08c'),
 ('0aa7b13b-3e57-11ec-a8f0-f01faf56e08c', False, '3988c642-327c-11ec-a688-f01faf56e08c', 'e60216db-3228-11ec-9f88-f01faf56e08c'),
 ('0aa7b839-3e57-11ec-a8f0-f01faf56e08c', False, '3988c642-327c-11ec-a688-f01faf56e08c', '1aedbea5-3247-11ec-9f88-f01faf56e08c'),
@@ -3514,7 +3514,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaCh
 ('10d64bae-362f-11ec-90ad-f01faf56e08c', False, '0cc51715-326a-11ec-9f88-f01faf56e08c', '4cea7cb2-3242-11ec-9f88-f01faf56e08c');
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
 ('10d6aaef-362f-11ec-90ad-f01faf56e08c', False, '0cc51715-326a-11ec-9f88-f01faf56e08c', '1783ff36-324e-11ec-9f88-f01faf56e08c'),
 ('10d6ff6d-362f-11ec-90ad-f01faf56e08c', False, '0cc51715-326a-11ec-9f88-f01faf56e08c', '1675a95b-359f-11ec-982e-f01faf56e08c'),
 ('10d77859-362f-11ec-90ad-f01faf56e08c', False, '0cc51715-326a-11ec-9f88-f01faf56e08c', 'f6e7b933-3245-11ec-9f88-f01faf56e08c'),
@@ -3617,7 +3617,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaCh
 ('17d41376-360d-11ec-90ad-f01faf56e08c', False, '0deeb7ea-3273-11ec-a688-f01faf56e08c', 'e66e0ae7-3214-11ec-9f88-f01faf56e08c');
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
 ('17d427f4-360d-11ec-90ad-f01faf56e08c', True, '0df50e99-3273-11ec-a688-f01faf56e08c', '9172a6f1-322a-11ec-9f88-f01faf56e08c'),
 ('18d1448c-3bee-11ec-9c9f-f01faf56e08c', True, '5598d8d1-3278-11ec-a688-f01faf56e08c', '12f24470-322b-11ec-9f88-f01faf56e08c'),
 ('18d352b8-3bee-11ec-9c9f-f01faf56e08c', True, '5598d8d1-3278-11ec-a688-f01faf56e08c', '61bffb1a-324e-11ec-9f88-f01faf56e08c'),
@@ -3720,7 +3720,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaCh
 ('1e4ce7a0-3c4d-11ec-8ab6-f01faf56e08c', True, '5cdbaad0-327d-11ec-a688-f01faf56e08c', '6ca0e2de-324e-11ec-9f88-f01faf56e08c');
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
 ('1e4d06dc-3c4d-11ec-8ab6-f01faf56e08c', True, '5cdbaad0-327d-11ec-a688-f01faf56e08c', '06b9d42d-324e-11ec-9f88-f01faf56e08c'),
 ('1e4d2589-3c4d-11ec-8ab6-f01faf56e08c', True, '5cdbaad0-327d-11ec-a688-f01faf56e08c', '16a348ae-354c-11ec-982e-f01faf56e08c'),
 ('1e4d4470-3c4d-11ec-8ab6-f01faf56e08c', False, '5cdbaad0-327d-11ec-a688-f01faf56e08c', '2be8c4cd-324e-11ec-9f88-f01faf56e08c'),
@@ -3823,7 +3823,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaCh
 ('22340fde-3630-11ec-90ad-f01faf56e08c', True, '11bc4250-3255-11ec-9f88-f01faf56e08c', '61bffa4f-324e-11ec-9f88-f01faf56e08c');
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
 ('223425ae-3630-11ec-90ad-f01faf56e08c', True, '11bc4250-3255-11ec-9f88-f01faf56e08c', 'dda983ef-347f-11ec-8bbf-f01faf56e08c'),
 ('22343a72-3630-11ec-90ad-f01faf56e08c', True, '11bc4250-3255-11ec-9f88-f01faf56e08c', '4d41330a-30da-11ec-be5d-f01faf56e08c'),
 ('223453d5-3630-11ec-90ad-f01faf56e08c', True, '11bc4250-3255-11ec-9f88-f01faf56e08c', 'e970cad4-324b-11ec-9f88-f01faf56e08c'),
@@ -3926,7 +3926,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaCh
 ('26d4952a-357b-11ec-982e-f01faf56e08c', False, '1b7f79d1-3273-11ec-a688-f01faf56e08c', 'e970c1c9-324b-11ec-9f88-f01faf56e08c');
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
 ('26d4a9d0-357b-11ec-982e-f01faf56e08c', False, '1b7f79d1-3273-11ec-a688-f01faf56e08c', '1cb43829-359a-11ec-982e-f01faf56e08c'),
 ('272cf549-3629-11ec-90ad-f01faf56e08c', False, '1b7f79d1-3273-11ec-a688-f01faf56e08c', '284fbdf8-324b-11ec-9f88-f01faf56e08c'),
 ('272d201a-3629-11ec-90ad-f01faf56e08c', False, '1b7f79d1-3273-11ec-a688-f01faf56e08c', '9eebe88b-3249-11ec-9f88-f01faf56e08c'),
@@ -4029,7 +4029,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaCh
 ('2a2a5a04-3c49-11ec-8ab6-f01faf56e08c', False, 'f764f652-327d-11ec-a688-f01faf56e08c', '978e4fcf-3473-11ec-8bbf-f01faf56e08c');
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
 ('2d88fb24-3c4c-11ec-8ab6-f01faf56e08c', True, '35c01bb5-327d-11ec-a688-f01faf56e08c', '5ebff646-3224-11ec-9f88-f01faf56e08c'),
 ('2d8fd6d9-3c4c-11ec-8ab6-f01faf56e08c', True, '35c01bb5-327d-11ec-a688-f01faf56e08c', '3f620b23-347c-11ec-8bbf-f01faf56e08c'),
 ('2d8ff6e3-3c4c-11ec-8ab6-f01faf56e08c', True, '35c01bb5-327d-11ec-a688-f01faf56e08c', 'c3d1bdf2-349e-11ec-8bbf-f01faf56e08c'),
@@ -4132,7 +4132,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaCh
 ('527b8e65-3e57-11ec-a8f0-f01faf56e08c', True, '4a8eb9d1-327c-11ec-a688-f01faf56e08c', '6ca0e2e9-324e-11ec-9f88-f01faf56e08c');
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
 ('527b972f-3e57-11ec-a8f0-f01faf56e08c', True, '4a8eb9d1-327c-11ec-a688-f01faf56e08c', '5ebff19b-3224-11ec-9f88-f01faf56e08c'),
 ('527bb509-3e57-11ec-a8f0-f01faf56e08c', True, '4a8eb9d1-327c-11ec-a688-f01faf56e08c', '1caa12e2-34aa-11ec-8bbf-f01faf56e08c'),
 ('527bbccf-3e57-11ec-a8f0-f01faf56e08c', True, '4a8eb9d1-327c-11ec-a688-f01faf56e08c', '48649cb7-324e-11ec-9f88-f01faf56e08c'),
@@ -4235,7 +4235,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaCh
 ('5f0b845a-3e57-11ec-a8f0-f01faf56e08c', True, '4a95c0a0-327c-11ec-a688-f01faf56e08c', 'f6e7bd12-3245-11ec-9f88-f01faf56e08c');
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
 ('5f0b8d20-3e57-11ec-a8f0-f01faf56e08c', True, '4a95c0a0-327c-11ec-a688-f01faf56e08c', 'f7680782-324d-11ec-9f88-f01faf56e08c'),
 ('5f0b9502-3e57-11ec-a8f0-f01faf56e08c', True, '4a95c0a0-327c-11ec-a688-f01faf56e08c', '53be37fc-3471-11ec-8bbf-f01faf56e08c'),
 ('5f0b9d04-3e57-11ec-a8f0-f01faf56e08c', True, '4a95c0a0-327c-11ec-a688-f01faf56e08c', 'e60210aa-3228-11ec-9f88-f01faf56e08c'),
@@ -4338,7 +4338,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaCh
 ('78010491-3e3d-11ec-b563-f01faf56e08c', False, 'e808e9c1-3272-11ec-a688-f01faf56e08c', 'e60215fa-3228-11ec-9f88-f01faf56e08c');
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
 ('78011241-3e3d-11ec-b563-f01faf56e08c', False, 'e808e9c1-3272-11ec-a688-f01faf56e08c', '754e74a8-324e-11ec-9f88-f01faf56e08c'),
 ('78011f77-3e3d-11ec-b563-f01faf56e08c', False, 'e808e9c1-3272-11ec-a688-f01faf56e08c', '281c174a-324b-11ec-9f88-f01faf56e08c'),
 ('78012c5b-3e3d-11ec-b563-f01faf56e08c', False, 'e808e9c1-3272-11ec-a688-f01faf56e08c', '8f216155-3479-11ec-8bbf-f01faf56e08c'),
@@ -4441,7 +4441,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaCh
 ('9539f223-3e56-11ec-a8f0-f01faf56e08c', False, 'ef15c6ec-327a-11ec-a688-f01faf56e08c', '9f13f527-3249-11ec-9f88-f01faf56e08c');
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
 ('99e9cc10-3bef-11ec-9c9f-f01faf56e08c', True, '676be2c8-3278-11ec-a688-f01faf56e08c', 'f6e7ba6b-3245-11ec-9f88-f01faf56e08c'),
 ('9a17746e-3bef-11ec-9c9f-f01faf56e08c', True, '676be2c8-3278-11ec-a688-f01faf56e08c', '36d1398b-324e-11ec-9f88-f01faf56e08c'),
 ('9a178830-3bef-11ec-9c9f-f01faf56e08c', True, '676be2c8-3278-11ec-a688-f01faf56e08c', 'c16cfd99-3576-11ec-982e-f01faf56e08c'),
@@ -4544,7 +4544,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaCh
 ('bdfed90d-3bee-11ec-9c9f-f01faf56e08c', True, '43eb871e-3278-11ec-a688-f01faf56e08c', 'c3cf7cea-349e-11ec-8bbf-f01faf56e08c');
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
 ('bdfee32e-3bee-11ec-9c9f-f01faf56e08c', True, '43eb871e-3278-11ec-a688-f01faf56e08c', 'b2c14193-3573-11ec-982e-f01faf56e08c'),
 ('bdfee9f6-3bee-11ec-9c9f-f01faf56e08c', True, '43eb871e-3278-11ec-a688-f01faf56e08c', '4d413f3b-30da-11ec-be5d-f01faf56e08c'),
 ('bdfef0bc-3bee-11ec-9c9f-f01faf56e08c', True, '43eb871e-3278-11ec-a688-f01faf56e08c', 'f76805e2-324d-11ec-9f88-f01faf56e08c'),
@@ -4647,7 +4647,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaCh
 ('d0551588-3e5a-11ec-a8f0-f01faf56e08c', True, '9a0a31a4-327a-11ec-a688-f01faf56e08c', '074a2bef-324a-11ec-9f88-f01faf56e08c');
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
 ('d0551ece-3e5a-11ec-a8f0-f01faf56e08c', True, '9a0a31a4-327a-11ec-a688-f01faf56e08c', '6ae2093f-347f-11ec-8bbf-f01faf56e08c'),
 ('d0552813-3e5a-11ec-a8f0-f01faf56e08c', True, '9a0a31a4-327a-11ec-a688-f01faf56e08c', '869319af-3247-11ec-9f88-f01faf56e08c'),
 ('d0553171-3e5a-11ec-a8f0-f01faf56e08c', True, '9a0a31a4-327a-11ec-a688-f01faf56e08c', '6c843ed7-324a-11ec-9f88-f01faf56e08c'),
@@ -4750,7 +4750,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaCh
 ('def4193a-3bef-11ec-9c9f-f01faf56e08c', False, '336ca5b3-3278-11ec-a688-f01faf56e08c', 'f6e7b7eb-3245-11ec-9f88-f01faf56e08c');
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
 ('def4208c-3bef-11ec-9c9f-f01faf56e08c', False, '336ca5b3-3278-11ec-a688-f01faf56e08c', '91962325-322a-11ec-9f88-f01faf56e08c'),
 ('def42911-3bef-11ec-9c9f-f01faf56e08c', False, '336ca5b3-3278-11ec-a688-f01faf56e08c', '4cea9d9a-3242-11ec-9f88-f01faf56e08c'),
 ('def4304c-3bef-11ec-9c9f-f01faf56e08c', False, '336ca5b3-3278-11ec-a688-f01faf56e08c', 'f6e7b9d1-3245-11ec-9f88-f01faf56e08c'),
@@ -4853,7 +4853,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaCh
 ('e7af9ae1-3e56-11ec-a8f0-f01faf56e08c', False, '3981fa9f-327c-11ec-a688-f01faf56e08c', '4d413b99-30da-11ec-be5d-f01faf56e08c');
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
 ('e8c2e7f8-3e55-11ec-a8f0-f01faf56e08c', True, 'c1d37e85-327a-11ec-a688-f01faf56e08c', '6c8441db-324a-11ec-9f88-f01faf56e08c'),
 ('e8cb68e3-3e55-11ec-a8f0-f01faf56e08c', True, 'c1d37e85-327a-11ec-a688-f01faf56e08c', '917cd2f3-322a-11ec-9f88-f01faf56e08c'),
 ('e8cb87d5-3e55-11ec-a8f0-f01faf56e08c', True, 'c1d37e85-327a-11ec-a688-f01faf56e08c', '08d74182-35ad-11ec-982e-f01faf56e08c'),
@@ -4956,7 +4956,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaCh
 ('fd14e826-3c4a-11ec-8ab6-f01faf56e08c', True, 'b7078714-327d-11ec-a688-f01faf56e08c', 'c758d8de-3603-11ec-90ad-f01faf56e08c');
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau(Id, IsDaChinh, DoiBongTranDauId, CauThuId) VALUES
 ('fd14f0ea-3c4a-11ec-8ab6-f01faf56e08c', True, 'b7078714-327d-11ec-a688-f01faf56e08c', '61bff8ff-324e-11ec-9f88-f01faf56e08c'),
 ('fd14fa4d-3c4a-11ec-8ab6-f01faf56e08c', True, 'b7078714-327d-11ec-a688-f01faf56e08c', '12f22133-322b-11ec-9f88-f01faf56e08c'),
 ('fd1501bc-3c4a-11ec-8ab6-f01faf56e08c', True, 'b7078714-327d-11ec-a688-f01faf56e08c', '2be8c504-324e-11ec-9f88-f01faf56e08c'),
@@ -4986,24 +4986,24 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau(Id, IsDaCh
 ('fe557a20-3e59-11ec-a8f0-f01faf56e08c', False, '2a1b9825-327a-11ec-a688-f01faf56e08c', '4cea9c14-3242-11ec-9f88-f01faf56e08c'),
 ('fe558336-3e59-11ec-a8f0-f01faf56e08c', False, '2a1b9825-327a-11ec-a688-f01faf56e08c', '074a2460-324a-11ec-9f88-f01faf56e08c');
 COMMIT;
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.cauthua_doibong_trandau ENABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.cauthua_doibong_trandau ENABLE KEYS */;
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.hopdongbqth
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.hopdongbqth
 --
--- Table b17dccn490_lkphuc_pttkdbclpm_test.hopdongbqth does not contain any data (it is empty)
+-- Table b17dccn490_lkphuc_pttkdbclpm.hopdongbqth does not contain any data (it is empty)
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.trongtai_totrongttai
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.trongtai_totrongttai
 --
--- Table b17dccn490_lkphuc_pttkdbclpm_test.trongtai_totrongttai does not contain any data (it is empty)
+-- Table b17dccn490_lkphuc_pttkdbclpm.trongtai_totrongttai does not contain any data (it is empty)
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.sukien
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.sukien
 --
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.sukien DISABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.sukien DISABLE KEYS */;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.sukien(Id, ThoiDiem, GhiChu, CauThuDoiBongTranDauId, LoaiSuKienId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.sukien(Id, ThoiDiem, GhiChu, CauThuDoiBongTranDauId, LoaiSuKienId) VALUES
 ('0092c8a1-3a63-11ec-ac33-f01faf56e08c', 82, NULL, '032680dd-358d-11ec-982e-f01faf56e08c', '3c46f4ee-62ea-5c8d-986f-b9e6bde19f05'),
 ('01e990ed-3c45-11ec-8ab6-f01faf56e08c', 44, NULL, 'cc4d7d78-3c44-11ec-8ab6-f01faf56e08c', '585a8a5d-2d32-53a4-e279-7ce9981695ea'),
 ('02b0601b-3d0f-11ec-b28d-f01faf56e08c', 78, NULL, 'c2407f5d-3bf1-11ec-9c9f-f01faf56e08c', '585a8a5d-2d32-53a4-e279-7ce9981695ea'),
@@ -5106,7 +5106,7 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.sukien(Id, ThoiDiem, GhiChu, CauTh
 ('9a077cb0-3e3d-11ec-b563-f01faf56e08c', 66, NULL, '90ed552a-3e3d-11ec-b563-f01faf56e08c', '3c46f4ee-62ea-5c8d-986f-b9e6bde19f05');
 COMMIT;
 BEGIN;
-INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.sukien(Id, ThoiDiem, GhiChu, CauThuDoiBongTranDauId, LoaiSuKienId) VALUES
+INSERT INTO b17dccn490_lkphuc_pttkdbclpm.sukien(Id, ThoiDiem, GhiChu, CauThuDoiBongTranDauId, LoaiSuKienId) VALUES
 ('9b1fe659-3e4f-11ec-a8f0-f01faf56e08c', 66, NULL, '16968821-3e4f-11ec-a8f0-f01faf56e08c', '3c46f4ee-62ea-5c8d-986f-b9e6bde19f05'),
 ('9b2645c1-3c04-11ec-9c9f-f01faf56e08c', 80, NULL, 'afe7eb15-3bef-11ec-9c9f-f01faf56e08c', '1441f545-28d9-3de2-70ff-f15282ef58c1'),
 ('9dd84276-3e56-11ec-a8f0-f01faf56e08c', 44, NULL, '77b9c9e3-3e56-11ec-a8f0-f01faf56e08c', '3c46f4ee-62ea-5c8d-986f-b9e6bde19f05'),
@@ -5152,12 +5152,12 @@ INSERT INTO b17dccn490_lkphuc_pttkdbclpm_test.sukien(Id, ThoiDiem, GhiChu, CauTh
 ('fdc370f9-3e52-11ec-a8f0-f01faf56e08c', 89, NULL, 'b4eab31d-3e52-11ec-a8f0-f01faf56e08c', '3c46f4ee-62ea-5c8d-986f-b9e6bde19f05'),
 ('fea5643a-3c02-11ec-9c9f-f01faf56e08c', 55, NULL, '59392c72-3bef-11ec-9c9f-f01faf56e08c', 'ca161537-2dda-11ec-a23b-f01faf56e08c');
 COMMIT;
-/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm_test.sukien ENABLE KEYS */;
+/*!40000 ALTER TABLE b17dccn490_lkphuc_pttkdbclpm.sukien ENABLE KEYS */;
 
 -- 
--- Dumping data for table b17dccn490_lkphuc_pttkdbclpm_test.hopdongbqth_trandau
+-- Dumping data for table b17dccn490_lkphuc_pttkdbclpm.hopdongbqth_trandau
 --
--- Table b17dccn490_lkphuc_pttkdbclpm_test.hopdongbqth_trandau does not contain any data (it is empty)
+-- Table b17dccn490_lkphuc_pttkdbclpm.hopdongbqth_trandau does not contain any data (it is empty)
 
 -- 
 -- Restore previous SQL mode

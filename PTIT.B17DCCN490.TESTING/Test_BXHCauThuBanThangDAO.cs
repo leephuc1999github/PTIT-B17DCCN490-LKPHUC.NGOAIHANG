@@ -19,6 +19,7 @@ namespace PTIT.B17DCCN490.TESTING
             this._bxhCauThuBanThangDAO = new BXHCauThuBanThangDAO();
         }
 
+        #region Test kiểm tra với dữ liệu đầu vào
         [TestMethod]
         public void Test_GetTKCauThuBanThangDAO_WithExistGiaiDauId_NoData()
         {
@@ -47,5 +48,6 @@ namespace PTIT.B17DCCN490.TESTING
             int actual = this._bxhCauThuBanThangDAO.GetTKCauThuBangThangs(giaiDauId).Count();
             Assert.AreEqual(expect, actual);
         }
+        #endregion
     }
 }

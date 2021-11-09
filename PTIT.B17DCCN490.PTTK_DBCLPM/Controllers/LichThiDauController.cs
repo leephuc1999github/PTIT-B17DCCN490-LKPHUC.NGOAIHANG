@@ -37,9 +37,16 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
         [HttpGet]
         public IActionResult Index(Guid? vongDau, Guid? muaGiai)
         {
+            List<GiaiDau> giaiDaus = this._giaiDauDAO.GetAll();
+            if (muaGiai == null)
+            {
+                string giaiDauId = Request.Cookies["GiaiDauId"];
+                muaGiai = giaiDauId == null && giaiDaus.Count() > 0 ? giaiDaus[0].Id : new Guid(giaiDauId);
+            }
+
             // chọn giải đấu
             List<SelectListItem> dropdownGiaiDau =
-                this._giaiDauDAO.GetAll().Select((item, index) => new SelectListItem()
+                giaiDaus.Select((item, index) => new SelectListItem()
                 {
                     Text = item.Ten,
                     Value = item.Id.ToString(),
@@ -78,8 +85,8 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
 
             ViewBag.GiaiDaus = dropdownGiaiDau;
             ViewBag.VongDaus = dropdownLoaiVongDau;
-            TempData["CurrentSeason"] = muaGiai;
-            TempData["CurrentGroundStage"] = vongDau;
+            ViewData["CurrentSeason"] = muaGiai;
+            ViewData["CurrentGroundStage"] = vongDau;
             return View(listTranDaus);
         }
         #endregion

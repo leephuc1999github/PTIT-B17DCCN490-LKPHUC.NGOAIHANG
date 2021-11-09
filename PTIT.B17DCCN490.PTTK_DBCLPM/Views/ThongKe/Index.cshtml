@@ -10,6 +10,10 @@
         white-space: nowrap;
         overflow: hidden;
     }
+
+    #GiaiDauId{
+        min-width: 200px
+    }
 </style>
 
 <div class="statisticalPage">
@@ -30,7 +34,7 @@
             </ul>
             <div class="chooseTour">
                 @Html.DropDownList("GiaiDauId",
-                    new SelectList(ViewBag.GiaiDaus, "Value", "Text", TempData["SeasonTK"]),
+                    new SelectList(ViewBag.GiaiDaus, "Value", "Text", TempData["CurrentSeason"]),
                     new { @class = "dropdown ml-auto", @onchange = "loadPage()" })
             </div>
 
@@ -150,9 +154,9 @@
         </div>
 
     </section>
-    @if (TempData["TypeTK"] != null)
+    @if (ViewData["TypeTK"] != null)
     {
-        var tabName = TempData["TypeTK"] as string;
+        var tabName = ViewData["TypeTK"] as string;
         <script type="text/javascript">
             window.onload = function () {
                 this.openTab('@tabName');
@@ -163,6 +167,10 @@
                     tabName = '@tabName';
                 }
                 let giaiDauId = document.getElementById("GiaiDauId").value;
+                if (getCookie("GiaiDauId") != null) {
+                    eraseCookie("GiaiDauId");
+                }
+                setCookie("GiaiDauId", giaiDauId);
                 window.location.href = `/ThongKe?loai=${tabName}&muaGiai=${giaiDauId}`;
             }
 

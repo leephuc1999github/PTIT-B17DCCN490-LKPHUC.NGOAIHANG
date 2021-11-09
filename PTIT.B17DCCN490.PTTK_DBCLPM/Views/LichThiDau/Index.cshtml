@@ -57,11 +57,11 @@
             </div>*@
         <div class="d-flex">
             @Html.DropDownList("LoaiVongDauId",
-                    new SelectList(ViewBag.VongDaus, "Value", "Text", TempData["CurrentGroundStage"]),
+                    new SelectList(ViewBag.VongDaus, "Value", "Text", ViewData["CurrentGroundStage"]),
                     new { @class = "dropdown", @onchange = "loadPage()" })
             <div style="margin-right: 10px"></div>
             @Html.DropDownList("GiaiDauId",
-                    new SelectList(ViewBag.GiaiDaus, "Value", "Text", TempData["CurrentSeason"]),
+                    new SelectList(ViewBag.GiaiDaus, "Value", "Text", ViewData["CurrentSeason"]),
                     new { @class = "dropdown", @onchange = "loadPage()" })
 
             <div class="ml-auto">
@@ -114,6 +114,10 @@
     function loadPage() {
         let giaiDauId = document.getElementById("GiaiDauId").value;
         let loaiVongDauId = document.getElementById("LoaiVongDauId").value;
+        if (getCookie("GiaiDauId") != null) {
+            eraseCookie("GiaiDauId");
+        }
+        setCookie("GiaiDauId", giaiDauId);
         window.location.href = `/LichThiDau?vongDau=${loaiVongDauId}&muaGiai=${giaiDauId}`;
     }
 </script>
