@@ -23,5 +23,12 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO.Services
         /// <param name="loaiVongDauId">Id loại vòng đấu</param>
         /// <returns>Trả về danh sách trận đấu theo loại vòng đấu</returns>
         public List<TranDau> GetTranDausByVongDauGiaiDau(Guid giaiDauId, Guid loaiVongDauId);
+
+        /// <summary>
+        /// Thêm mới trận đấu
+        /// </summary>
+        /// <param name="tranDau">Thông tin trận đấu</param>
+        /// <returns>Trả về thông tin trận đấu</returns>
+        public TranDau InsertTranDau(TranDau tranDau, Guid vongDauId);
     }
 }

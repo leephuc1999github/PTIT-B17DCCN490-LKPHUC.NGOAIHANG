@@ -332,19 +332,18 @@
                     <input type="text" hidden name="CauThuDoiBongTranDauId" />
                     <div class="row">
                         <label>Thời điểm</label>
-                        <input id="ThoiDiem" type="number" class="input-form" />
+                        <input id="ThoiDiem" type="number" class="input-form" tabindex="1"/>
                     </div>
                     <div class="row">
                         <label>Loại sự kiện</label>
                         @Html.DropDownList("LoaiSuKienId",
                         new SelectList(ViewBag.LoaiSuKiens, "Value", "Text"),
-                        new { @class = "dropdown" })
+                        new { @class = "dropdown", @tabindex = "2" })
                     </div>
                     
                 </div>
                 <div class="footer-form">
-                    <button class="btn" onclick="save(1)">Cất</button>
-                    <button class="btn" onclick="save(2)">Cất & thêm</button>
+                    <button class="btn" onclick="save(1)" tabindex="3">Cất</button>
                 </div>
             </div>
             
@@ -361,7 +360,10 @@
         screen.style.display = "block";
         let cdtElement = document.getElementsByTagName("CauThuDoiBongTranDauId");
         cdtElement.value = e.getAttribute("cauthudoibongtrandauid");
-        
+
+        let thoiDiem = document.getElementById("ThoiDiem");
+        thoiDiem.focus();
+
     }
 
     function closeForm() {
@@ -374,7 +376,7 @@
             LoaiSuKien: { Id: document.getElementById("LoaiSuKienId").value },
             ThoiDiem: document.getElementById("ThoiDiem").value
         };
-        fetch("https://localhost:44352/SuKien", {
+        fetch("https://localhost:44352/SuKien/", {
             body: JSON.stringify(data),
             method: "POST",
             headers: {
@@ -382,10 +384,7 @@
                 'Content-Type': 'application/json'
             }
         }).then(function (response) {
-            if (type == 1) {
-                screen.style.display = "none";
-            }
-            window.location.href = "/TranDau/Edit/@Model.Id";
+            window.location.href = "/TranDau/Edit/@Model.Id.ToString()";
         })
     }
 </script>

@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO;
 using PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO.Services;
 using PTIT.B17DCCN490.PTTK_DBCLPM.Models.Entities;
+using PTIT.B17DCCN490.PTTK_DBCLPM.Models.ENUM;
+using PTIT.B17DCCN490.PTTK_DBCLPM.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +29,7 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
         #endregion
 
         #region Methods
-        [HttpPost]
+        [HttpPost()]
         public IActionResult Insert([FromBody] SuKien data)
         {
             bool exe = this._suKienDAO.InsertSuKien(data);

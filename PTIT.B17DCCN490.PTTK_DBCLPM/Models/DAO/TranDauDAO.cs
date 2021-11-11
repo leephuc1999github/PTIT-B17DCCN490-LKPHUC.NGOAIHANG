@@ -143,6 +143,34 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
                            }).ToList();
             return tranDau.Count() == 0 ? null : tranDau[0];
         }
+
+        /// <summary>
+        /// Thêm mới trận đấu
+        /// </summary>
+        /// <param name="tranDau">Thông tin trận đấu</param>
+        /// <returns>Trả về thông tin trận đấu</returns>
+        public TranDau InsertTranDau(TranDau tranDau, Guid vongDauId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("_ThoiGianBD", tranDau.ThoiGianBD);
+            parameters.Add("_DoiNhaId", tranDau.DoiNha.Id);
+            parameters.Add("_DoiKhachId", tranDau.DoiKhach.Id);
+            parameters.Add("_VongDauId", vongDauId);
+            parameters.Add("_TranDauId", dbType: DbType.Guid, direction: ParameterDirection.Output);
+            this._mySqlConnection.Open();
+            using (var transaction = this._mySqlConnection.BeginTransaction())
+            {
+                int exe = this._mySqlConnection.Execute("Proc_InsertTranDau", parameters, transaction, commandType: CommandType.StoredProcedure);
+                if (exe == 3)
+                {
+                    transaction.Commit();
+                    tranDau.Id = parameters.Get<Guid>("_TranDauId");
+                }
+                else transaction.Rollback();
+
+            }
+            return tranDau;
+        }
         #endregion
     }
 }

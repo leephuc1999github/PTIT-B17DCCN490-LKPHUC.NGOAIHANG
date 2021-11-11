@@ -1,0 +1,237 @@
+﻿@{
+    ViewData["Title"] = "Lên lịch trận đấu | Premier Language";
+}
+@using PTIT.B17DCCN490.PTTK_DBCLPM.Models.Entities;
+@model TranDau;
+@{
+    List<DoiBong_GiaiDau> doiBongs = ViewData["DoiBongGiaiDau"] as List<DoiBong_GiaiDau>;
+}
+<style>
+    #tt-td tr {
+        background: linear-gradient(90deg, rgba(4,12,31,1) 50%, rgba(0,15,54,1) 100%);
+    }
+
+
+        #tt-td tr td {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 35px;
+        }
+
+    .dn, .dk {
+        width: 40%;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .ty-so {
+        width: 20%;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .tg-bd {
+        border: none;
+        outline: none;
+        background: linear-gradient(90deg, rgba(4,12,31,1) 50%, rgba(0,15,54,1) 100%);
+        color: #fff;
+    }
+
+        .tg-bd::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
+
+    .body-form {
+        overflow-y: scroll;
+        height: 350px;
+    }
+
+    #doi-bong tr:hover {
+        background: #52ac1c;
+    }
+
+    #doi-bong tr.active {
+        background: #52ac1c;
+    }
+</style>
+<div class="homePage">
+    <section class="match mx-10">
+        <div class="title-site d-flex align-items-center">
+            <div class="footballIcon"></div>
+            <h1 class="title">Lên lịch trận đấu</h1>
+        </div>
+    </section>
+    <section>
+        <form method="post" asp-action="Insert" asp-controller="TranDau">
+            <table class="dataTable" id="tt-td">
+                <tbody>
+                    <tr>
+                        <td colspan="3" style="color: #e19a00;font-weight: bold"><input class="tg-bd" asp-for="ThoiGianBD" type="datetime-local" min="" /></td>
+                    </tr>
+                    <tr class="d-flex">
+                        <td class="dn" id="dn" onclick="chooseFootballTeam('dn')">Chọn đội nhà</td>
+                        <input hidden id="DoiNhaId" asp-for="DoiNha.Id" />
+                        <td class="ty-so">0 - 0</td>
+                        <td class="dk" id="dk" onclick="chooseFootballTeam('dk')">Chọn đội khách</td>
+                        <input hidden id="DoiKhachId" asp-for="DoiKhach.Id" />
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="color: #e19a00; font-weight: bold">Đang thiết lập</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="display: flex; justify-content: center">
+                <input type="submit" value="Lưu" class="btn" />
+            </div>
+
+        </form>
+    </section>
+    <div class="bgForm" id="screen" style="display: none">
+        <div class="form">
+            <div style="position: relative; height: 100%; width: 100%">
+                <div class="title-form">Đội bóng <span class="ml-auto" style="cursor: pointer" onclick="closeForm()">x</span></div>
+                <div class="body-form">
+                    <table class="dataTable" id="doi-bong">
+                        <thead>
+                            <tr>
+                                <th>Bảng đấu</th>
+                                <th>Đội bóng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < doiBongs.Count(); i++)
+                            {
+                                <tr name="doibong-giaidau" onclick="active(this)" data-id="@doiBongs[i].Id" data-name="@doiBongs[i].DoiBong.Ten">
+                                    <td>@doiBongs[i].BangDau.Ten</td>
+                                    <td>@doiBongs[i].DoiBong.Ten</td>
+                                </tr>
+                            }
+                            @if (doiBongs.Count() == 0)
+                            {
+                                <tr>
+                                    <td colspan="2">Dữ liệu không có sẵn</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="footer-form">
+                    <button class="btn" onclick="choose()" id="chon" loai="" db-id="" >Chọn</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <section class="tabControl" style="margin-top: 20px">
+        <div class="d-flex align-items-center">
+            <ul class="tabControlTitle" style="width: 100% !important">
+                <li class="sumary" id="player_tab"><a onclick="openTab('player')">Cầu thủ</a></li>
+                <li class="sumary" id="event_tab"><a onclick="openTab('event')">Diễn biến</a></li>
+            </ul>
+        </div>
+        <div class="tabControlBody" id="player" style="margin-top: 20px;">
+            <table class="dataTable" id="ds-ct-nha">
+                <thead>
+                    <tr>
+                        <th colspan="5" class="txt-left" style="padding-left: 15px">DANH SÁCH CẦU THỦ ĐỘI NHÀ - <a href="javascript:void(0)" title="Đăng ký cầu thủ" id="name-dn" style="color: #fff">Tên đội nhà</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr><td class="txt-center" colspan="5">Dữ liệu không có sẵn</td></tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th colspan="5" class="txt-left" style="padding-left: 15px">DANH SÁCH CẦU THỦ ĐỘI KHÁCH - <a href="javascript:void(0)" title="Đăng ký cầu thủ" id="name-dk" style="color: #fff">Tên đội khách</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="txt-center" colspan="5">Dữ liệu không có sẵn</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tabControlBody" id="event" style="display: none">
+            <table class="dataTable" id="ds-sk">
+                <tbody>
+                    <tr>
+                        <td colspan="3">Dữ liệu không có sẵn</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</div>
+
+<script type="text/javascript">
+
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+
+    today = yyyy + '-' + mm + '-' + dd + "T00:00";
+    let tgbd = document.getElementsByClassName("tg-bd");
+    tgbd[0].min = today;
+    let doiBongs = document.getElementsByName("doibong-giaidau");
+    let screen = document.getElementById("screen");
+    let chon = document.getElementById("chon");
+
+    window.onload = function () {
+        this.openTab('player');
+    }
+
+    
+    function openForm() {
+        screen.style.display = "block";
+
+    }
+
+    function closeForm() {
+        screen.style.display = "none";
+    }
+
+    function chooseFootballTeam(db) {
+        chon.setAttribute("loai", db);
+        openForm();
+    }
+
+    function active(e) {
+        for (var i = 0; i < doiBongs.length; i++) {
+            doiBongs[i].setAttribute("class", "");
+        }
+        e.setAttribute("class", "active");
+        chon.setAttribute("db-id", e.getAttribute("data-id"));
+        let loai = chon.getAttribute("loai");
+        let name = e.getAttribute("data-name");
+        if (loai == "dn") {
+            document.getElementById("dn").innerHTML = name;
+            document.getElementById("name-dn").innerHTML = name;
+        } else {
+            document.getElementById("dk").innerHTML = name;
+            document.getElementById("name-dk").innerHTML = name;
+        }
+    }
+
+    function choose() {
+        let dbId = chon.getAttribute("db-id");
+        let loai = chon.getAttribute("loai");
+        if (loai == "dn") {
+            document.getElementById("DoiNhaId").value = dbId;
+            
+        } else {
+            document.getElementById("DoiKhachId").value = dbId;
+        }
+        closeForm();
+    }
+</script>

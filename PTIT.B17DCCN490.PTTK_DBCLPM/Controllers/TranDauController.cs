@@ -21,18 +21,26 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
         private readonly ICauThuDoiBongTranDauDAO _cauThuDoiBongTranDauDAO;
         private readonly ISuKienDAO _suKienDAO;
         private readonly ILoaiSuKienDAO _loaiSuKienDAO;
+        private readonly IVongDauDAO _vongDauDAO;
+        private readonly IDoiBongGiaiDauDAO _doiBongGiaiDauDAO;
+
         #endregion
 
         #region Constructor
         public TranDauController(ITranDauDAO tranDauDAO,
             ICauThuDoiBongTranDauDAO cauThuDoiBongTranDauDAO,
             ISuKienDAO suKienDAO,
-            ILoaiSuKienDAO loaiSuKienDAO)
+            ILoaiSuKienDAO loaiSuKienDAO, 
+            IVongDauDAO vongDauDAO, 
+            IDoiBongGiaiDauDAO doiBongGiaiDauDAO)
         {
             this._tranDauDAO = tranDauDAO;
             this._cauThuDoiBongTranDauDAO = cauThuDoiBongTranDauDAO;
             this._suKienDAO = suKienDAO;
             this._loaiSuKienDAO = loaiSuKienDAO;
+            this._vongDauDAO = vongDauDAO;
+            this._doiBongGiaiDauDAO = doiBongGiaiDauDAO;
+
         }
         #endregion
 
@@ -76,6 +84,23 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
             return View(tranDau);
         }
 
+
+        public override IActionResult Add()
+        {
+            string giaiDauId = Request.Cookies["GiaiDauId"];
+            ViewData["DoiBongGiaiDau"] = this._doiBongGiaiDauDAO.GetDoiBongsByGiaiDau(Guid.Parse(giaiDauId));
+            return base.Add();
+        }
+
+        [HttpPost]
+        public IActionResult Insert(TranDau tranDau)
+        {
+            string giaiDauId = Request.Cookies["GiaiDauId"];
+            string loaiVongDauId = Request.Cookies["LoaiVongDauId"];
+            VongDau vongDau = this._vongDauDAO.GetVongDauByGiaiDauAndLoaiVongDau(Guid.Parse(loaiVongDauId), Guid.Parse(giaiDauId));
+            tranDau = this._tranDauDAO.InsertTranDau(tranDau, vongDau.Id);
+            return RedirectToAction("Edit", new { id = tranDau.Id });
+        }
         public override IActionResult Index()
         {
             // query string : cauThuId && giaiDauId

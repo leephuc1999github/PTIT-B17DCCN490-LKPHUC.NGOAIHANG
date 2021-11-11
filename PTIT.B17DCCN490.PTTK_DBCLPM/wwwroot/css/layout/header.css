@@ -42,7 +42,7 @@
     align-items: center;
 }
 
-.header>.container>.box>.menu>.menu-item{
+.menu-item{
     text-transform: uppercase;
     font-weight: 400;
     padding: 0 15px;
@@ -54,12 +54,40 @@
     color: #fff;
 }
 
-.header>.container>.box>.menu>.menu-item:hover{
+.menu-item:hover{
     color: #fff;
     background: #040c1f;
 }
 
-.header>.container>.box>.menu>.menu-item.active{
+.menu-item.active{
     color: #fff;
     background: #040c1f;
+}
+.submenu-item-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+    .submenu-item-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+        .submenu-item-content a:hover {
+            background-color: #ddd;
+        }
+
+#setup:hover .submenu-item-content {
+    display: block !important;
+}
+
+#setup:hover .menu-item{
+    background: #040c1f;
+    color: #fff;
 }

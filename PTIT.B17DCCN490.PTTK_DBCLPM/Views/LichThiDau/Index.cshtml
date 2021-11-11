@@ -65,7 +65,7 @@
                     new { @class = "dropdown", @onchange = "loadPage()" })
 
             <div class="ml-auto">
-                <button class="btn">Lên lịch</button>
+                <button class="btn" onclick="createMatch()">Lên lịch</button>
             </div>
         </div>
 
@@ -119,5 +119,19 @@
         }
         setCookie("GiaiDauId", giaiDauId);
         window.location.href = `/LichThiDau?vongDau=${loaiVongDauId}&muaGiai=${giaiDauId}`;
+    }
+
+    function createMatch() {
+        let giaiDauId = document.getElementById("GiaiDauId").value;
+        let loaiVongDauId = document.getElementById("LoaiVongDauId").value;
+        if (getCookie("GiaiDauId") != null) {
+            eraseCookie("GiaiDauId");
+        }
+        if (getCookie("LoaiVongDauId") != null) {
+            eraseCookie("LoaiVongDauId");
+        }
+        setCookie("GiaiDauId", giaiDauId);
+        setCookie("LoaiVongDauId", loaiVongDauId);
+        window.location.href = '/TranDau/Add';
     }
 </script>

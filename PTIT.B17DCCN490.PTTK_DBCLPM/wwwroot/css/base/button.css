@@ -9,3 +9,7 @@
     cursor: pointer;
 }
 
+    .btn:focus {
+        background: #040c1f;
+        color: #fff;
+    }
