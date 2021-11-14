@@ -36,5 +36,35 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
                                       }).ToList();
             return doiBongs;
         }
+
+
+        /// <summary>
+        /// Thêm mới đội bóng giải đấu
+        /// </summary>
+        /// <param name="doiBongGiaiDau">Thông tin đội bóng giải đấu</param>
+        /// <returns>Trả về true nếu thực hiện thành công</returns>
+        public bool InsertDoiBongGiaiDau(Guid id, DoiBong_GiaiDau doiBongGiaiDau)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("_GiaiDauId", id);
+            parameters.Add("_BangDauId", doiBongGiaiDau.BangDau.Id);
+            parameters.Add("_DoiBongId", doiBongGiaiDau.DoiBong.Id);
+
+            this._mySqlConnection.Open();
+            using (var transaction = this._mySqlConnection.BeginTransaction())
+            {
+                int exe = this._mySqlConnection.Execute("Proc_InsertDoiBongGiaiDau", parameters, transaction, commandType: CommandType.StoredProcedure);
+                if(exe == 1)
+                {
+                    transaction.Commit();
+                    return true;
+                }
+                else
+                {
+                    transaction.Rollback();
+                    return false;
+                }
+            }
+        }
     }
 }

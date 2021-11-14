@@ -94,19 +94,19 @@
             margin-right: 5px;
         }
 
-        .row{
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            color: #000;
-            margin-bottom: 20px;
-        }
+    .row {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        color: #000;
+        margin-bottom: 20px;
+    }
 
-        .row label{
+        .row label {
             padding-bottom: 5px;
         }
 
-        .row input{
+        .row input {
             height: 32px;
             border: 1px solid #000;
             outline: none;
@@ -115,11 +115,13 @@
             border-radius: 5px;
         }
 
-        #LoaiSuKienId{
-            height: 32px !important;
-        }
+    #LoaiSuKienId {
+        height: 32px !important;
+    }
 
-        
+    #status{
+        text-align: center;
+    }
 </style>
 <div class="homePage">
     <section class="match mx-10">
@@ -140,17 +142,19 @@
                     <td class="dk">@Model.DoiKhach.DoiBong.DoiBong.Ten</td>
                 </tr>
                 <tr>
-                    @if (Model.DaKetThuc)
-                    {
-                        <td colspan="3" style="color: #e19a00; font-weight: bold">Đã kết thúc</td>
-                    }
-                    @if (Model.DangDienRa)
-                    {
-                        <td colspan="3" style="color: #e19a00; font-weight: bold">Đang diễn ra</td>
-                    }
+                    <td colspan="3" style="color: #e19a00; font-weight: bold">
+                        <select class="dropdown" id="status">
+                            <option value="1">Chưa diễn ra</option>
+                            <option value="2">Đang diễn ra</option>
+                            <option value="3">Kết thúc</option>
+                        </select>
+                    </td>
                 </tr>
             </tbody>
         </table>
+        <div style="display: flex; justify-content: center">
+            <input type="submit" value="Cập nhật" class="btn" id="update" onclick="saveTranDau()" />
+        </div>
     </section>
 
     <section class="tabControl" style="margin-top: 20px">
@@ -181,9 +185,9 @@
                                        title="@(cauThuNha[i].IsDaChinh ? "Đá chính" : "Dự bị")" />
                             </td>
                             <td>
-                                <a href="javascript:void(0)" 
-                                   onclick="openForm(this)" 
-                                   title="Thêm diễn biến" 
+                                <a href="javascript:void(0)"
+                                   onclick="openForm(this)"
+                                   title="Thêm diễn biến"
                                    style="color: #fff"
                                    cauthudoibongtrandauid="@cauThuNha[i].Id">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -218,9 +222,9 @@
                                        title="@(cauThuKhach[i].IsDaChinh ? "Đá chính" : "Dự bị")" />
                             </td>
                             <td>
-                                <a href="javascript:void(0)" 
-                                   onclick="openForm(this)" 
-                                   title="Thêm diễn biến" 
+                                <a href="javascript:void(0)"
+                                   onclick="openForm(this)"
+                                   title="Thêm diễn biến"
                                    style="color: #fff"
                                    cauthudoibongtrandauid="@cauThuKhach[i].Id">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -332,7 +336,7 @@
                     <input type="text" hidden name="CauThuDoiBongTranDauId" />
                     <div class="row">
                         <label>Thời điểm</label>
-                        <input id="ThoiDiem" type="number" class="input-form" tabindex="1"/>
+                        <input id="ThoiDiem" type="number" class="input-form" tabindex="1" />
                     </div>
                     <div class="row">
                         <label>Loại sự kiện</label>
@@ -340,13 +344,13 @@
                         new SelectList(ViewBag.LoaiSuKiens, "Value", "Text"),
                         new { @class = "dropdown", @tabindex = "2" })
                     </div>
-                    
+
                 </div>
                 <div class="footer-form">
                     <button class="btn" onclick="save(1)" tabindex="3">Cất</button>
                 </div>
             </div>
-            
+
         </form>
     </div>
 </div>
@@ -356,6 +360,24 @@
         this.openTab('player');
     }
     let screen = document.getElementById("screen");
+    let status = document.getElementById("status");
+    let update = document.getElementById("update");
+
+    
+    let isHappenning = '@Model.DangDienRa' == 'False' ? false : true;
+    let isEnd = '@Model.DaKetThuc' == 'False' ? false : true;
+
+    if (isHappenning) {
+        status.value = "2";
+    }
+    if (isEnd) {
+        status.value = "3";
+        update.setAttribute("disabled", true);
+    }
+    if (!isEnd && !isHappenning) {
+        status.value = "1";
+    }
+
     function openForm(e) {
         screen.style.display = "block";
         let cdtElement = document.getElementsByTagName("CauThuDoiBongTranDauId");
@@ -386,5 +408,9 @@
         }).then(function (response) {
             window.location.href = "/TranDau/Edit/@Model.Id.ToString()";
         })
+    }
+
+    function saveTranDau() {
+        alert("demo");
     }
 </script>

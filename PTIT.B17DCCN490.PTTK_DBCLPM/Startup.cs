@@ -46,6 +46,8 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM
             services.AddScoped<IBanToChucDAO, BanToChucDAO>();
             services.AddScoped<IVongDauDAO, VongDauDAO>();
             services.AddScoped<IDoiBongGiaiDauDAO, DoiBongGiaiDauDAO>();
+            services.AddScoped<IDoiBongDAO, DoiBongDAO>();
+            services.AddScoped<IBangDauDAO, BangDauDAO>();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
             {
                 options.LoginPath = "/BanToChuc/DangNhap";

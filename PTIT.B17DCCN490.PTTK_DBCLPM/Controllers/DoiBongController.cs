@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO.Services;
 using PTIT.B17DCCN490.PTTK_DBCLPM.Models.Entities;
 using System;
@@ -9,29 +8,30 @@ using System.Threading.Tasks;
 
 namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
 {
-    [Authorize(Roles = "admin")]
-    public class GiaiDauController : BaseController<GiaiDau>
+    public class DoiBongController : BaseController<DoiBong>
     {
         #region Declare
-        private readonly IGiaiDauDAO _giaiDauDAO;
+        private readonly IDoiBongDAO _doiBongDAO;
         #endregion
 
         #region Constructor
-        public GiaiDauController(IGiaiDauDAO giaiDauDAO)
+        public DoiBongController(IDoiBongDAO doiBongDAO)
         {
-            this._giaiDauDAO = giaiDauDAO;
+            this._doiBongDAO = doiBongDAO;
         }
         #endregion
+
         public override IActionResult Index()
         {
+            List<DoiBong> doiBongs = this._doiBongDAO.GetAll();
             ViewData["Active"] = "setting";
-            return base.Index();
+            return View("Index", doiBongs);
         }
 
         [HttpPost]
-        public IActionResult InsertGiaiDau([FromBody] GiaiDau giaiDau)
+        public IActionResult InsertDoiBong([FromBody] DoiBong doiBong)
         {
-            int exe = this._giaiDauDAO.Insert(giaiDau);
+            bool exe = this._doiBongDAO.InsertDoiBong(doiBong);
             return Ok(exe);
         }
     }

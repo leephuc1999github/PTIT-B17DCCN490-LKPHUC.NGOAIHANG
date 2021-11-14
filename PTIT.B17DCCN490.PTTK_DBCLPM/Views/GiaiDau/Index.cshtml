@@ -1,1 +1,135 @@
-﻿GiaiDau
+﻿@{
+    ViewData["Title"] = "Giải đấu | Thiết lập | Premier Language";
+}
+@using PTIT.B17DCCN490.PTTK_DBCLPM.Models.Entities;
+@model List<GiaiDau>;
+    <style>
+        .row {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+            .row label {
+                padding-bottom: 5px;
+            }
+
+            .row input {
+                height: 32px;
+                border: 1px solid #000;
+                outline: none;
+                padding-left: 15px;
+                box-sizing: border-box;
+                border-radius: 5px;
+            }
+    </style>
+    <div class="homePage">
+        <section class="match mx-10">
+            <div class="title-site d-flex align-items-center">
+                <div class="footballIcon"></div>
+                <h1 class="title">Danh sách giải đấu</h1>
+                <div class="ml-auto"></div>
+                <button class="btn" onclick="openForm()">Thêm mới</button>
+            </div>
+        </section>
+        <table class="dataTable" id="ds-gd">
+            <thead>
+                <tr>
+                    <th class="txt-center">STT</th>
+                    <th class="txt-left">Giải đấu</th>
+                    <th class="txt-center">Mùa giải</th>
+                    <th class="txt-center">Thời gian bắt đầu</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    for (int i = 0; i < Model.Count(); i++)
+                    {
+                        <tr title="Chọn để đăng ký đội bóng tham gia giải" ondblclick="loadPage('@Model[i].Id')">
+                            <td class="txt-center">@(i + 1)</td>
+                            <td class="txt-left">@Model[i].Ten</td>
+                            <td class="txt-center">@Model[i].MuaGiai</td>
+                            <td class="txt-center">@Model[i].ThoiGianBD.ToString("dd/MM/yyyy")</td>
+                        </tr>
+                    }
+                    if (Model.Count() == 0)
+                    {
+                        <tr>
+                            <td colspan="4">Dữ liệu không có sẵn</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+        <div class="bgForm" id="screen" style="display: none">
+            <div class="form">
+                <div style="position: relative; height: 100%; width: 100%">
+                    <div class="title-form">Thêm giải đấu <span class="ml-auto" style="cursor: pointer" onclick="closeForm()">x</span></div>
+                    <div class="body-form">
+                        <div class="row">
+                            <label>Tên <span class="c-red">(*)</span></label>
+                            <input id="Ten" required type="text" class="input-form" tabindex="1" />
+                        </div>
+                        <div class="row">
+                            <label>Mùa giải <span class="c-red">(*)</span></label>
+                            <input id="MuaGiai" required type="text" class="input-form" tabindex="2" />
+                        </div>
+                        <div class="row">
+                            <label>Thời gian bắt đầu <span class="c-red">(*)</span></label>
+                            <input id="ThoiGianBD" required type="date" class="input-form" tabindex="3" />
+                        </div>
+                    </div>
+                    <div class="footer-form">
+                        <button class="btn" onclick="save()" tabindex="4">Cất</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        let screen = document.getElementById("screen");
+        let name = document.getElementById("Ten");
+        let season = document.getElementById("MuaGiai");
+        let startDate = document.getElementById("ThoiGianBD");
+        function openForm() {
+            screen.style.display = "block";
+            name.focus();
+        }
+
+        function closeForm() {
+            screen.style.display = "none";
+        }
+
+        function save() {
+            if (name.value != null && season.value != null && startDate.value != null) {
+                var data = {
+                    Ten: name.value,
+                    MuaGiai: season.value,
+                    ThoiGianBD: startDate.value
+                };
+                fetch("https://localhost:44352/GiaiDau",
+                    {
+                        body: JSON.stringify(data),
+                        method: "POST",
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(response => {
+                        window.location.href = "/GiaiDau";
+                    })
+                    .catch(error => { console.log(error); })
+            }
+        }
+
+        function loadPage(giaiDauId) {
+            window.location.href = `/DoiBongGiaiDau/${giaiDauId}`;
+        }
+
+    </script>

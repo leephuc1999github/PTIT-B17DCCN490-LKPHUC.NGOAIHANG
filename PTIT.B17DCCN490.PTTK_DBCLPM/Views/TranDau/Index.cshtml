@@ -1,4 +1,7 @@
-﻿@using PTIT.B17DCCN490.PTTK_DBCLPM.Models.Entities;
+﻿@{ 
+    ViewData["Title"] = "Danh sách trận đấu | Premier Leaguae";
+ }
+@using PTIT.B17DCCN490.PTTK_DBCLPM.Models.Entities;
 @model List<TranDau>;
 <style>
     .tg {
@@ -39,7 +42,7 @@
                     {
                         List<SuKien> sks = mappingTDSKs[Model[i]].OrderBy(item => item.ThoiDiem).ToList();
 
-                        <tr>
+                        <tr onclick="loadPage('@Model[i].Id')">
                             <td class="w-t-num">@(i+1)</td>
                             <td class="txt-left">@Model[i].DoiNha.DoiBong.DoiBong.Ten</td>
                             <td class="w-t-num">@sks.Count()</td>
@@ -58,3 +61,9 @@
     </section>
 
 </div>
+
+<script type="text/javascript">
+    function loadPage(id) {
+        window.location.href = `/TranDau/Edit/${id}`;
+    }
+</script>

@@ -1,0 +1,127 @@
+﻿@{
+    ViewData["Title"] = "Đội bóng giải đấu | Premier League";
+}
+@using PTIT.B17DCCN490.PTTK_DBCLPM.Models.Entities;
+@model List<DoiBong_GiaiDau>
+
+<style>
+    .row {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        color: #000;
+        margin-bottom: 20px;
+    }
+
+        .row label {
+            padding-bottom: 5px;
+        }
+
+        .row input {
+            height: 32px;
+            border: 1px solid #000;
+            outline: none;
+            padding-left: 15px;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+</style>
+<div class="homePage">
+    <section class="match mx-10">
+        <div class="title-site d-flex align-items-center">
+            <div class="footballIcon"></div>
+            <h1 class="title">Danh sách đội bóng tham gia giải</h1>
+            <div class="ml-auto"></div>
+            <button class="btn" onclick="openForm()">Thêm mới</button>
+        </div>
+    </section>
+    <table class="dataTable" id="ds-db">
+        <thead>
+            <tr>
+                <th class="txt-center">STT</th>
+                <th class="txt-left">Bảng đấu</th>
+                <th class="txt-left">Đội bóng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                for (int i = 0; i < Model.Count(); i++)
+                {
+                    <tr>
+                        <td class="txt-center">@(i+1)</td>
+                        <td class="txt-left">@Model[i].BangDau.Ten</td>
+                        <td class="txt-left">@Model[i].DoiBong.Ten</td>
+                    </tr>
+                }
+                if (Model.Count() == 0)
+                {
+                    <tr>
+                        <td colspan="3">Dữ liệu không có sẵn</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    <div class="bgForm" id="screen" style="display: none">
+        <div class="form">
+            <div style="position: relative; height: 100%; width: 100%">
+                <div class="title-form">Đăng ký  <span class="ml-auto" style="cursor: pointer" onclick="closeForm()">x</span></div>
+                <div class="body-form">
+                    <input hidden id="GiaiDauId" value="@ViewBag.GiaiDau" />
+                    <div class="row">
+                        <label>Bảng Đấu <span class="c-red">(*)</span></label>
+                        @Html.DropDownList("BangDauId",
+                    new SelectList(ViewBag.BangDaus, "Value", "Text"),
+                    new { @class = "dropdown", @tabindex = "1" })
+                    </div>
+                    <div class="row">
+                        <label>Đội bóng <span class="c-red">(*)</span></label>
+                        @Html.DropDownList("DoiBongId",
+                    new SelectList(ViewBag.DoiBongs, "Value", "Text"),
+                    new { @class = "dropdown", @tabindex = "2" })
+                    </div>
+                </div>
+                <div class="footer-form">
+                    <button class="btn" onclick="save()" tabindex="3">Cất</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    let screen = document.getElementById("screen");
+    let giaiDauId = document.getElementById("GiaiDauId");
+    let bangDauId = document.getElementById("BangDauId");
+    let doiBongId = document.getElementById("DoiBongId");
+    function openForm() {
+        screen.style.display = "block";
+    }
+
+    function closeForm() {
+        screen.style.display = "none";
+    }
+
+    function save() {
+        if (giaiDauId.value != null && bangDauId.value != null && doiBongId.value != null) {
+            var data = {
+                BangDau: { Id: bangDauId.value },
+                DoiBong: { Id: doiBongId.value }
+            };
+            fetch("https://localhost:44352/DoiBongGiaiDau/@ViewBag.GiaiDau",
+                {
+                    body: JSON.stringify(data),
+                    method: "POST",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => {
+                    window.location.href = "/DoiBongGiaiDau/@ViewBag.GiaiDau";
+                })
+                .catch(error => { console.log(error); })
+        }
+    }
+</script>

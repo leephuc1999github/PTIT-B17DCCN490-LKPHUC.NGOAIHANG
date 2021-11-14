@@ -24,7 +24,7 @@ namespace PTIT.B17DCCN490.TESTING
         [TestMethod]
         public void Test_GetAllGiaiDau()
         {
-            int expect = 2;
+            int expect = 3;
             int actual = this._giaiDauDAO.GetAll().Count();
             Assert.AreEqual(expect, actual);
         }
