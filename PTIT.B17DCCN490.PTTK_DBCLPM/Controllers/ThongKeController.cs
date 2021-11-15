@@ -18,6 +18,7 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
         private IGiaiDauDAO _giaiDauDAO;
         private IBXHCauThuBanThangDAO _bxhCauThuBanThangDAO;
         private IBXHDAO _bxhDAO;
+        private List<GiaiDau> giaiDaus;
         #endregion
 
         #region Constructor
@@ -29,42 +30,72 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
             this._giaiDauDAO = giaiDauDAO;
             this._bxhCauThuBanThangDAO = bxhCauThuBanThangDAO;
             this._bxhDAO = bxhDAO;
+            giaiDaus = this._giaiDauDAO.GetAll();
         }
         #endregion
 
 
         #region Methods
-        public IActionResult Index(string loai, Guid? muaGiai)
+        public IActionResult Index()
         {
+            // Tham số query string từ url
+            string muaGiai = HttpContext.Request.Query["muaGiai"];
+            string loai = HttpContext.Request.Query["loai"];
+
+            Guid giaiDau;
+            // Nếu không có query string mùa giải
+            if(muaGiai == null)
+            {
+                // Nếu cookie có tồn tại giải đấu id => gán giải đấu = giá trị từ cookie
+                // Nếu cookie không tồn tại giải đấu id => gán = giá trị cầu của danh sách giải đấu
+                if(!Guid.TryParse(Request.Cookies["GiaiDauId"], out giaiDau))
+                {
+                    giaiDau = giaiDaus.Count() > 0 ? giaiDaus[0].Id : new Guid();
+                }
+            }
+            else
+            {
+                if (!Guid.TryParse(muaGiai, out giaiDau))
+                {
+                    return RedirectToAction("Index", "Loi");
+                }
+            }
+
+            // Nếu không có query string loại thống kê
+            if(loai == null)
+            {
+                // Gán loại = bảng xếp hạng đội bóng
+                loai = "result";
+            }else
+            {
+                // Nếu không thuộc các loại thống kê => trả về gd lỗi
+                if (loai != "goal" && loai != "result" && loai != "card" && loai != "stadium") return RedirectToAction("Index", "Loi");
+            }
+            
+
             // get ds giải đấu
-            List<GiaiDau> giaiDaus = this._giaiDauDAO.GetAll();
             List<SelectListItem> dropdownGiaiDau = new List<SelectListItem>()
             {
                 new SelectListItem() { Text = "Chọn giải đấu", Value = null, Selected = true }
             };
+
+            
             if (giaiDaus.Count() > 0)
             {
-                // TH: giaiDau == null => reset giải đấu hiện tại
-                if (muaGiai == null)
-                {
-                    string giaiDauId = Request.Cookies["GiaiDauId"];
-                    muaGiai = giaiDauId == null ? giaiDaus[0].Id : new Guid(giaiDauId);
-                }
                 // options selectbox giải đấu
                 dropdownGiaiDau =
                    giaiDaus.Select((item, index) => new SelectListItem()
                    {
                        Text = item.Ten,
                        Value = item.Id.ToString(),
-                       Selected = muaGiai == null && index == 0 ||
-                                   muaGiai != null && item.Id == muaGiai ? true : false
+                       Selected = item.Id == giaiDau ? true : false
                    }).ToList();
 
                 // router loại thống kê
                 switch (loai)
                 {
                     case "goal":
-                        List<BXHCauThuBanThang> bxhBT = this._bxhCauThuBanThangDAO.GetTKCauThuBangThangs((Guid)muaGiai);
+                        List<BXHCauThuBanThang> bxhBT = this._bxhCauThuBanThangDAO.GetTKCauThuBangThangs(giaiDau);
                         ViewData["TKGoal"] = bxhBT;
                         break;
                     case "card":
@@ -72,16 +103,15 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
                     case "stadium":
                         break;
                     default:
-                        loai = "result";
-                        List<BXH> bxh = this._bxhDAO.GetTKBXH((Guid)muaGiai);
+                        List<BXH> bxh = this._bxhDAO.GetTKBXH(giaiDau);
                         ViewData["TKResult"] = bxh;
                         break;
                 }
 
             }
             ViewBag.GiaiDaus = dropdownGiaiDau;
-            ViewData["TypeTK"] = loai == null ? "result" : loai;
-            TempData["CurrentSeason"] = muaGiai;
+            ViewData["TypeTK"] = loai;
+            ViewData["CurrentSeason"] = giaiDau.ToString();
             ViewData["Active"] = "summary";
             return View("Index");
         }

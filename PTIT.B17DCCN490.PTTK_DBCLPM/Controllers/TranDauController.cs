@@ -125,7 +125,7 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
                 }
                 ViewData["TDSKS"] = mappingTDSKs;
             }
-            return View(tranDaus);
+            return View("Index", tranDaus);
         }
         #endregion
     }

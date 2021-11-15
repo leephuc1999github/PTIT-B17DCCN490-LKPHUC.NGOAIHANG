@@ -34,7 +34,7 @@
             </ul>
             <div class="chooseTour">
                 @Html.DropDownList("GiaiDauId",
-                    new SelectList(ViewBag.GiaiDaus, "Value", "Text", TempData["CurrentSeason"]),
+                    new SelectList(ViewBag.GiaiDaus, "Value", "Text", ViewData["CurrentSeason"]),
                     new { @class = "dropdown ml-auto", @onchange = "loadPage()" })
             </div>
 

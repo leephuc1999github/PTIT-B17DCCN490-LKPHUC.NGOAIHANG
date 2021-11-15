@@ -14,7 +14,6 @@ namespace PTIT.B17DCCN490.TESTING
     public class Test_SuKienDAO
     {
         private ISuKienDAO _suKienDAO;
-        private Guid _tranDauId, _cauThuId;
 
         [TestInitialize]
         public void Initialize()
@@ -29,53 +28,68 @@ namespace PTIT.B17DCCN490.TESTING
                                 item.LoaiSuKien.Id == Guid.Parse("3c46f4ee-62ea-5c8d-986f-b9e6bde19f05")).ToList();
         }
 
+        /// <summary>
+        /// Trận đấu không tồn tại, cầu thủ không tồn tại
+        /// </summary>
         [TestMethod]
-        public void Test_GetSuKiensByTranDau_WithExistTranDauIdAndNoHasCauThuId()
+        public void Test_SuKienDAO_1()
         {
-            _tranDauId = new Guid("88d1edc8-3278-11ec-a688-f01faf56e08c");
-            _cauThuId = new Guid();
-            int expect = 8;
-            int actual = this.GetSuKiens(_tranDauId, _cauThuId).Count();
+            Guid tranDau = new Guid();
+            Guid cauThu = new Guid();
+            int expect = 0;
+            int actual = this.GetSuKiens(tranDau, cauThu).Count();
             Assert.AreEqual(expect, actual);
         }
 
-
+        /// <summary>
+        /// Trận đấu không tồn tại, cầu thủ tồn tại
+        /// </summary>
         [TestMethod]
-        public void Test_GetSuKiensByTranDau_WithHasNoTranDauIdAndCauThuId()
+        public void Test_SuKienDAO_2()
         {
-            _tranDauId = new Guid();
-            _cauThuId = new Guid();
+            Guid tranDau = new Guid();
+            Guid cauThu = new Guid("4d413fba-30da-11ec-be5d-f01faf56e08c");
             int expect = 0;
-            int actual = this.GetSuKiens(_tranDauId, _cauThuId).Count();
+            int actual = this.GetSuKiens(tranDau, cauThu).Count();
             Assert.AreEqual(expect, actual);
         }
 
+        /// <summary>
+        /// Trận đấu tồn tại, cầu thủ không tồn tại trong trận đấu
+        /// </summary>
         [TestMethod]
-        public void Test_GetSuKiensByTranDau_WithNoHasTranDauIdAndExistCauThuId()
+        public void Test_SuKienDAO_3()
         {
-            _tranDauId = new Guid();
-            _cauThuId = new Guid("4d413fba-30da-11ec-be5d-f01faf56e08c");
+            Guid tranDau = new Guid("4a512d0f-327c-11ec-a688-f01faf56e08c");
+            Guid cauThu = new Guid("e5a03019-4555-11ec-bdeb-f01faf56e08c");
             int expect = 0;
-            int actual = this.GetSuKiens(_tranDauId, _cauThuId).Count();
+            int actual = this.GetSuKiens(tranDau, cauThu).Count();
             Assert.AreEqual(expect, actual);
         }
 
+        /// <summary>
+        /// Trận đấu tồn tại, cầu thủ tồn tại, cầu thủ không ghi bàn 
+        /// </summary>
         [TestMethod]
-        public void Test_GetSuKiensByTranDau_WithExistTranDauIdAndExistCauThuId()
+        public void Test_SuKienDAO_4()
         {
-            _tranDauId = new Guid("88d1edc8-3278-11ec-a688-f01faf56e08c");
-            _cauThuId = new Guid("4d413fba-30da-11ec-be5d-f01faf56e08c");
+            Guid tranDau = new Guid("4a512d0f-327c-11ec-a688-f01faf56e08c");
+            Guid cauThu = new Guid("e53005f3-324d-11ec-9f88-f01faf56e08c");
             int expect = 0;
-            int actual = this.GetSuKiens(_tranDauId, _cauThuId).Count();
+            int actual = this.GetSuKiens(tranDau, cauThu).Count();
             Assert.AreEqual(expect, actual);
         }
 
+        /// <summary>
+        /// Trận đấu tồn tại, cầu thủ tồn tại, cầu thủ ghi bàn
+        /// </summary>
         [TestMethod]
-        public void Test_GetSuKiensByTranDau_WithExistTranDauIdNoEvent()
+        public void Test_SuKienDAO_5()
         {
-            Guid tranDauId = new Guid("add4e2de-3273-11ec-a688-f01faf56e08c");
-            int expect = 0;
-            int actual = this._suKienDAO.GetSuKiensByTranDau(tranDauId).Count();
+            Guid tranDau = new Guid("4a512d0f-327c-11ec-a688-f01faf56e08c");
+            Guid cauThu = new Guid("4d413fba-30da-11ec-be5d-f01faf56e08c");
+            int expect = 1;
+            int actual = this.GetSuKiens(tranDau, cauThu).Count();
             Assert.AreEqual(expect, actual);
         }
     }
