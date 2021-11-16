@@ -39,7 +39,14 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
                                           {
                                               DoiBong = new DoiBong_GiaiDau() 
                                               { 
-                                                  DoiBong = new DoiBong { Ten = Convert.ToString(item["TenDoiThu"].ToString()) } 
+                                                  DoiBong = new DoiBong { Ten = Convert.ToString(item["TenDoiNha"].ToString()) } 
+                                              }
+                                          },
+                                          DoiKhach = new DoiBong_TranDau()
+                                          {
+                                              DoiBong = new DoiBong_GiaiDau()
+                                              {
+                                                  DoiBong = new DoiBong (){ Ten = Convert.ToString(item["TenDoiKhach"].ToString()) }
                                               }
                                           }
                                       }).ToList();

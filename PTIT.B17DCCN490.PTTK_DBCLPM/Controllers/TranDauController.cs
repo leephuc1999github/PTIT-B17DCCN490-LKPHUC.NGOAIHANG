@@ -106,6 +106,7 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
             // query string : cauThuId && giaiDauId
             string muaGiai = HttpContext.Request.Query["muaGiai"];
             string cauThu = HttpContext.Request.Query["cauThu"];
+            
             List<TranDau> tranDaus = new List<TranDau>();
             if (muaGiai != null && cauThu != null)
             {

@@ -1,6 +1,6 @@
-﻿@{ 
+﻿@{
     ViewData["Title"] = "Danh sách trận đấu | Premier Leaguae";
- }
+}
 @using PTIT.B17DCCN490.PTTK_DBCLPM.Models.Entities;
 @model List<TranDau>;
 <style>
@@ -15,15 +15,16 @@
     <section class="match mx-10">
         <div class="title-site d-flex align-items-center">
             <div class="footballIcon"></div>
-            <h1 class="title">Danh sách trận đấu</h1>
+            <h1 class="title">Danh sách trận đấu ghi bàn - Tên cầu thủ</h1>
         </div>
     </section>
     <section>
-        <table class="dataTable" style="margin-top: 20px">
+        <table class="dataTable">
             <thead>
                 <tr>
                     <th class="w-t-num">STT</th>
-                    <th class="txt-left">Đối thủ</th>
+                    <th class="txt-left">Đội nhà</th>
+                    <th class="txt-left">Đội khách</th>
                     <th class="w-t-num" title="Số bàn thắng">SBT</th>
                     <th class="txt-left">Mốc thời gian</th>
                 </tr>
@@ -32,7 +33,7 @@
                 @if (Model.Count() == 0)
                 {
                     <tr>
-                        <td colspan="4">Dữ liệu không có sắn</td>
+                        <td colspan="5">Dữ liệu không có sắn</td>
                     </tr>
                 }
                 else
@@ -45,6 +46,7 @@
                         <tr onclick="loadPage('@Model[i].Id')">
                             <td class="w-t-num">@(i+1)</td>
                             <td class="txt-left">@Model[i].DoiNha.DoiBong.DoiBong.Ten</td>
+                            <td class="txt-left">@Model[i].DoiKhach.DoiBong.DoiBong.Ten</td>
                             <td class="w-t-num">@sks.Count()</td>
                             <td class="txt-left">
                                 @for (int j = 0; j < sks.Count(); j++)
@@ -61,7 +63,6 @@
     </section>
 
 </div>
-
 <script type="text/javascript">
     function loadPage(id) {
         window.location.href = `/TranDau/Edit/${id}`;
