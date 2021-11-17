@@ -22,6 +22,7 @@ namespace PTIT.B17DCCN490.TESTING
         private ILoaiSuKienDAO _loaiSuKienDAO;
         private IVongDauDAO _vongDauDAO;
         private IDoiBongGiaiDauDAO _doiBongGiaiDauDAO;
+        private ICauThuDAO _cauThuDAO;
         [TestInitialize]
         public void Initialize()
         {
@@ -40,7 +41,8 @@ namespace PTIT.B17DCCN490.TESTING
             _suKienDAO,
             _loaiSuKienDAO,
             _vongDauDAO,
-            _doiBongGiaiDauDAO)
+            _doiBongGiaiDauDAO, 
+            _cauThuDAO)
             {
                 ControllerContext = new ControllerContext
                 {
@@ -70,7 +72,7 @@ namespace PTIT.B17DCCN490.TESTING
             _suKienDAO,
             _loaiSuKienDAO,
             _vongDauDAO,
-            _doiBongGiaiDauDAO)
+            _doiBongGiaiDauDAO, _cauThuDAO)
             {
                 ControllerContext = new ControllerContext
                 {
@@ -95,7 +97,7 @@ namespace PTIT.B17DCCN490.TESTING
             _suKienDAO,
             _loaiSuKienDAO,
             _vongDauDAO,
-            _doiBongGiaiDauDAO)
+            _doiBongGiaiDauDAO, _cauThuDAO)
             {
                 ControllerContext = new ControllerContext
                 {
@@ -120,7 +122,7 @@ namespace PTIT.B17DCCN490.TESTING
             _suKienDAO,
             _loaiSuKienDAO,
             _vongDauDAO,
-            _doiBongGiaiDauDAO)
+            _doiBongGiaiDauDAO, _cauThuDAO)
             {
                 ControllerContext = new ControllerContext
                 {
@@ -145,7 +147,7 @@ namespace PTIT.B17DCCN490.TESTING
             _suKienDAO,
             _loaiSuKienDAO,
             _vongDauDAO,
-            _doiBongGiaiDauDAO)
+            _doiBongGiaiDauDAO, _cauThuDAO)
             {
                 ControllerContext = new ControllerContext
                 {
@@ -170,7 +172,7 @@ namespace PTIT.B17DCCN490.TESTING
             _suKienDAO,
             _loaiSuKienDAO,
             _vongDauDAO,
-            _doiBongGiaiDauDAO)
+            _doiBongGiaiDauDAO, _cauThuDAO)
             {
                 ControllerContext = new ControllerContext
                 {

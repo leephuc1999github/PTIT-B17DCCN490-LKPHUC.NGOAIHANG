@@ -23,6 +23,7 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
         private readonly ILoaiSuKienDAO _loaiSuKienDAO;
         private readonly IVongDauDAO _vongDauDAO;
         private readonly IDoiBongGiaiDauDAO _doiBongGiaiDauDAO;
+        private readonly ICauThuDAO _cauThuDAO;
 
         #endregion
 
@@ -30,9 +31,10 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
         public TranDauController(ITranDauDAO tranDauDAO,
             ICauThuDoiBongTranDauDAO cauThuDoiBongTranDauDAO,
             ISuKienDAO suKienDAO,
-            ILoaiSuKienDAO loaiSuKienDAO, 
-            IVongDauDAO vongDauDAO, 
-            IDoiBongGiaiDauDAO doiBongGiaiDauDAO)
+            ILoaiSuKienDAO loaiSuKienDAO,
+            IVongDauDAO vongDauDAO,
+            IDoiBongGiaiDauDAO doiBongGiaiDauDAO,
+            ICauThuDAO cauThuDAO)
         {
             this._tranDauDAO = tranDauDAO;
             this._cauThuDoiBongTranDauDAO = cauThuDoiBongTranDauDAO;
@@ -40,7 +42,7 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
             this._loaiSuKienDAO = loaiSuKienDAO;
             this._vongDauDAO = vongDauDAO;
             this._doiBongGiaiDauDAO = doiBongGiaiDauDAO;
-
+            this._cauThuDAO = cauThuDAO;
         }
         #endregion
 
@@ -106,25 +108,35 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
             // query string : cauThuId && giaiDauId
             string muaGiai = HttpContext.Request.Query["muaGiai"];
             string cauThu = HttpContext.Request.Query["cauThu"];
-            
+
             List<TranDau> tranDaus = new List<TranDau>();
             if (muaGiai != null && cauThu != null)
             {
-                // mapping trận đấu và thời điểm ghi bàn của cầu thủ
-                Dictionary<TranDau, List<SuKien>> mappingTDSKs = new Dictionary<TranDau, List<SuKien>>();
-                // danh sách trận đấu cầu thủ ghi bàn
-                tranDaus = this._tranDauDAO.GetTranDausByCauThuGhiBan(Guid.Parse(muaGiai), Guid.Parse(cauThu));
-                for(int i = 0; i < tranDaus.Count(); i++)
+                try
                 {
-                    TranDau tranDau = tranDaus[i];
-                    // danh sách bàn thắng của trận đấu
-                    List<SuKien> suKiens = this._suKienDAO.GetSuKiensByTranDau(tranDau.Id)
-                                                            .Where(item => item.CauThu.CauThu.Id == Guid.Parse(cauThu) 
-                                                                            && item.LoaiSuKien.Id == Guid.Parse("3c46f4ee-62ea-5c8d-986f-b9e6bde19f05"))
-                                                            .ToList();
-                    mappingTDSKs.Add(tranDau, suKiens);
+                    var ct = this._cauThuDAO.GetById(Guid.Parse(cauThu));
+                    ViewData["TenCauThu"] = ct.Ten;
+                    // mapping trận đấu và thời điểm ghi bàn của cầu thủ
+                    Dictionary<TranDau, List<SuKien>> mappingTDSKs = new Dictionary<TranDau, List<SuKien>>();
+                    // danh sách trận đấu cầu thủ ghi bàn
+                    tranDaus = this._tranDauDAO.GetTranDausByCauThuGhiBan(Guid.Parse(muaGiai), Guid.Parse(cauThu));
+                    for (int i = 0; i < tranDaus.Count(); i++)
+                    {
+                        TranDau tranDau = tranDaus[i];
+                        // danh sách bàn thắng của trận đấu
+                        List<SuKien> suKiens = this._suKienDAO.GetSuKiensByTranDau(tranDau.Id)
+                                                                .Where(item => item.CauThu.CauThu.Id == Guid.Parse(cauThu)
+                                                                                && item.LoaiSuKien.Id == Guid.Parse("3c46f4ee-62ea-5c8d-986f-b9e6bde19f05"))
+                                                                .ToList();
+                        mappingTDSKs.Add(tranDau, suKiens);
+                    }
+                    ViewData["TDSKS"] = mappingTDSKs;
                 }
-                ViewData["TDSKS"] = mappingTDSKs;
+                catch (Exception)
+                {
+                    return RedirectToAction("Index", "Loi");
+                }
+
             }
             return View("Index", tranDaus);
         }

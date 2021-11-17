@@ -6,18 +6,8 @@ using static PTIT.B17DCCN490.PTTK_DBCLPM.Models.Entities.BaseEntity;
 
 namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.Entities
 {
-    public class BanToChuc
+    public class BanToChuc : TTNguoi
     {
-        /// <summary>
-        /// Id ban tổ chức
-        /// </summary>
-        public Guid Id { get; set; }
-
-        /// <summary>
-        /// Tên thành viên
-        /// </summary>
-        public string Ten { get; set; }
-
         /// <summary>
         /// Tên đăng nhập
         /// </summary>
@@ -27,20 +17,5 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.Entities
         /// Mật khẩu
         /// </summary>
         public string MatKhau { get; set; }
-
-        /// <summary>
-        /// Địa chỉ
-        /// </summary>
-        public string DiaChi { get; set; }
-
-        /// <summary>
-        /// Số điện thoại
-        /// </summary>
-        public string SDT { get; set; }
-
-        /// <summary>
-        /// Email
-        /// </summary>
-        public string Email { get; set; }
     }
 }
