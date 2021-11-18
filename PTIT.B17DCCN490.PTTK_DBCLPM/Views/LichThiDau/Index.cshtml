@@ -46,67 +46,62 @@
     }
 </style>
 
-<div class="homePage">
-    <section class="match mx-10">
+<div class="page">
+    <section>
         <div class="title-site d-flex align-items-center">
             <div class="footballIcon"></div>
             <h1 class="title">Lịch thi đấu</h1>
         </div>
-        @*<div style="background: #0e172e; border-radius: 5px;">
-                <span style="padding: 25px; display: block;">Tính năng này đang được phát triển</span>
-            </div>*@
         <div class="d-flex">
             @Html.DropDownList("LoaiVongDauId",
                     new SelectList(ViewBag.VongDaus, "Value", "Text", ViewData["CurrentGroundStage"]),
-                    new { @class = "dropdown", @onchange = "loadPage()" })
+                    new { @class = "p-drop", @onchange = "loadPage()" })
             <div style="margin-right: 10px"></div>
             @Html.DropDownList("GiaiDauId",
                     new SelectList(ViewBag.GiaiDaus, "Value", "Text", ViewData["CurrentSeason"]),
-                    new { @class = "dropdown", @onchange = "loadPage()" })
+                    new { @class = "p-drop", @onchange = "loadPage()" })
 
             <div class="ml-auto">
                 <button class="btn" onclick="createMatch()">Lên lịch</button>
             </div>
         </div>
 
-        <div class="bgTable" style="margin-top: 20px;">
-            <table class="dataTable" id="ds-match">
-                <thead>
-                    <tr>
-                        <td colspan="3" class="txt-center" style="font-weight: bold">DANH SÁCH TRẬN ĐẤU</td>
-                    </tr>
-                </thead>
-                <tbody>
+        <table class="dataTable mt-10">
+            <thead>
+                <tr>
+                    <td colspan="3" class="txt-center" style="font-weight: bold">DANH SÁCH TRẬN ĐẤU</td>
+                </tr>
+            </thead>
+            <tbody>
 
-                    @foreach (var item in Model)
-                    {
-                        <tr class="tt-td">
-                            <td class="dn">
-                                <div class="tg">@item.ThoiGianBD.ToString("dd/MM/yyyy")</div>
-                                <div style="padding-right: 20px;">@item.DoiNha.DoiBong.DoiBong.Ten</div>
-                            </td>
-                            <td class="ty-so">
-                                @if (item.DaKetThuc || item.DangDienRa)
-                                {
-                                    <a href="/TranDau/Edit/@item.Id" title="Xem chi tiết">@item.DoiNha.SoBanThang : @item.DoiKhach.SoBanThang</a>
-                                }
-                                else
-                                {
-                                    <a href="/TranDau/Edit/@item.Id" title="Xem chi tiết">_ : _</a>
-                                }
-                            </td>
-                            <td class="dk">
-                                <div style="padding-left: 20px;">@item.DoiKhach.DoiBong.DoiBong.Ten</div>
-                            </td>
-                        </tr>
-                    }
-                    @if (Model.Count() == 0)
-                    {
-                        <tr><td class="txt-center">Dữ liệu không có sẵn</td></tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+                @foreach (var item in Model)
+                {
+                    <tr class="tt-td">
+                        <td class="dn">
+                            <div class="tg">@item.ThoiGianBD.ToString("dd/MM/yyyy")</div>
+                            <div style="padding-right: 20px;">@item.DoiNha.DoiBong.DoiBong.Ten</div>
+                        </td>
+                        <td class="ty-so">
+                            @if (item.DaKetThuc || item.DangDienRa)
+                            {
+                                <a href="/TranDau/Edit/@item.Id" title="Xem chi tiết">@item.DoiNha.SoBanThang : @item.DoiKhach.SoBanThang</a>
+                            }
+                            else
+                            {
+                                <a href="/TranDau/Edit/@item.Id" title="Xem chi tiết">_ : _</a>
+                            }
+                        </td>
+                        <td class="dk">
+                            <div style="padding-left: 20px;">@item.DoiKhach.DoiBong.DoiBong.Ten</div>
+                        </td>
+                    </tr>
+                }
+                @if (Model.Count() == 0)
+                {
+                    <tr><td class="txt-center">Dữ liệu không có sẵn</td></tr>
+                }
+            </tbody>
+        </table>
     </section>
 </div>
 

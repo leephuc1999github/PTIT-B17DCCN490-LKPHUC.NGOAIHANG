@@ -22,7 +22,6 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models
         {
             try
             {
-                Logger.Write("CheckDangNhap", "Mes");
                 string nameProc = "Proc_CheckDangNhap";
                 // truyền tham số
                 DynamicParameters parameters = new DynamicParameters();

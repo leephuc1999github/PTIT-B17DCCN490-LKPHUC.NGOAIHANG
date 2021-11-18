@@ -12,32 +12,37 @@
     <meta name="viewport" content="width=device-width" />
     <title>Đăng nhập | Premier Language</title>
     <link rel="stylesheet" href="~/css/main.css">
-    
+    <link rel="shortcut icon" type="image/x-icon" href="~/assets/images/favicon.ico" />
 </head>
 <body>
-    <div class="loginPage">
+    <div class="w-100 h-100-sc d-flex align-items-center justify-content-center">
         <div class="formLogin">
-            <h1 class="title">Đăng nhập</h1>
+            <h1 class="txt-center">Đăng nhập</h1>
             <form method="post" asp-controller="BanToChuc" asp-action="KiemTraDangNhap" name="DangNhap" onsubmit="return validateForm()">
-                <label>Tên đăng nhập <span class="c-red">(*)</span></label>
-                <input type="text"
-                       asp-for="TenDangNhap"
-                       class="TenDangNhap"
-                       autofocus
-                       tabindex="1"
-                       onblur="checkEmpty('TenDangNhap')"
-                       onfocus="removeError('TenDangNhap')" />
-                <p id="TenDangNhap_Mes" class="error b-red d-none">Tên đăng nhập không được để trống</p>
-
-                <label>Mật khẩu <span class="c-red">(*)</span></label>
-                <input type="password"
-                       asp-for="MatKhau"
-                       class="MatKhau"
-                       tabindex="2"
-                       onblur="checkEmpty('MatKhau')"
-                       onfocus="removeError('MatKhau')" />
-                <p id="MatKhau_Mes" class="error b-red d-none">Mật khẩu không được để trống</p>
-                <input type="submit" value="Login" tabindex="3" class="loginBtn">
+                <div class="d-flex">
+                    <label class="w-30">Tên đăng nhập <span class="c-red">(*)</span></label>
+                    <input type="text"
+                           asp-for="TenDangNhap"
+                           class="p-input default w-70"
+                           autofocus
+                           tabindex="1"
+                           title="Trường này không được để trống"
+                           onblur="checkEmpty('TenDangNhap')"
+                           onfocus="removeError('TenDangNhap')" />
+                </div>
+                <div class="d-flex">
+                    <label class="w-30">Mật khẩu <span class="c-red">(*)</span></label>
+                    <input type="password"
+                           asp-for="MatKhau"
+                           class="p-input default w-70"
+                           tabindex="2"
+                           title="Trường này không được để trống"
+                           onblur="checkEmpty('MatKhau')"
+                           onfocus="removeError('MatKhau')" />
+                </div>
+                <div class="d-flex justify-content-center">
+                    <input type="submit" value="Login" tabindex="3" class="btn">
+                </div>
             </form>
         </div>
     </div>
@@ -65,16 +70,13 @@
         const element = document.getElementById(id);
         let val = element.value;
         if (isNullOrUndefined(val)) {
-            document.getElementById(`${id}_Mes`).classList = "c-red d-block";
             document.getElementById(id).classList += " b-red";
         }
     }
 
     function removeError(id) {
-        const errorElement = document.getElementById(`${id}_Mes`);
         const inputElement = document.getElementById(id);
-        errorElement.classList = "c-red d-none";
-        inputElement.classList = id;
+        inputElement.classList = "p-input default w-70";
         
     }
 
@@ -86,13 +88,11 @@
 
 
         if (isNullOrUndefined(tenDangNhap)) {
-            document.getElementById("TenDangNhap_Mes").classList = "c-red d-block";
             document.getElementById("TenDangNhap").classList += " b-red";
             flag = false;
         }
 
         if (isNullOrUndefined(matKhau)) {
-            document.getElementById("MatKhau_Mes").classList = "c-red d-block";
             document.getElementById("MatKhau").classList += " b-red";
             flag = false;
         }

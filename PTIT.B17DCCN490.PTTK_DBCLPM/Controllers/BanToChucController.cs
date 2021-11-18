@@ -67,7 +67,7 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
                 // sinh cookie
                 var claims = new List<Claim>() {
                     new Claim(ClaimTypes.NameIdentifier, btc.Id.ToString()),
-                    new Claim(ClaimTypes.Name, btc.Ten),
+                    new Claim(ClaimTypes.Name, btc.TenDangNhap),
                     new Claim(ClaimTypes.Role, "admin"),
                 };
                 var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);

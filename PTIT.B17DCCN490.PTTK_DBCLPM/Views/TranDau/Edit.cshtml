@@ -123,9 +123,9 @@
         text-align: center;
     }
 </style>
-<div class="homePage">
-    <section class="match mx-10">
-        <div class="title-site d-flex align-items-center">
+<div class="page">
+    <section>
+        <div class="d-flex align-items-center">
             <div class="footballIcon"></div>
             <h1 class="title">Chi tiết trận đấu</h1>
         </div>
@@ -143,7 +143,7 @@
                 </tr>
                 <tr>
                     <td colspan="3" style="color: #e19a00; font-weight: bold">
-                        <select class="dropdown" id="status">
+                        <select class="p-drop" id="status">
                             <option value="1">Chưa diễn ra</option>
                             <option value="2">Đang diễn ra</option>
                             <option value="3">Kết thúc</option>
@@ -157,14 +157,14 @@
         </div>
     </section>
 
-    <section class="tabControl" style="margin-top: 20px">
+    <section class="tabControl mt-10">
         <div class="d-flex align-items-center">
             <ul class="tabControlTitle" style="width: 100% !important">
                 <li class="sumary" id="player_tab"><a onclick="openTab('player')">Cầu thủ</a></li>
                 <li class="sumary" id="event_tab"><a onclick="openTab('event')">Diễn biến</a></li>
             </ul>
         </div>
-        <div class="tabControlBody" id="player" style="margin-top: 20px;">
+        <div class="tabControlBody mt-10" id="player">
             <table class="dataTable" id="ds-ct-nha">
                 <thead>
                     <tr>
@@ -243,7 +243,7 @@
             </table>
         </div>
         <div class="tabControlBody" id="event" style="display: none">
-            <table class="dataTable" id="ds-sk">
+            <table class="dataTable mt-10" id="ds-sk">
                 <tbody>
                     @for (int i = 0; i < suKien.Count(); i++)
                     {

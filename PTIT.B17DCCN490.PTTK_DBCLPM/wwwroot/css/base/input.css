@@ -1,0 +1,13 @@
+﻿.p-input{
+    height: 24px;
+    outline: none;
+    border: 1px solid #afafaf;
+    box-sizing: border-box;
+    padding: 0 5px;
+    border-radius: 0;
+    margin-bottom: 5px;
+}
+
+.p-input.default:focus{
+    border: 1px solid #0026ff;
+}

@@ -5,13 +5,12 @@
     list-style-type: none;
     display: flex;
     padding: 0;
-    padding-left: 15px;
-    height: 40px;
-    line-height: 40px;
-    border-bottom: 2px solid transparent;
-    border-radius: 5px;
+    padding-left: 10px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 3px;
     background: #2c354c;
-    width: 80%;
+    width: 100%;
 }
 
     .tabControlTitle > li {

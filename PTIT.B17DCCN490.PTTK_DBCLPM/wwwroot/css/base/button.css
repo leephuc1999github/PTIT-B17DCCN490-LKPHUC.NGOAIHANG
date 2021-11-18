@@ -1,5 +1,5 @@
 ﻿.btn {
-    height: 40px;
+    height: 32px;
     background: #009b3a;
     min-width: 80px;
     outline: none;
@@ -7,9 +7,15 @@
     color: #fff;
     font-weight: bold;
     cursor: pointer;
+    border-radius: 0;
 }
 
     .btn:focus {
+        background: #040c1f;
+        color: #fff;
+    }
+
+    .btn:hover {
         background: #040c1f;
         color: #fff;
     }

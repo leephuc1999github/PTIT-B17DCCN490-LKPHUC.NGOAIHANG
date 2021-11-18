@@ -1,9 +1,9 @@
-.title-site>.title {
+.title {
     text-transform: uppercase;
     font-weight: 700;
     color: #52ac1c;
     white-space: nowrap;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 
@@ -14,9 +14,22 @@ ul{
 }
 
 .txt-center{
-    text-align: center;
+    text-align: center !important;
 }
 
 .txt-right{
     text-align: right !important;
 }
+
+.txt-left{
+    text-align: left !important;
+}
+
+.c-red{
+    color: red !important;
+}
+
+.b-red{
+    border: 1px solid red !important;
+}
+

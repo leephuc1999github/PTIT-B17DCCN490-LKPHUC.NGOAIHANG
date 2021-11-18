@@ -1,18 +1,17 @@
 ﻿
 
-.dropdown {
-    height: 40px;
-    border-radius: 5px;
+.p-drop {
+    height: 32px;
+    border-radius: 3px;
     background: #2c354c;
     border: none;
     outline: none;
     color: #fff;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 0 10px;
     appearance: none;
 }
 
-    .dropdown option {
+    .p-drop option {
         border: none;
         outline: none;
         background: #fff;

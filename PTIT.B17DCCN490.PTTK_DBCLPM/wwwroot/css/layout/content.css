@@ -13,3 +13,33 @@
     box-sizing: border-box;
     background: transparent;
 }
+
+@media only screen and (max-width: 1400px) and (min-width: 1024px) {
+    .content>.container {
+        width: 80% !important;
+    }
+
+    
+}
+
+@media only screen and (max-width: 1024px)  and (min-width: 768px){
+    .content > .container {
+        width: 100% !important;
+        
+    }
+
+    .page{
+        margin: 0 10px;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .content > .container {
+        width: 100% !important;
+    }
+
+    .page {
+        margin: 0 10px;
+    }
+}
