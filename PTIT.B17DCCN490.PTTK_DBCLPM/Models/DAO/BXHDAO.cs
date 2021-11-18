@@ -20,9 +20,23 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
         /// <returns>Trả về danh sách đội bóng theo điểm</returns>
         public List<BXH> GetTKBXH(Guid giaiDauId)
         {
-            DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("_GiaiDauId", giaiDauId);
-            return this._mySqlConnection.Query<BXH>("Proc_GetBXH", parameters, commandType: CommandType.StoredProcedure).ToList();
+            List<BXH> bxh = new List<BXH>();
+            try
+            {
+                // tên proc
+                string nameProc = "Proc_GetBXH";
+                // tham số đầu vào proc
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("_GiaiDauId", giaiDauId);
+                bxh = this._mySqlConnection.Query<BXH>
+                                            (nameProc, parameters, commandType: CommandType.StoredProcedure)
+                                            .ToList();
+            }
+            catch (Exception ex)
+            {
+                Logger.Write("GetTKBXH", ex.Message);
+            }
+            return bxh;
         }
         #endregion
     }

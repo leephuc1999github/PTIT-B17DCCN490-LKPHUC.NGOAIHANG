@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Microsoft.Extensions.Configuration;
 using MySqlConnector;
+using PTIT.B17DCCN490.PTTK_DBCLPM.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -21,9 +22,16 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models
         #region Constructor
         public BaseDAO()
         {
-            this._connectString = "User Id=root;Host=localhost;Database=b17dccn490_lkphuc_pttkdbclpm;Character Set=utf8";
-            this._mySqlConnection = new MySqlConnection(this._connectString);
-            this._nameTable = typeof(T).Name;
+            try
+            {
+                this._connectString = "User Id=root;Host=localhost;Database=b17dccn490_lkphuc_pttkdbclpm;Character Set=utf8";
+                this._mySqlConnection = new MySqlConnection(this._connectString);
+                this._nameTable = typeof(T).Name;
+            }
+            catch (Exception ex)
+            {
+                Logger.Write("BaseDAO", ex.Message);
+            }
         }
 
         public BaseDAO(string connectString)
@@ -52,15 +60,18 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models
         {
             try
             {
-                DynamicParameters parameters = new DynamicParameters();
-
+                // tên proc
                 string nameProc = $"Proc_Insert{_nameTable}";
+                // tham số đầu vào proc
+                DynamicParameters parameters = new DynamicParameters();
                 foreach (PropertyInfo prop in entity.GetType().GetProperties())
                 {
                     var value = prop.GetValue(entity) == "" ? null : prop.GetValue(entity);
                     parameters.Add($"_{prop.Name}", value);
                 }
+                //mở kết nối
                 this._mySqlConnection.Open();
+                // exe
                 using (var transaction = this._mySqlConnection.BeginTransaction())
                 {
                     int rowAffects = this._mySqlConnection.Execute(nameProc, param: parameters, transaction, commandType: CommandType.StoredProcedure);
@@ -70,11 +81,8 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models
             }
             catch (Exception ex)
             {
+                Logger.Write($"Insert{_nameTable}", ex.Message);
                 return 0;
-            }
-            finally
-            {
-                this._mySqlConnection.Dispose();
             }
         }
 
@@ -88,16 +96,19 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models
         {
             try
             {
-                DynamicParameters parameters = new DynamicParameters();
-
+                //tên proc
                 string nameProc = $"Proc_Update{_nameTable}ById";
+                // tham số đầu vào proc
+                DynamicParameters parameters = new DynamicParameters();
                 foreach (PropertyInfo prop in entity.GetType().GetProperties())
                 {
                     var value = prop.GetValue(entity) == "" ? null : prop.GetValue(entity);
                     parameters.Add($"@_{prop.Name}", value);
                 }
                 parameters.Add($"@_{_nameTable}Id", id.ToString());
+                // mở kết nối
                 this._mySqlConnection.Open();
+                // exe
                 using (var transaction = this._mySqlConnection.BeginTransaction())
                 {
                     int result = this._mySqlConnection.Execute(nameProc, param: parameters, transaction, commandType: CommandType.StoredProcedure);
@@ -107,11 +118,8 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models
             }
             catch (Exception ex)
             {
+                Logger.Write($"Update{_nameTable}", ex.Message);
                 return 0;
-            }
-            finally
-            {
-                this._mySqlConnection.Dispose();
             }
         }
 
@@ -124,19 +132,19 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models
         {
             try
             {
+                // tên proc
                 string nameProc = $"Proc_Delete{_nameTable}ById";
+                // tham số đầu vào proc
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add($"_{_nameTable}Id", id.ToString());
+                // exe
                 int result = this._mySqlConnection.Execute(nameProc, CommandType.StoredProcedure);
                 return result;
             }
             catch (Exception ex)
             {
+                Logger.Write($"Delete{_nameTable}", ex.Message);
                 return 0;
-            }
-            finally
-            {
-                this._mySqlConnection.Dispose();
             }
         }
 
@@ -146,10 +154,19 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models
         /// <returns>Trả về danh sách đối tượng</returns>
         public virtual List<T> GetAll()
         {
-            string nameProc = $"Proc_Get{this._nameTable}s";
-            List<T> result = this._mySqlConnection.Query<T>(nameProc, commandType: CommandType.StoredProcedure).ToList();
-            this._mySqlConnection.Dispose();
-            return result;
+            List<T> lst = new List<T>();
+            try
+            {
+                // tên proc
+                string nameProc = $"Proc_Get{this._nameTable}s";
+                // exe
+                lst = this._mySqlConnection.Query<T>(nameProc, commandType: CommandType.StoredProcedure).ToList();
+            }
+            catch (Exception ex)
+            {
+                Logger.Write($"GetAll{_nameTable}", ex.Message);
+            }
+            return lst;
         }
 
         /// <summary>
@@ -159,12 +176,23 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models
         /// <returns>Trả về đối tượng || null nếu không tìm được</returns>
         public virtual T GetById(Guid id)
         {
-            DynamicParameters parameter = new DynamicParameters();
-            parameter.Add($"@_{_nameTable}Id", id.ToString());
-            string nameProc = $"Proc_Get{_nameTable}ById";
-            var result = this._mySqlConnection.QueryFirstOrDefault<T>(nameProc, param: parameter, commandType: CommandType.StoredProcedure);
-            this._mySqlConnection.Dispose();
-            return result;
+            try
+            {
+                // tên proc
+                string nameProc = $"Proc_Get{_nameTable}ById";
+                // tham số đầu vào
+                DynamicParameters parameter = new DynamicParameters();
+                parameter.Add($"@_{_nameTable}Id", id);
+                // exe
+                var obj = this._mySqlConnection.QueryFirstOrDefault<T>
+                                                (nameProc, parameter, commandType: CommandType.StoredProcedure);
+                return obj;
+            }
+            catch (Exception ex)
+            {
+                Logger.Write($"GetById{_nameTable}", ex.Message);
+                return null;
+            }
         }
 
         #endregion

@@ -16,28 +16,29 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models
         /// <summary>
         /// Kiểm tra đăng nhập
         /// </summary>
-        /// <param name="account">Thông tin đăng nhập</param>
+        /// <param name="btc">Thông tin đăng nhập</param>
         /// <returns>Trả về thông tin ban tổ chức</returns>
-        public BanToChuc CheckDangNhap(BanToChuc account)
+        public BanToChuc CheckDangNhap(BanToChuc btc)
         {
             try
             {
+                Logger.Write("CheckDangNhap", "Mes");
+                string nameProc = "Proc_CheckDangNhap";
                 // truyền tham số
                 DynamicParameters parameters = new DynamicParameters();
-                parameters.Add("_TenDangNhap", account.TenDangNhap);
-                parameters.Add("_MatKhau", account.MatKhau);
+                parameters.Add("_TenDangNhap", btc.TenDangNhap);
+                parameters.Add("_MatKhau", btc.MatKhau);
 
                 // truy vấn kiểm tra đăng nhập
-                var banToChuc = this._mySqlConnection.QueryFirstOrDefault<BanToChuc>(sql: "Proc_CheckDangNhap", param: parameters, commandType: CommandType.StoredProcedure);
-                return banToChuc;
+                var objBTC = this._mySqlConnection
+                                 .QueryFirstOrDefault<BanToChuc>
+                                 (nameProc, parameters, commandType: CommandType.StoredProcedure);
+                return objBTC;
             }
             catch (Exception ex)
             {
+                Logger.Write("CheckDangNhap", ex.Message);
                 return null;
-            }
-            finally
-            {
-                this._mySqlConnection.Dispose();
             }
         }
         #endregion

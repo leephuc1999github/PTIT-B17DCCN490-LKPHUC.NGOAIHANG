@@ -32,30 +32,51 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Giao diện đăng ký cầu thủ
+        /// </summary>
+        /// <returns>trả về giao diện lịch thi đấu</returns>
         public IActionResult Index()
         {
-            ViewData["Active"] = "register";
+            // chuyển giao diện lịch thi đấu
             return RedirectToAction("Index", "LichThiDau");
         }
 
+        /// <summary>
+        /// Giao diện đăng ký cầu thủ
+        /// </summary>
+        /// <param name="id">Id đội bóng trận đấu</param>
+        /// <param name="doiBongId">Id đội bóng</param>
+        /// <returns>Giao diện đăng ký cầu thủ của đội bóng</returns>
         [HttpGet("{id}")]
-        public IActionResult Index(Guid id, Guid? doiBongId)
+        public IActionResult Index(Guid id)
         {
-            List<CauThu> cauThus = new List<CauThu>();
-            if (doiBongId != null)
+            // query string đội bóng
+            string db = Request.Query["doiBongId"]; 
+            // danh sách cầu thủ đội bóng
+            List<CauThu> lstCauThu = new List<CauThu>();
+            if (db != null)
             {
-                cauThus = this._cauThuDAO.GetCauThusByDoiBong((Guid)doiBongId);
+                lstCauThu = this._cauThuDAO.GetCauThusByDoiBong(Guid.Parse(db));
             }
-            List<CauThu_DoiBong_TranDau> cauThuDaDKs = this._cauThuDoiBongTranDauDAO.GetCauThusByDoiBongTranDau(id);
-            ViewData["CauThu"] = cauThuDaDKs;
+            // danh sách cầu thủ đã được đăng ký trận đấu
+            List<CauThu_DoiBong_TranDau> lstDaDangKy = this._cauThuDoiBongTranDauDAO.GetCauThusByDoiBongTranDau(id);
+            ViewData["CauThu"] = lstDaDangKy;
             ViewData["Active"] = "register";
             ViewBag.DoiBongTranDauId = id.ToString();
-            return View(cauThus);
+            return View(lstCauThu);
         }
 
+        /// <summary>
+        /// Đăng ký danh sách cầu thủ tham gia thi đấu
+        /// </summary>
+        /// <param name="id">Id đội bóng trận đấu</param>
+        /// <param name="data">Danh sách cầu thủ được chọn</param>
+        /// <returns>Trả về trạng thái đăng ký</returns>
         [HttpPost("{id}")]
         public IActionResult DangKy(Guid id, [FromBody] List<CauThu_DoiBong_TranDau> data)
         {
+            // exe
             bool exe = this._cauThuDoiBongTranDauDAO.RegisterCauThusByDoiBongTranDau(id, data);
             return Ok(exe);
         }

@@ -17,6 +17,7 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
         #region Declare
         protected readonly IBaseDAO<T> _baseDAO;
         private readonly string _nameEntity;
+        private ToastMessage message;
         #endregion
 
         #region Constructor
@@ -35,7 +36,9 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
         [HttpGet]
         public virtual IActionResult Index()
         {
+            // lấy danh sách đối tượng
             List<T> entities = this._baseDAO.GetAll();
+            // trả về giao diện chính
             return View("Index", entities);
         }
 
@@ -47,7 +50,9 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
         [HttpGet("Edit/{id}")]
         public virtual IActionResult Edit(Guid id)
         {
+            // lấy đối tượng theo id
             T entity = this._baseDAO.GetById(id);
+            // chuyển giao diện chỉnh sửa
             return View("Edit", entity);
         }
 
@@ -58,26 +63,15 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
         [HttpGet("Add")]
         public virtual IActionResult Add()
         {
+            // trả về giao diện thêm mới
             return View("Add");
         }
 
         [HttpDelete("{id}")]
         public virtual IActionResult Delete(Guid id)
         {
+            // xóa
             int execute = this._baseDAO.Delete(id);
-            ToastMessage message = new ToastMessage();
-            if (execute == 0)
-            {
-                message.Type = TypeToast.info;
-                message.Content = "Thực hiện không thành công!";
-                TempData["UserMessage"] = JsonConvert.SerializeObject(message);
-            }
-            else
-            {
-                message.Type = TypeToast.success;
-                message.Content = "Thực hiện thành công!";
-                TempData["UserMessage"] = JsonConvert.SerializeObject(message);
-            }
             return RedirectToAction("", typeof(T).Name);
             
         }

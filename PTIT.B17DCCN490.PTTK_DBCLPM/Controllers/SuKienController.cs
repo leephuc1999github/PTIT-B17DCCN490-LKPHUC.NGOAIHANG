@@ -29,7 +29,12 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
         #endregion
 
         #region Methods
-        [HttpPost()]
+        /// <summary>
+        /// Thêm mới sự kiện
+        /// </summary>
+        /// <param name="data">Thông tin sự kiện</param>
+        /// <returns>Trạng thái thực hiện</returns>
+        [HttpPost]
         public IActionResult Insert([FromBody] SuKien data)
         {
             bool exe = this._suKienDAO.InsertSuKien(data);

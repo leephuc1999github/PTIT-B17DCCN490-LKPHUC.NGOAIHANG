@@ -20,9 +20,23 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
         /// <returns>Trả về danh sách cầu thủ ghi bàn</returns>
         public List<BXHCauThuBanThang> GetTKCauThuBangThangs(Guid giaiDauId)
         {
-            DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("_GiaiDauId", giaiDauId.ToString());
-            List<BXHCauThuBanThang> bxh = this._mySqlConnection.Query<BXHCauThuBanThang>("Proc_GetTKCauThuBanThangs", parameters, commandType: CommandType.StoredProcedure).ToList();
+            List<BXHCauThuBanThang> bxh = new List<BXHCauThuBanThang>();
+            try
+            {
+                // tên proc
+                string nameProc = "Proc_GetTKCauThuBanThangs";
+                // tham số đầu vào proc
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("_GiaiDauId", giaiDauId.ToString());
+                // exe
+                bxh = this._mySqlConnection.Query<BXHCauThuBanThang>
+                                            (nameProc, parameters, commandType: CommandType.StoredProcedure)
+                                            .ToList();
+            }
+            catch (Exception ex)
+            {
+                Logger.Write("GetTKCauThuBangThangs", ex.Message);
+            }
             return bxh;
 
         }

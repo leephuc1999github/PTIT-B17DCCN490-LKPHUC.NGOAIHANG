@@ -21,9 +21,24 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
         /// <returns>Trả về danh sách cầu thủ theo đội bóng</returns>
         public List<CauThu> GetCauThusByDoiBong(Guid doiBongId)
         {
-            DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("_DoiBongId", doiBongId.ToString());
-            return this._mySqlConnection.Query<CauThu>("Proc_GetCauThusByDoiBongId", parameters, commandType: CommandType.StoredProcedure).ToList();
+            List<CauThu> lstCauThu = new List<CauThu>();
+            try
+            {
+                // tên proc
+                string nameProc = "Proc_GetCauThusByDoiBongId";
+                // tham số đầu vào proc
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("_DoiBongId", doiBongId.ToString());
+                // exe
+                lstCauThu = this._mySqlConnection.Query<CauThu>
+                                                (nameProc, parameters, commandType: CommandType.StoredProcedure)
+                                                .ToList();
+            }
+            catch (Exception ex)
+            {
+                Logger.Write("GetCauThusByDoiBong", ex.Message);
+            }
+            return lstCauThu;
         }
         #endregion
     }

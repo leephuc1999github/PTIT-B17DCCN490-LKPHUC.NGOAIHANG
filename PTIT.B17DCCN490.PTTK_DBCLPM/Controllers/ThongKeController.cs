@@ -74,7 +74,7 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
             
 
             // get ds giải đấu
-            List<SelectListItem> dropdownGiaiDau = new List<SelectListItem>()
+            List<SelectListItem> dropGD = new List<SelectListItem>()
             {
                 new SelectListItem() { Text = "Chọn giải đấu", Value = null, Selected = true }
             };
@@ -83,7 +83,7 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
             if (giaiDaus.Count() > 0)
             {
                 // options selectbox giải đấu
-                dropdownGiaiDau =
+                dropGD =
                    giaiDaus.Select((item, index) => new SelectListItem()
                    {
                        Text = item.Ten,
@@ -109,7 +109,7 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
                 }
 
             }
-            ViewBag.GiaiDaus = dropdownGiaiDau;
+            ViewBag.GiaiDaus = dropGD;
             ViewData["TypeTK"] = loai;
             ViewData["CurrentSeason"] = giaiDau.ToString();
             ViewData["Active"] = "summary";

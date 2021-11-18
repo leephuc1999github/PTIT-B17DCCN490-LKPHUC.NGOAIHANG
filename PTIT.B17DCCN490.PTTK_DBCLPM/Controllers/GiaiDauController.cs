@@ -22,17 +22,30 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
             this._giaiDauDAO = giaiDauDAO;
         }
         #endregion
+
+        #region Methods
+        /// <summary>
+        /// Danh sách giải đấu
+        /// </summary>
+        /// <returns>trả về giao diện giải đấu</returns>
         public override IActionResult Index()
         {
+            // active menu thiết lập
             ViewData["Active"] = "setting";
             return base.Index();
         }
 
+        /// <summary>
+        /// Thêm mới giải đấu
+        /// </summary>
+        /// <param name="giaiDau">Thông tin giải đấu</param>
+        /// <returns>Trả về trạng thái thực hiện</returns>
         [HttpPost]
         public IActionResult InsertGiaiDau([FromBody] GiaiDau giaiDau)
         {
             int exe = this._giaiDauDAO.Insert(giaiDau);
             return Ok(exe);
         }
+        #endregion
     }
 }

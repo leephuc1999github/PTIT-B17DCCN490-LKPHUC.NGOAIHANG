@@ -19,10 +19,23 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
         /// <returns>Trả về vòng đấu</returns>
         public VongDau GetVongDauByGiaiDauAndLoaiVongDau(Guid loaiVongDauId, Guid giaiDauId)
         {
-            DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("_GiaiDauId", giaiDauId);
-            parameters.Add("_LoaiVongDauId", loaiVongDauId);
-            return this._mySqlConnection.Query<VongDau>("Proc_GetVongDauByGiaiDauIdAndLoaiVongDauId", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            VongDau objVongDau = new VongDau();
+            try
+            {
+                // tên proc
+                string nameProc = "Proc_GetVongDauByGiaiDauIdAndLoaiVongDauId";
+                // tham số đầu vào proc
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("_GiaiDauId", giaiDauId);
+                parameters.Add("_LoaiVongDauId", loaiVongDauId);
+                // exe
+                objVongDau = this._mySqlConnection.Query<VongDau>(nameProc, parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                Logger.Write("GetVongDauByGiaiDauAndLoaiVongDau", ex.Message);
+            }
+            return objVongDau;
         }
     }
 }

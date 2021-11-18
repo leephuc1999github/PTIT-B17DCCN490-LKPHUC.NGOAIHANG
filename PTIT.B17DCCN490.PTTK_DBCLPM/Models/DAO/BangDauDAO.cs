@@ -7,7 +7,5 @@ using System.Threading.Tasks;
 
 namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
 {
-    public class BangDauDAO : BaseDAO<BangDau>, IBangDauDAO
-    {
-    }
+    public class BangDauDAO : BaseDAO<BangDau>, IBangDauDAO {}
 }

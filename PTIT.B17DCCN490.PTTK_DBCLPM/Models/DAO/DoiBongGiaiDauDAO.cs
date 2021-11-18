@@ -19,24 +19,35 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
         /// <returns>Trả về danh sách đội bóng giải đấu</returns>
         public List<DoiBong_GiaiDau> GetDoiBongsByGiaiDau(Guid giaiDauId)
         {
-            var tbl = new DataTable();
-            using (var reader = this._mySqlConnection.ExecuteReader(
-                "Proc_GetDoiBongsByGiaiDauId",
-                new { _GiaiDauId = giaiDauId },
-                commandType: CommandType.StoredProcedure))
+            List<DoiBong_GiaiDau> lstDoiBongThamGiaGiai = new List<DoiBong_GiaiDau>();
+            try
             {
-                tbl.Load(reader);
+                // tên proc
+                string nameProc = "Proc_GetDoiBongsByGiaiDauId";
+                // exe
+                var tbl = new DataTable();
+                using (var reader = this._mySqlConnection.ExecuteReader(
+                    nameProc,
+                    new { _GiaiDauId = giaiDauId },
+                    commandType: CommandType.StoredProcedure))
+                {
+                    tbl.Load(reader);
+                }
+                // đóng gói
+                lstDoiBongThamGiaGiai = (from DataRow item in tbl.Rows
+                                         select new DoiBong_GiaiDau()
+                                         {
+                                             BangDau = new BangDau() { Ten = item["TenBangDau"].ToString() },
+                                             DoiBong = new DoiBong() { Ten = item["TenDoiBong"].ToString() },
+                                             Id = Guid.Parse(item["Id"].ToString())
+                                         }).ToList();
             }
-            List<DoiBong_GiaiDau> doiBongs = (from DataRow item in tbl.Rows
-                                      select new DoiBong_GiaiDau()
-                                      {
-                                          BangDau = new BangDau() { Ten = item["TenBangDau"].ToString() },
-                                          DoiBong = new DoiBong() { Ten = item["TenDoiBong"].ToString() },
-                                          Id = Guid.Parse(item["Id"].ToString())
-                                      }).ToList();
-            return doiBongs;
+            catch (Exception ex)
+            {
+                Logger.Write("GetDoiBongsByGiaiDau", ex.Message);
+            }
+            return lstDoiBongThamGiaGiai;
         }
-
 
         /// <summary>
         /// Thêm mới đội bóng giải đấu
@@ -45,26 +56,35 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
         /// <returns>Trả về true nếu thực hiện thành công</returns>
         public bool InsertDoiBongGiaiDau(Guid id, DoiBong_GiaiDau doiBongGiaiDau)
         {
-            DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("_GiaiDauId", id);
-            parameters.Add("_BangDauId", doiBongGiaiDau.BangDau.Id);
-            parameters.Add("_DoiBongId", doiBongGiaiDau.DoiBong.Id);
-
-            this._mySqlConnection.Open();
-            using (var transaction = this._mySqlConnection.BeginTransaction())
+            bool isSuccess = true;
+            try
             {
-                int exe = this._mySqlConnection.Execute("Proc_InsertDoiBongGiaiDau", parameters, transaction, commandType: CommandType.StoredProcedure);
-                if(exe == 1)
+                // tên proc
+                string nameProc = "Proc_InsertDoiBongGiaiDau";
+                // tham số đầu vào proc
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("_GiaiDauId", id);
+                parameters.Add("_BangDauId", doiBongGiaiDau.BangDau.Id);
+                parameters.Add("_DoiBongId", doiBongGiaiDau.DoiBong.Id);
+                // mở kết nối
+                this._mySqlConnection.Open();
+                // exe
+                using (var transaction = this._mySqlConnection.BeginTransaction())
                 {
-                    transaction.Commit();
-                    return true;
-                }
-                else
-                {
-                    transaction.Rollback();
-                    return false;
+                    int exe = this._mySqlConnection.Execute(nameProc, parameters, transaction, commandType: CommandType.StoredProcedure);
+                    if (exe == 1) transaction.Commit();
+                    else
+                    {
+                        transaction.Rollback();
+                        isSuccess = false;
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                Logger.Write("InsertDoiBongGiaiDau", ex.Message);
+            }
+            return isSuccess ? true : false;
         }
     }
 }

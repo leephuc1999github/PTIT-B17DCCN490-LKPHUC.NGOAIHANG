@@ -34,57 +34,61 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Giao diện lịch thi đấu theo vòng đấu và mùa giải
+        /// </summary>
+        /// <param name="vongDau">Id vòng đấu</param>
+        /// <param name="muaGiai">Id mùa giải</param>
+        /// <returns>Giao diện lịch thi đấu</returns>
         [HttpGet]
-        public IActionResult Index(Guid? vongDau, Guid? muaGiai)
+        public IActionResult Index()
         {
+            // query string 
+            string vongDau = Request.Query["vongDau"];
+            string muaGiai = Request.Query["muaGiai"];
+            // danh sách giải đấu
             List<GiaiDau> giaiDaus = this._giaiDauDAO.GetAll();
+            // setup mùa giải
             if (muaGiai == null)
             {
                 string giaiDauId = Request.Cookies["GiaiDauId"];
-                muaGiai = giaiDauId == null && giaiDaus.Count() > 0 ? giaiDaus[0].Id : new Guid(giaiDauId);
+                muaGiai = giaiDauId == null && giaiDaus.Count() > 0 ? giaiDaus[0].Id.ToString() : giaiDauId;
             }
 
             // chọn giải đấu
-            List<SelectListItem> dropdownGiaiDau =
+            List<SelectListItem> dropGD =
                 giaiDaus.Select((item, index) => new SelectListItem()
                 {
                     Text = item.Ten,
                     Value = item.Id.ToString(),
                     Selected = muaGiai == null && index == 0 ||
-                               muaGiai != null && item.Id == muaGiai ? true : false
+                               muaGiai != null && item.Id.ToString() == muaGiai ? true : false
                 }).ToList();
-
-            List<SelectListItem> dropdownLoaiVongDau =
+            // chọn loại vòng đấu
+            List<SelectListItem> dropLVD =
                 this._loaiVongDauDAO.GetAll().Select((item, index) => new SelectListItem()
                 {
                     Text = item.Ten,
                     Value = item.Id.ToString(),
                     Selected = vongDau == null && index == 0 ||
-                               vongDau != null && item.Id == vongDau ? true : false
+                               vongDau != null && item.Id.ToString() == vongDau ? true : false
                 }).ToList();
 
-            //List<TranDau> listTranDaus = new List<TranDau>()
-            //{
-            //    new TranDau()
-            //    {
-            //        ThoiGianBD = DateTime.Now,
-            //        DoiNha = new DoiBong_TranDau(){ DoiBong = new DoiBong(){ Ten = "Chelsea" } },
-            //        DoiKhach = new DoiBong_TranDau() { DoiBong = new DoiBong(){ Ten = "MU" } }
-            //    }
-            //};
+            // dropdown không có giá trị
             List<TranDau> listTranDaus = new List<TranDau>();
             ViewData["Active"] = "schedule";
-            if (dropdownLoaiVongDau.Count() == 0 || 
-                dropdownGiaiDau.Count() == 0)
+            if (dropLVD.Count() == 0 || 
+                dropGD.Count() == 0)
             {
                 return View(listTranDaus);
             }
-            muaGiai = muaGiai == null ? Guid.Parse(dropdownGiaiDau[0].Value) : muaGiai;
-            vongDau = vongDau == null ? Guid.Parse(dropdownLoaiVongDau[0].Value) : vongDau;
-            listTranDaus = this._tranDauDAO.GetTranDausByVongDauGiaiDau((Guid)muaGiai, (Guid)vongDau);
+            // lấy trận đấu theo vòng đấu giải đấu
+            muaGiai = muaGiai == null ? dropGD[0].Value : muaGiai;
+            vongDau = vongDau == null ? dropGD[0].Value : vongDau;
+            listTranDaus = this._tranDauDAO.GetTranDausByVongDauGiaiDau(Guid.Parse(muaGiai), Guid.Parse(vongDau));
 
-            ViewBag.GiaiDaus = dropdownGiaiDau;
-            ViewBag.VongDaus = dropdownLoaiVongDau;
+            ViewBag.GiaiDaus = dropGD;
+            ViewBag.VongDaus = dropLVD;
             ViewData["CurrentSeason"] = muaGiai;
             ViewData["CurrentGroundStage"] = vongDau;
             return View(listTranDaus);

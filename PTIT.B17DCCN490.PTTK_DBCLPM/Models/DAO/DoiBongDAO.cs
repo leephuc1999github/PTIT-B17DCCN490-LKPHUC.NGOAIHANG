@@ -17,22 +17,31 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
         /// <returns>Danh sách đội bóng</returns>
         public override List<DoiBong> GetAll()
         {
-            var tbl = new DataTable();
-            using (var reader = this._mySqlConnection.ExecuteReader(
-                "Proc_GetDoiBongs",
-                commandType: CommandType.StoredProcedure))
+            List<DoiBong> lstDoiBong = new List<DoiBong>();
+            try
             {
-                tbl.Load(reader);
+                // tên proc
+                string nameProc = "Proc_GetDoiBongs";
+                // exe
+                var tbl = new DataTable();
+                using (var reader = this._mySqlConnection.ExecuteReader(nameProc, commandType: CommandType.StoredProcedure))
+                {
+                    tbl.Load(reader);
+                }
+                // đóng gói
+                lstDoiBong = (from DataRow item in tbl.Rows
+                              select new DoiBong()
+                              {
+                                  Id = Guid.Parse(item["Id"].ToString()),
+                                  Ten = item["Ten"].ToString(),
+                                  SanDau = new SanDau() { Ten = item["TenSanDau"].ToString() }
+                              }).ToList();
             }
-            List<DoiBong> doiBongs = (from DataRow item in tbl.Rows
-                                      select new DoiBong()
-                                      {
-                                          Id = Guid.Parse(item["Id"].ToString()),
-                                          Ten = item["Ten"].ToString(),
-                                          SanDau = new SanDau() { Ten = item["TenSanDau"].ToString() }
-                                      }).ToList();
-
-            return doiBongs;
+            catch (Exception ex)
+            {
+                Logger.Write("GetAllDoiBong", ex.Message);
+            }
+            return lstDoiBong;
         }
 
         /// <summary>
@@ -42,22 +51,36 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
         /// <returns>Trả về thành công nếu thêm mới thành công</returns>
         public bool InsertDoiBong(DoiBong doiBong)
         {
-            DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("_Ten", doiBong.Ten);
-            parameters.Add("_TenSanDau", doiBong.SanDau.Ten);
-            parameters.Add("_SoGhe", doiBong.SanDau.SoGhe);
-            this._mySqlConnection.Open();
-            using (var transaction = this._mySqlConnection.BeginTransaction())
+            bool isSuccess = true;
+            try
             {
-                int rowEffects = this._mySqlConnection.Execute("Proc_InsertDoiBong", parameters, transaction, commandType: CommandType.StoredProcedure);
-                if (rowEffects == 2)
+                // tên proc
+                string nameProc = "Proc_InsertDoiBong";
+                // tham số đầu vào proc
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("_Ten", doiBong.Ten);
+                parameters.Add("_TenSanDau", doiBong.SanDau.Ten);
+                parameters.Add("_SoGhe", doiBong.SanDau.SoGhe);
+                // mở kết nối
+                this._mySqlConnection.Open();
+                // exe
+                using (var transaction = this._mySqlConnection.BeginTransaction())
                 {
-                    transaction.Commit();
-                    return true;
+                    int rowEffects = this._mySqlConnection.Execute(nameProc, parameters, transaction, commandType: CommandType.StoredProcedure);
+                    // check trạng thái
+                    if (rowEffects != 2)
+                    {
+                        transaction.Rollback();
+                        isSuccess = false;
+                    }
+                    else transaction.Commit();
                 }
-                else transaction.Rollback();
-                return false;
             }
+            catch (Exception ex)
+            {
+                Logger.Write("", ex.Message);
+            }
+            return isSuccess ? true : false;
         }
     }
 }

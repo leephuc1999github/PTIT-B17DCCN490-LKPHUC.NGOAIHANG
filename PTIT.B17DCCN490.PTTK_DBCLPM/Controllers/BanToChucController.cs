@@ -19,6 +19,7 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
     {
         #region Declare
         private readonly IBanToChucDAO _banToChucDAO;
+        private ToastMessage message;
         #endregion
 
         #region Constructor
@@ -45,15 +46,16 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
         /// </summary>
         /// <returns>Trả về giao diện trang chủ</returns>
         [HttpPost]
-        public IActionResult KiemTraDangNhap(BanToChuc account)
+        public IActionResult KiemTraDangNhap(BanToChuc btc)
         {
-             BanToChuc banToChuc = this._banToChucDAO.CheckDangNhap(account);
+            // check from db
+            BanToChuc objBTC = this._banToChucDAO.CheckDangNhap(btc);
             // lỗi server
-            if (banToChuc == null)
+            if (objBTC == null)
             {
-                ToastMessage message = new ToastMessage() 
-                { 
-                    Type = TypeToast.error, 
+                message = new ToastMessage()
+                {
+                    Type = TypeToast.error,
                     Content = "Tên đăng nhập hoặc mật khẩu không chính xác",
                     Name = "Login"
                 };
@@ -64,17 +66,16 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
             {
                 // sinh cookie
                 var claims = new List<Claim>() {
-                    new Claim(ClaimTypes.NameIdentifier, banToChuc.Id.ToString()),
-                    new Claim(ClaimTypes.Name, banToChuc.Ten),
+                    new Claim(ClaimTypes.NameIdentifier, btc.Id.ToString()),
+                    new Claim(ClaimTypes.Name, btc.Ten),
                     new Claim(ClaimTypes.Role, "admin"),
                 };
                 var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var principal = new ClaimsPrincipal(identity);
                 HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-
+                // chuyển giao diện trang chủ
                 return RedirectToAction("", "TrangChu");
             }
-
         }
 
         /// <summary>
@@ -85,7 +86,9 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
         [Route("DangXuat")]
         public IActionResult DangXuat()
         {
+            // xóa cookie
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            // chuyển giao diện đăng nhập
             return RedirectToAction("DangNhap");
         }
         #endregion
