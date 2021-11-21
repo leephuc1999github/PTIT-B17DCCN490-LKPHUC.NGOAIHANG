@@ -1,1 +1,6 @@
 
+11/21/2021 12:05:50 AM	GetAllCauThu	PROCEDURE b17dccn490_lkphuc_pttkdbclpm.Proc_GetCauThus does not exist
+11/21/2021 12:06:23 AM	GetAllCauThu	PROCEDURE b17dccn490_lkphuc_pttkdbclpm.Proc_GetCauThus does not exist
+11/21/2021 12:08:17 AM	GetAllCauThu	PROCEDURE b17dccn490_lkphuc_pttkdbclpm.Proc_GetCauThus does not exist
+11/21/2021 12:14:00 AM	GetAllCauThu	PROCEDURE b17dccn490_lkphuc_pttkdbclpm.Proc_GetCauThus does not exist
+11/21/2021 11:57:15 AM		Object reference not set to an instance of an object.

@@ -65,11 +65,11 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
             if(loai == null)
             {
                 // Gán loại = bảng xếp hạng đội bóng
-                loai = "result";
+                loai = "bxh";
             }else
             {
                 // Nếu không thuộc các loại thống kê => trả về gd lỗi
-                if (loai != "goal" && loai != "result" && loai != "card" && loai != "stadium") return RedirectToAction("Index", "Loi");
+                if (loai != "bxh" && loai != "banthang" && loai != "the" && loai != "san") return RedirectToAction("Index", "Loi");
             }
             
 
@@ -94,13 +94,13 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
                 // router loại thống kê
                 switch (loai)
                 {
-                    case "goal":
+                    case "banthang":
                         List<BXHCauThuBanThang> bxhBT = this._bxhCauThuBanThangDAO.GetTKCauThuBangThangs(giaiDau);
                         ViewData["TKGoal"] = bxhBT;
                         break;
-                    case "card":
+                    case "the":
                         break;
-                    case "stadium":
+                    case "san":
                         break;
                     default:
                         List<BXH> bxh = this._bxhDAO.GetTKBXH(giaiDau);

@@ -40,6 +40,50 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Models.DAO
             }
             return lstCauThu;
         }
+
+
+        /// <summary>
+        /// Thêm mới cầu thủ
+        /// </summary>
+        /// <param name="doiBongId">Id đội bóng</param>
+        /// <param name="cauThu">Thông tin cầu thủ</param>
+        /// <returns>Trả về true nếu thực hiện thành công</returns>
+        public bool InsertCauThu(Guid doiBongId, CauThu cauThu)
+        {
+            bool isSuccess = true;
+            try
+            {
+                // tên proc
+                string nameProc = "Proc_InsertCauThu";
+
+                // tham số truyền vào store
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("_Ten", cauThu.Ten);
+                parameters.Add("_SoAo", cauThu.SoAo);
+                parameters.Add("_ChieuCao", cauThu.ChieuCao);
+                parameters.Add("_CanNang", cauThu.CanNang);
+                parameters.Add("_ChanThuan", cauThu.ChanThuan);
+                parameters.Add("_DoiBongId", doiBongId);
+
+                // mở kết nối
+                this._mySqlConnection.Open();
+                // exe
+                using (var transaction = this._mySqlConnection.BeginTransaction())
+                {
+                    int exe = this._mySqlConnection.Execute(nameProc, parameters, transaction, commandType: CommandType.StoredProcedure);
+                    if (exe == 1)
+                    {
+                        transaction.Commit();
+                    }
+                    else isSuccess = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.Write("InsertCauThu", ex.Message);
+            }
+            return isSuccess ? true : false;
+        }
         #endregion
     }
 }

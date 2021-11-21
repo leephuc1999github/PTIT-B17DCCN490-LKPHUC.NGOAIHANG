@@ -16,7 +16,10 @@
         <div class="d-flex align-items-center">
             <div class="footballIcon"></div>
             <h1 class="title">Danh sách trận đấu - @ViewData["TenCauThu"]  ghi bàn </h1>
+            <div class="ml-auto"></div>
+            <button class="btn btn-default-w" onclick="back()">Quay lại</button>
         </div>
+        
     </section>
     <section>
         <table class="dataTable">
@@ -43,7 +46,7 @@
                     {
                         List<SuKien> sks = mappingTDSKs[Model[i]].OrderBy(item => item.ThoiDiem).ToList();
 
-                        <tr onclick="loadPage('@Model[i].Id')">
+                        <tr onclick="loadPage('@Model[i].Id')" title="Click để xem chi tiết trận đấu">
                             <td class="w-t-num">@(i+1)</td>
                             <td class="txt-left">@Model[i].DoiNha.DoiBong.DoiBong.Ten</td>
                             <td class="txt-left">@Model[i].DoiKhach.DoiBong.DoiBong.Ten</td>
@@ -66,5 +69,9 @@
 <script type="text/javascript">
     function loadPage(id) {
         window.location.href = `/TranDau/Edit/${id}`;
+    }
+
+    function back() {
+        window.history.back();
     }
 </script>

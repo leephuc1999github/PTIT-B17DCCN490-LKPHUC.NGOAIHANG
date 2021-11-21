@@ -10,12 +10,17 @@
     border-radius: 0;
 }
 
+.btn-default-w {
+    background: #fff !important;
+    color: #000 !important;
+}
+
     .btn:focus {
         background: #040c1f;
         color: #fff;
     }
 
     .btn:hover {
-        background: #040c1f;
-        color: #fff;
+        background: #040c1f !important;
+        color: #fff !important;
     }

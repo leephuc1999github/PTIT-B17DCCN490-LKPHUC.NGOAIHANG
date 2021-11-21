@@ -23,10 +23,10 @@
     <section class="tabControl">
         <div class="d-flex align-items-center">
             <ul class="tabControlTitle w-70">
-                <li class="sumary" id="result_tab"><a onclick="loadPage('result')" tabindex="1">BXH</a></li>
-                <li class="sumary" id="goal_tab"><a onclick="loadPage('goal')" tabindex="2">Bàn thắng</a></li>
-                <li class="sumary" id="card_tab"><a onclick="loadPage('card')" tabindex="3">Thẻ phạt</a></li>
-                <li class="sumary" id="stadium_tab"><a onclick="loadPage('stadium')" tabindex="4">Sân đấu</a></li>
+                <li class="sumary" id="bxh_tab"><a onclick="loadPage('bxh')" tabindex="1">BXH</a></li>
+                <li class="sumary" id="banthang_tab"><a onclick="loadPage('banthang')" tabindex="2">Bàn thắng</a></li>
+                <li class="sumary" id="the_tab"><a onclick="loadPage('the')" tabindex="3">Thẻ phạt</a></li>
+                <li class="sumary" id="san_tab"><a onclick="loadPage('san')" tabindex="4">Sân đấu</a></li>
             </ul>
             <div class="ml-auto"></div>
             <div style="width: 250px">
@@ -36,7 +36,7 @@
             </div>
         </div>
 
-        <div class="tabControlBody" id="goal">
+        <div class="tabControlBody" id="banthang">
             <table class="dataTable mt-10">
                 <thead>
                     <tr>
@@ -56,7 +56,7 @@
                         @for (int i = 0; i < bxh.Count(); i++)
                         {
                             string[] ten = bxh[i].Ten.Split("|");
-                            <tr ondblclick="toPage('@bxh[i].Id')">
+                            <tr ondblclick="toPage('@bxh[i].Id')" title="Click để xem chi tiết bàn thắng của @ten[0]">
                                 <td>@(i+1)</td>
                                 <td class="txt-left club" title="@ten[1]">@ten[1]</td>
                                 <td class="txt-left">
@@ -86,7 +86,7 @@
                 </tbody>
             </table>
         </div>
-        <div id="result" class="tabControlBody" style="display: none;">
+        <div id="bxh" class="tabControlBody" style="display: none;">
             <table class="dataTable mt-10">
                 <thead>
                     <tr>
@@ -108,11 +108,11 @@
                             <tr tabindex="@(6+i)">
                                 <td class="w-t-num">@bxh[i].ThuHang</td>
                                 <td class="txt-left">@bxh[i].Ten</td>
-                                <td>@bxh[i].Diem</td>
-                                <td>@bxh[i].BanThang</td>
-                                <td>@bxh[i].BanThua</td>
-                                <td>@(bxh[i].BanThang-bxh[i].BanThua)</td>
-                                <td>@bxh[i].SoTran</td>
+                                <td class="w-t-num">@bxh[i].Diem</td>
+                                <td class="w-t-num">@bxh[i].BanThang</td>
+                                <td class="w-t-num">@bxh[i].BanThua</td>
+                                <td class="w-t-num">@(bxh[i].BanThang-bxh[i].BanThua)</td>
+                                <td class="w-t-num">@bxh[i].SoTran</td>
                             </tr>
                         }
                         if (bxh.Count() == 0)
@@ -132,10 +132,10 @@
                 </tbody>
             </table>
         </div>
-        <div id="card" class="tabControlBody" style="display: none;">
+        <div id="the" class="tabControlBody" style="display: none;">
             <span class="notiMes mt-10">Tính năng này đang được phát triển</span>
         </div>
-        <div id="stadium" class="tabControlBody" style="display: none;">
+        <div id="san" class="tabControlBody" style="display: none;">
             <span class="notiMes mt-10">Tính năng này đang được phát triển</span>
         </div>
 

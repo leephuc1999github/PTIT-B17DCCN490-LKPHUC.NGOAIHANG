@@ -1,0 +1,174 @@
+﻿@{
+    ViewData["Title"] = "Danh sách cầu thủ | PremierLanguage";
+}
+@using PTIT.B17DCCN490.PTTK_DBCLPM.Models.Entities;
+@model List<CauThu>;
+    <style>
+        #DoiBong1Id {
+            height: 24px !important;
+            background: #fff !important;
+            color: #000 !important;
+            border-radius: 0 !important;
+            border: 1px solid #afafaf;
+            padding: 0 5px !important;
+        }
+
+            #DoiBong1Id:focus {
+                border: 1px solid #0026ff;
+            }
+    </style>
+    <div class="page">
+        <section>
+            <div class="title-site d-flex align-items-center">
+                <div class="footballIcon"></div>
+                <h1 class="title">Danh sách cầu thủ</h1>
+                <div class="ml-auto"></div>
+                <button class="btn" onclick="openForm('DoiBong1Id')">Thêm mới</button>
+            </div>
+            @Html.DropDownList("DoiBongId",
+                        new SelectList(ViewBag.DoiBongs, "Value", "Text", ViewData["CurrentTeam"]),
+                        new { @class = "w-100 p-drop", @onchange = "loadPage()" })
+        </section>
+        <table class="dataTable mt-10">
+            <thead>
+                <tr>
+                    <th class="txt-center">STT</th>
+                    <th class="txt-left">Tên cầu thủ</th>
+                    <th class="txt-center">Số áo</th>
+                    <th class="txt-center">Chiều cao</th>
+                    <th class="txt-center">Cân nặng</th>
+                    <th class="txt-center">Chân thuận</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    for (int i = 0; i < Model.Count(); i++)
+                    {
+                        <tr>
+                            <td class="txt-center">@(i + 1)</td>
+                            <td class="txt-left">@Model[i].Ten</td>
+                            <td class="txt-center">@Model[i].SoAo</td>
+                            <td class="txt-center">@Model[i].ChieuCao</td>
+                            <td class="txt-center">@Model[i].CanNang</td>
+                            <td class="txt-center">@Model[i].ChanThuan</td>
+                        </tr>
+                    }
+                    if (Model.Count() == 0)
+                    {
+                        <tr>
+                            <td colspan="6">Dữ liệu không có sẵn</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+        <div class="bgForm" id="screen" style="display: none">
+            <div class="form">
+                <div style="position: relative; height: 100%; width: 100%">
+                    <div class="title-form">Thêm cầu thủ <span class="ml-auto" style="cursor: pointer" onclick="closeForm()">x</span></div>
+                    <div class="body-form">
+                        <div class="row">
+                            <label class="w-100 mb-5">Đội bóng <span class="c-red">(*)</span></label>
+                            @Html.DropDownList("DoiBong1Id",
+                        new SelectList(ViewBag.DoiBongs, "Value", "Text", ViewData["CurrentTeam"]),
+                        new
+                        {
+                            @autofocus = "autofocus",
+                            @tabindex = "1",
+                            @class = "w-100 p-drop mb-5",
+                            @onblur = "checkEmpty('DoiBong1Id')",
+                            @onfocus = "removeError('DoiBong1Id', 'w-100 p-drop mb-5')"
+                        })
+                        </div>
+                        <div class="row">
+                            <label class="w-100 mb-5">Tên <span class="c-red">(*)</span></label>
+                            <input id="Ten"
+                                   required
+                                   type="text"
+                                   onblur="checkEmpty('Ten')"
+                                   onfocus="removeError('Ten', 'p-input default w-100')"
+                                   class="p-input default w-100"
+                                   tabindex="2" />
+                        </div>
+                        <div class="row">
+                            <label class="w-100 mb-5">Số áo <span class="c-red">(*)</span></label>
+                            <input id="SoAo"
+                                   required
+                                   type="number"
+                                   onblur="checkEmpty('SoAo')"
+                                   onfocus="removeError('SoAo', 'p-input default w-100')"
+                                   class="p-input default w-100"
+                                   tabindex="3" />
+                        </div>
+                        <div class="row">
+                            <label class="w-100 mb-5">Chiều cao </label>
+                            <input id="ChieuCao"
+                                   type="text"
+                                   class="p-input default w-100"
+                                   tabindex="4" />
+                        </div>
+                        <div class="row">
+                            <label class="w-100 mb-5">Cân nặng </label>
+                            <input id="CanNang"
+                                   type="text"
+                                   class="p-input default w-100"
+                                   tabindex="5" />
+                        </div>
+                        <div class="row">
+                            <label class="w-100 mb-5">Chân thuận </label>
+                            <input id="ChanThuan"
+                                   type="text"
+                                   class="p-input default w-100"
+                                   tabindex="6" />
+                        </div>
+                    </div>
+                    <div class="footer-form">
+                        <button class="btn" onclick="save()" tabindex="7">Cất</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function save() {
+            let ten = document.getElementById("Ten");
+            let doiBong = document.getElementById("DoiBong1Id");
+            let soAo = document.getElementById("SoAo");
+            let chieuCao = document.getElementById("ChieuCao");
+            let canNang = document.getElementById("CanNang");
+            let chanThuan = document.getElementById("ChanThuan");
+            if (!isNullOrUndefined(doiBong.value) && !isNullOrUndefined(ten.value) && !isNullOrUndefined(soAo.value)) {
+                var data = {
+                    Ten: ten.value,
+                    SoAo: soAo.value,
+                    ChieuCao: chieuCao.value,
+                    CanNang: canNang.value,
+                    ChanThuan: chanThuan.value
+                };
+                fetch("https://localhost:44352/CauThu/" + doiBong.value,
+                    {
+                        body: JSON.stringify(data),
+                        method: "post",
+                        headers: {
+                            'accept': 'application/json',
+                            'content-type': 'application/json'
+                        }
+                    })
+                    .then(response => {
+                        window.location.href = "/CauThu?doiBong=" + doiBong.value;
+                    })
+                    .catch(error => { console.log(error); })
+            }
+            else {
+                alert("Bạn cần điền đầy đủ trường yêu cầu!");
+            }
+        }
+
+        function loadPage() {
+            let doiBongId = document.getElementById("DoiBongId").value;
+            window.location.href = `/CauThu?doiBong=${doiBongId}`;
+        }
+
+    </script>

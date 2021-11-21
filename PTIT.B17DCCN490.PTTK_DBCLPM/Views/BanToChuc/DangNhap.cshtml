@@ -28,7 +28,7 @@
                            tabindex="1"
                            title="Trường này không được để trống"
                            onblur="checkEmpty('TenDangNhap')"
-                           onfocus="removeError('TenDangNhap')" />
+                           onfocus="removeError('TenDangNhap', 'p-input default w-70')" />
                 </div>
                 <div class="d-flex">
                     <label class="w-30">Mật khẩu <span class="c-red">(*)</span></label>
@@ -38,7 +38,7 @@
                            tabindex="2"
                            title="Trường này không được để trống"
                            onblur="checkEmpty('MatKhau')"
-                           onfocus="removeError('MatKhau')" />
+                           onfocus="removeError('MatKhau', 'p-input default w-70')" />
                 </div>
                 <div class="d-flex justify-content-center">
                     <input type="submit" value="Login" tabindex="3" class="btn">
@@ -66,19 +66,7 @@
 </html>
 <script src="~/js/common.js"></script>
 <script type="text/javascript">
-    function checkEmpty(id) {
-        const element = document.getElementById(id);
-        let val = element.value;
-        if (isNullOrUndefined(val)) {
-            document.getElementById(id).classList += " b-red";
-        }
-    }
 
-    function removeError(id) {
-        const inputElement = document.getElementById(id);
-        inputElement.classList = "p-input default w-70";
-        
-    }
 
     function validateForm() {
         let formElement = document.forms["DangNhap"];
@@ -97,5 +85,5 @@
             flag = false;
         }
         return flag;
-    } 
+    }
 </script>

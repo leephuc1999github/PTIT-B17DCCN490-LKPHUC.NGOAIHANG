@@ -52,3 +52,43 @@ function getCookie(name) {
 function eraseCookie(name) {
     document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
+
+/**
+ * Check empty
+ * @param {any} id element
+ */
+function checkEmpty(id) {
+    const element = document.getElementById(id);
+    let val = element.value;
+    if (isNullOrUndefined(val)) {
+        document.getElementById(id).classList += " b-red";
+    }
+}
+
+/**
+ * Remove erro
+ * @param {any} id element
+ */
+function removeError(id, reset) {
+    const inputElement = document.getElementById(id);
+    inputElement.classList = reset;
+
+}
+
+/*
+ * Open form
+ */
+function openForm(id) {
+    let screen = document.getElementById("screen");
+    screen.style.display = "block";
+    let fEl = document.getElementById(id);
+    fEl.focus();
+}
+
+/*
+ * Close form 
+ */
+function closeForm() {
+    let screen = document.getElementById("screen");
+    screen.style.display = "none";
+}

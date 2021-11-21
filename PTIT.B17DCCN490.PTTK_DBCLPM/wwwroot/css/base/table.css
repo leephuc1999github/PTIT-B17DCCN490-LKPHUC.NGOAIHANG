@@ -7,7 +7,7 @@
 
     .dataTable > thead {
         background: #162443;
-        height: 43px;
+        height: 40px;
     }
 
         .dataTable > thead > tr > th {
@@ -19,7 +19,7 @@
     }
 
         .dataTable > tbody > tr {
-            height: 50px;
+            height: 40px;
             box-sizing: border-box;
             cursor: pointer;
         }
