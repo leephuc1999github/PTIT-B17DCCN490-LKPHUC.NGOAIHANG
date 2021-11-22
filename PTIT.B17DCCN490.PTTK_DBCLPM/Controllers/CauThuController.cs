@@ -21,6 +21,10 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
             this._cauThuDAO = cauThuDAO;
         }
 
+        /// <summary>
+        /// Giao diện danh sách cầu thủ
+        /// </summary>
+        /// <returns>Trả về giao diện cầu thủ</returns>
         public override IActionResult Index()
         {
             // get ds đội bóng
@@ -60,11 +64,29 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
             return View("Index", lstCauThu);
         }
 
+        /// <summary>
+        /// API thêm mới cầu thủ
+        /// </summary>
+        /// <param name="id">Id đội bóng</param>
+        /// <param name="ct">Thông tin đội bóng</param>
+        /// <returns>Trả về kết quả thực hiện</returns>
         [HttpPost("{id}")]
         public IActionResult Insert(Guid id, [FromBody] CauThu ct)
         {
             bool exe = this._cauThuDAO.InsertCauThu(id, ct);
             return Ok(exe);
+        }
+
+        /// <summary>
+        /// API lấy cầu thủ theo id
+        /// </summary>
+        /// <param name="id">Id cầu thủ</param>
+        /// <returns>Trả về dữ liệu cầu thủ</returns>
+        [HttpGet("{id}")]
+        public IActionResult GetCauThuById(Guid id)
+        {
+            var objCT = this._cauThuDAO.GetById(id);
+            return Ok(objCT);
         }
     }
 }

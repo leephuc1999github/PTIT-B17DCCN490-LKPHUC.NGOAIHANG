@@ -38,6 +38,7 @@
                     <th class="txt-center">Chiều cao</th>
                     <th class="txt-center">Cân nặng</th>
                     <th class="txt-center">Chân thuận</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -51,12 +52,17 @@
                             <td class="txt-center">@Model[i].ChieuCao</td>
                             <td class="txt-center">@Model[i].CanNang</td>
                             <td class="txt-center">@Model[i].ChanThuan</td>
+                            <td class="txt-center">
+                                <a href="javascript:void(0)" onclick="editForm('@Model[i].Id')" title="Cập nhật cầu thủ" style="color: #fff">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                </a>
+                            </td>
                         </tr>
                     }
                     if (Model.Count() == 0)
                     {
                         <tr>
-                            <td colspan="6">Dữ liệu không có sẵn</td>
+                            <td colspan="7">Dữ liệu không có sẵn</td>
                         </tr>
                     }
                 }
@@ -81,6 +87,7 @@
                             @onfocus = "removeError('DoiBong1Id', 'w-100 p-drop mb-5')"
                         })
                         </div>
+                        <input hidden id="Id" type="text" />
                         <div class="row">
                             <label class="w-100 mb-5">Tên <span class="c-red">(*)</span></label>
                             <input id="Ten"
@@ -132,25 +139,38 @@
         </div>
     </div>
     <script type="text/javascript">
+        let mode = "add";
+
+        let id = document.getElementById("Id");
+        let ten = document.getElementById("Ten");
+        let doiBong = document.getElementById("DoiBong1Id");
+        let soAo = document.getElementById("SoAo");
+        let chieuCao = document.getElementById("ChieuCao");
+        let canNang = document.getElementById("CanNang");
+        let chanThuan = document.getElementById("ChanThuan");
         function save() {
-            let ten = document.getElementById("Ten");
-            let doiBong = document.getElementById("DoiBong1Id");
-            let soAo = document.getElementById("SoAo");
-            let chieuCao = document.getElementById("ChieuCao");
-            let canNang = document.getElementById("CanNang");
-            let chanThuan = document.getElementById("ChanThuan");
+            let method, api;
+            if (mode == "add") {
+                method = "post";
+                api = "https://localhost:44352/CauThu/" + doiBong.value;
+            }
+            if (mode == "edit") {
+                method = "put";
+                api = "https://localhost:44352/CauThu/" + id.value;
+            }
             if (!isNullOrUndefined(doiBong.value) && !isNullOrUndefined(ten.value) && !isNullOrUndefined(soAo.value)) {
                 var data = {
+                    Id: id.value,
                     Ten: ten.value,
                     SoAo: soAo.value,
                     ChieuCao: chieuCao.value,
                     CanNang: canNang.value,
                     ChanThuan: chanThuan.value
                 };
-                fetch("https://localhost:44352/CauThu/" + doiBong.value,
+                fetch(api,
                     {
                         body: JSON.stringify(data),
-                        method: "post",
+                        method: method,
                         headers: {
                             'accept': 'application/json',
                             'content-type': 'application/json'
@@ -171,4 +191,18 @@
             window.location.href = `/CauThu?doiBong=${doiBongId}`;
         }
 
+        function editForm(idCT) {
+            mode = "edit";
+            fetch("https://localhost:44352/CauThu/" + idCT)
+                .then(response => response.json())
+                .then(data => {
+                    openForm('DoiBong1Id');
+                    id.value = idCT;
+                    ten.value = data["ten"];
+                    soAo.value = data["soAo"];
+                    chieuCao.value = data["chieuCao"];
+                    canNang.value = data["canNang"];
+                    chanThuan.value = data["chanThuan"];
+                })
+        }
     </script>

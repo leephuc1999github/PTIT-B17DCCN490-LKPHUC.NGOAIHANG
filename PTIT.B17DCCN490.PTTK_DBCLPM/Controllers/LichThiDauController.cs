@@ -84,7 +84,7 @@ namespace PTIT.B17DCCN490.PTTK_DBCLPM.Controllers
             }
             // lấy trận đấu theo vòng đấu giải đấu
             muaGiai = muaGiai == null ? dropGD[0].Value : muaGiai;
-            vongDau = vongDau == null ? dropGD[0].Value : vongDau;
+            vongDau = vongDau == null ? dropLVD[0].Value : vongDau;
             listTranDaus = this._tranDauDAO.GetTranDausByVongDauGiaiDau(Guid.Parse(muaGiai), Guid.Parse(vongDau));
 
             ViewBag.GiaiDaus = dropGD;
